@@ -300,7 +300,29 @@ See **[SEO-HANDOFF.md](SEO-HANDOFF.md)** for the SEO specialist.
 
 ## Deploy
 
-### Netlify (recommended – forms work out of the box)
+### GitHub Pages (current setup)
+
+The repository `tabXzzXtab/solrik-hemsida` publishes itself: `.github/workflows/deploy.yml` builds
+the site and deploys it to GitHub Pages on every push to `main` (Settings → Pages → Source: GitHub
+Actions). Build settings are repository variables (Settings → Secrets and variables → Actions →
+Variables): `PUBLIC_SITE_URL`, `PUBLIC_FORM_PROVIDER`, `PUBLIC_FORM_ENDPOINT_QUOTE`,
+`PUBLIC_FORM_ENDPOINT_FAULT_REPORT`.
+
+The site must be served from the root of a domain, so it only looks right on the **custom domain**
+(the `github.io/solrik-hemsida/` address loads without styles). To connect the domain:
+
+1. Settings → Pages → Custom domain: enter e.g. `www.solrik.se`, then tick **Enforce HTTPS** once
+   the certificate is ready.
+2. DNS at the registrar: `www` → CNAME `tabxzzxtab.github.io`; the apex (`solrik.se`) → A records
+   `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`.
+3. Set the variable `PUBLIC_SITE_URL` to the same address (`https://www.solrik.se`) and re-run the
+   workflow (Actions → Deploy to GitHub Pages → Run workflow), so canonical URLs, the sitemap and
+   Open Graph use the real domain.
+
+GitHub Pages ignores `public/_headers`, `netlify.toml` and `vercel.json` (no custom headers or
+server redirects); `404.html` is served automatically.
+
+### Netlify (forms work out of the box)
 
 1. Push the project to a Git repository and choose **Add new site → Import an existing project**.
 2. Build command `npm run build`, publish directory `dist` (already in `netlify.toml`).
