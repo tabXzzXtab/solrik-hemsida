@@ -1,0 +1,1396 @@
+{
+  "meta": {
+    "locale": "en-GB",
+    "ogLocale": "en_GB",
+    "skipToContent": "Skip to content"
+  },
+  "nav": {
+    "label": "Main menu",
+    "utilityLabel": "Shortcuts",
+    "home": "Home",
+    "services": "Services",
+    "brf": "Housing co-ops",
+    "projects": "Projects",
+    "tenants": "Tenants & residents",
+    "about": "About",
+    "news": "News",
+    "careers": "Careers",
+    "contact": "Contact",
+    "faultReport": "Report a fault",
+    "callUs": "Call us",
+    "myPages": "My pages",
+    "menu": "Menu",
+    "otherLanguage": "Svenska",
+    "otherLanguageLabel": "Läs sidan på svenska",
+    "breadcrumbLabel": "Breadcrumb",
+    "mobileActions": "Quick actions"
+  },
+  "common": {
+    "readMore": "Read more",
+    "phone": "Phone",
+    "serviceArea": "Service area",
+    "orgNr": "Company reg. no.",
+    "registeredOffice": "Registered office",
+    "fTax": "Approved for F-tax",
+    "exampleNotice": "Example content – replace or remove before publishing. The page is hidden from search engines while it is marked as an example.",
+    "published": "Published",
+    "updated": "Updated",
+    "download": "Download",
+    "contactPerson": "Contact person",
+    "onThisPage": "On this page",
+    "promisesIntro": "The same starting point for every job, big or small."
+  },
+  "cta": {
+    "title": "Tell us about your project",
+    "text": "Briefly describe what needs doing – we will come back with an approach and a price.",
+    "primary": "Request a quote",
+    "secondary": "Call {phone}"
+  },
+  "footer": {
+    "tagline": "Property management, maintenance, renovation and new construction in {serviceArea}.",
+    "group": "Part of {parentGroup}",
+    "contactTitle": "Contact",
+    "servicesTitle": "Services",
+    "companyTitle": "Company",
+    "privacy": "Privacy policy",
+    "cookies": "Cookies",
+    "accessibility": "Accessibility",
+    "copyright": "© {year} {companyName}",
+    "contactForm": "Contact form"
+  },
+  "home": {
+    "seo": {
+      "title": "Builder and property manager in {primaryCity}",
+      "description": "Construction, renovation and property management in {serviceArea}. One contract all the way – for housing co-ops and property owners."
+    },
+    "hero": {
+      "title": "Property management – part of {parentGroup}",
+      "lead": "Management, maintenance and renovation for housing co-ops and property owners in {serviceArea}.",
+      "primary": "Request a quote",
+      "secondary": "Report a fault"
+    },
+    "routing": {
+      "title": "What do you need?",
+      "tiles": [
+        {
+          "question": "Looking for property management?",
+          "text": "Finances, technical care and administration.",
+          "link": "Property management",
+          "route": "service:fastighetsforvaltning"
+        },
+        {
+          "question": "Is your co-op renovating?",
+          "text": "Pipes, roof, facade and windows.",
+          "link": "For housing co-ops",
+          "route": "brf"
+        },
+        {
+          "question": "Planning to build?",
+          "text": "From drawings to move-in day.",
+          "link": "New construction",
+          "route": "service:nybyggnation"
+        },
+        {
+          "question": "Do you live with us?",
+          "text": "Report a fault in your apartment or building.",
+          "link": "Report a fault",
+          "route": "faultReport"
+        }
+      ]
+    },
+    "services": {
+      "title": "Everything for your property – in one company",
+      "link": "All services"
+    },
+    "promises": {
+      "title": "What you can count on"
+    },
+    "figures": {
+      "title": "{companyShortName} in numbers"
+    },
+    "projects": {
+      "title": "Latest projects",
+      "intro": "A selection of what we have built, renovated and taken over for management.",
+      "link": "See all projects",
+      "empty": "Projects will be published here once completed."
+    },
+    "local": {
+      "title": "Close to the buildings we look after",
+      "body": [
+        "Short journeys, tradespeople who know the buildings and a contact person who answers the phone."
+      ],
+      "areaLabel": "Service area"
+    },
+    "news": {
+      "title": "Latest news",
+      "link": "All news",
+      "empty": "No news yet."
+    }
+  },
+  "services": {
+    "overview": {
+      "seo": {
+        "title": "Services – building, renovation and management",
+        "description": "New construction, renovation, property management and maintenance in {serviceArea}. Choose one service or let us handle everything."
+      },
+      "h1": "Construction, renovation and management",
+      "lead": "We look after the property throughout its life – from new builds and renovation to management and day-to-day maintenance.",
+      "listTitle": "Our services",
+      "whyTitle": "The benefit of one partner",
+      "why": [
+        {
+          "title": "One contract",
+          "text": "We coordinate all trades and suppliers. You have one counterpart and one contact person."
+        },
+        {
+          "title": "We know the building",
+          "text": "Whoever built or renovated the property knows how it works when it needs looking after."
+        },
+        {
+          "title": "Shorter paths",
+          "text": "Issues found during maintenance go straight to the people who can fix them – without new tenders."
+        }
+      ]
+    },
+    "labels": {
+      "areas": "What we do",
+      "includes": "What is included",
+      "process": "How it works",
+      "faq": "Frequently asked questions",
+      "related": "Other services",
+      "promises": "What you can count on"
+    },
+    "items": {
+      "nybyggnation": {
+        "name": "New construction",
+        "short": "Houses, apartment blocks and commercial premises – as design-and-build or construct-only contracts.",
+        "seo": {
+          "title": "New construction in {primaryCity} – homes and premises",
+          "description": "We build apartment blocks, houses and commercial premises in {serviceArea}. Design-and-build or construct-only, fixed price, one contact."
+        },
+        "h1": "New construction of homes and premises",
+        "lead": "We build apartment blocks, houses and commercial premises in {serviceArea} – at a fixed price, with one contact person from start to final inspection.",
+        "intro": [
+          "Come to us with finished construction drawings, or just an idea and a plot. We help with everything in between: design, building permits, cost estimates and scheduling.",
+          "During construction you have a project manager who keeps everything together and checks in with you regularly."
+        ],
+        "areas": [
+          {
+            "title": "Apartment blocks",
+            "text": "Rental and co-operative housing, with timber or concrete frames."
+          },
+          {
+            "title": "Detached, semi-detached and terraced houses",
+            "text": "Single homes or small groups of houses."
+          },
+          {
+            "title": "Commercial premises",
+            "text": "Offices, shops, workshops and warehouses."
+          },
+          {
+            "title": "Extensions and additional storeys",
+            "text": "More space on existing properties – outwards or upwards."
+          }
+        ],
+        "explainer": {
+          "title": "Design-and-build or construct-only?",
+          "intro": "The contract type decides who is responsible for what. Both work well – it depends on how much you want to control yourself.",
+          "columns": [
+            {
+              "title": "Design-and-build (totalentreprenad)",
+              "text": "We are responsible for both design and construction. You describe what you need – function, quality and budget – and we develop the solutions.",
+              "points": [
+                "One party is responsible for the whole project",
+                "Suits clients who want to hand over the details",
+                "Normally governed by the Swedish standard contract ABT"
+              ]
+            },
+            {
+              "title": "Construct-only (utförandeentreprenad)",
+              "text": "You, or your architect, produce the drawings and specifications. We build to those documents and are responsible for the workmanship.",
+              "points": [
+                "You control the design in detail",
+                "Suits projects where the design is already complete",
+                "Normally governed by the Swedish standard contract AB"
+              ]
+            }
+          ]
+        },
+        "includes": [
+          "Cost estimate and fixed price based on the agreed documents",
+          "Help with building permits and technical consultation",
+          "Project management and coordination of all subcontractors",
+          "Health and safety coordination (BAS-P and BAS-U) when required",
+          "Self-inspections and documentation during construction",
+          "Final inspection, as-built drawings and operation and maintenance manuals",
+          "Warranty under standard industry contracts, with a warranty inspection"
+        ],
+        "process": [
+          {
+            "title": "Contact",
+            "text": "You tell us about the project. We ask about needs, timeline and budget."
+          },
+          {
+            "title": "Site visit",
+            "text": "We look at the plot or property and go through the conditions."
+          },
+          {
+            "title": "Quote",
+            "text": "You get a price and a schedule, and we go through them together."
+          },
+          {
+            "title": "Construction",
+            "text": "We build. You have a project manager and regular check-ins."
+          },
+          {
+            "title": "Final inspection",
+            "text": "An inspector checks that the work meets the contract."
+          },
+          {
+            "title": "Warranty",
+            "text": "We fix any defects during the warranty period and carry out a warranty inspection before it ends."
+          }
+        ],
+        "faq": [
+          {
+            "q": "How long does it take to build?",
+            "a": "It depends on size, structure, permits and season. You get a schedule for your project together with the quote, and we review it continuously during construction."
+          },
+          {
+            "q": "Can you help with building permits?",
+            "a": "Yes. We prepare the documents needed and handle contact with the municipality. The decision itself is made by the municipal building committee."
+          },
+          {
+            "q": "What does the fixed price include?",
+            "a": "Everything in the agreed documents. Changes and additions you order during construction are priced before they are carried out, so you always know what they cost."
+          },
+          {
+            "q": "Who is the certified inspector (KA)?",
+            "a": "Most building projects require a certified control officer (kontrollansvarig) who is independent of us as the contractor. We help you find one."
+          },
+          {
+            "q": "What warranty do you give?",
+            "a": "We give a warranty under standard industry contracts, counted from the approved final inspection. Before the warranty ends we carry out a warranty inspection together with you."
+          }
+        ],
+        "cta": {
+          "title": "Planning to build?",
+          "text": "Tell us about the plot, the idea or the drawings you have. We will come back with a proposed approach."
+        }
+      },
+      "renovering": {
+        "name": "Renovation & conversion",
+        "short": "Pipe replacement, roofs, facades, windows, bathrooms and energy upgrades – for co-ops and property owners.",
+        "seo": {
+          "title": "Renovation and pipe replacement in {primaryCity}",
+          "description": "Pipe replacement, roofs, facades, windows, bathrooms and solar panels in {serviceArea}. One contract, fixed price."
+        },
+        "h1": "Renovation and conversion",
+        "lead": "We renovate residential and commercial buildings in {serviceArea} – from single bathrooms to replacing the pipes in an entire building.",
+        "intro": [
+          "Renovating occupied buildings takes planning. We organise the work so residents know what is happening, when, and for how long.",
+          "You have one contact person who coordinates every trade – plumbers, electricians, tilers and carpenters – under a single contract."
+        ],
+        "areas": [
+          {
+            "title": "Pipe replacement",
+            "text": "New drainage and water pipes, often combined with new bathrooms. We arrange temporary facilities for residents."
+          },
+          {
+            "title": "Roofs",
+            "text": "Re-roofing, sheet metal work, gutters and additional insulation."
+          },
+          {
+            "title": "Facades",
+            "text": "Render, brick, timber and balconies – repaired or completely new."
+          },
+          {
+            "title": "Windows",
+            "text": "Restoration or replacement with energy-efficient windows and doors."
+          },
+          {
+            "title": "Bathrooms",
+            "text": "Full renovation with waterproofing to industry wet-room standards, fully documented."
+          },
+          {
+            "title": "Loft conversions",
+            "text": "New homes in the attic – from permit to move-in."
+          },
+          {
+            "title": "Solar panels",
+            "text": "Rooftop solar installations, including grid connection and documentation."
+          },
+          {
+            "title": "Energy efficiency",
+            "text": "Extra insulation, ventilation with heat recovery and better heating controls."
+          }
+        ],
+        "includes": [
+          "Survey and review of the current condition",
+          "Proposed measures, schedule and fixed price",
+          "Information for residents before and during the work",
+          "Coordination of all trades under one contract",
+          "Health and safety coordination (BAS-P and BAS-U) when required",
+          "Self-inspections, documentation and final inspection",
+          "Warranty on completed work under standard industry contracts"
+        ],
+        "process": [
+          {
+            "title": "Contact",
+            "text": "You tell us what needs doing and when would suit you."
+          },
+          {
+            "title": "Survey",
+            "text": "We inspect the property and review your maintenance plan, if you have one."
+          },
+          {
+            "title": "Quote",
+            "text": "You get proposed measures, a schedule and a fixed price to decide on."
+          },
+          {
+            "title": "Execution",
+            "text": "We inform residents and carry out the work on schedule."
+          },
+          {
+            "title": "Final inspection",
+            "text": "The work is inspected and the documentation handed over."
+          },
+          {
+            "title": "Warranty",
+            "text": "We fix any defects that appear during the warranty period at no cost."
+          }
+        ],
+        "faq": [
+          {
+            "q": "Can residents stay during pipe replacement?",
+            "a": "Usually yes, but for a period the bathroom and kitchen cannot be fully used. We arrange temporary facilities such as showers and toilets, and inform all residents well in advance."
+          },
+          {
+            "q": "Can I get the ROT tax deduction?",
+            "a": "Private individuals can get a ROT deduction for the labour cost of renovating their home. We deduct the amount directly on the invoice. The rules change from time to time, so check the current rules on the Swedish Tax Agency's website."
+          },
+          {
+            "q": "How do we know what needs doing?",
+            "a": "We start with a survey and review the maintenance plan. Then you get a prioritised proposal, so you can choose what to do now and what can wait."
+          },
+          {
+            "q": "Is a building permit needed?",
+            "a": "Some work, such as changing the facade or converting a loft, requires a permit or notification. We find out what applies and help with the application."
+          },
+          {
+            "q": "How much disruption will there be?",
+            "a": "It depends on the work. The schedule shows which days will be noisy or have the water or power off. Residents are informed in the stairwell and by letter in good time."
+          }
+        ],
+        "cta": {
+          "title": "Time to renovate?",
+          "text": "Tell us what needs doing. We start with a survey and give you a solid basis for your decision."
+        }
+      },
+      "fastighetsforvaltning": {
+        "name": "Property management",
+        "short": "Financial, technical and administrative management for housing co-ops and property owners.",
+        "seo": {
+          "title": "Property management in {primaryCity}",
+          "description": "Financial, technical and administrative property management in {serviceArea}: fees, budgets, maintenance plans, inspections and lettings."
+        },
+        "h1": "Property management for housing co-ops and owners",
+        "lead": "We handle the finances, the technical side and the administration so the board and the owner can focus on decisions.",
+        "intro": [
+          "Management can be bought as a package or in parts. Many start with financial management and add technical management when the maintenance plan needs updating.",
+          "You get a named property manager who knows the building and can be reached directly."
+        ],
+        "areas": [
+          {
+            "title": "Financial management",
+            "text": "Day-to-day finances and accounting.",
+            "list": [
+              "Fee and rent invoicing",
+              "Budget and cash-flow planning",
+              "Bookkeeping and supplier payments",
+              "Documentation for the annual report and tax return",
+              "Reminders and debt collection"
+            ]
+          },
+          {
+            "title": "Technical management",
+            "text": "The condition and upkeep of the property.",
+            "list": [
+              "Maintenance plan – drafting and updating",
+              "Surveys and condition assessments",
+              "Mandatory ventilation inspection (OVK)",
+              "Energy performance certificate",
+              "Procurement and follow-up of contractors"
+            ]
+          },
+          {
+            "title": "Administrative management",
+            "text": "Contact with tenants and members.",
+            "list": [
+              "Letting of apartments, premises and parking",
+              "Leases and agreements",
+              "Waiting lists and housing queue",
+              "Transfers and pledges in housing co-ops",
+              "Member and apartment register"
+            ]
+          }
+        ],
+        "includes": [
+          "A named property manager as your contact person",
+          "Regular financial reports to the board or owner",
+          "Documentation for board meetings",
+          "Follow-up of the maintenance plan",
+          "Support before and during the annual general meeting"
+        ],
+        "process": [
+          {
+            "title": "Contact",
+            "text": "You tell us about the property and what you need help with."
+          },
+          {
+            "title": "Review",
+            "text": "We go through agreements, finances and the condition of the property."
+          },
+          {
+            "title": "Quote",
+            "text": "You get a proposal with a fixed price for the parts you choose."
+          },
+          {
+            "title": "Handover",
+            "text": "We take over from your current manager without interrupting invoicing or payments."
+          },
+          {
+            "title": "Ongoing management",
+            "text": "Your manager handles the day-to-day work and reports to you."
+          },
+          {
+            "title": "Follow-up",
+            "text": "We track budget and maintenance plan and suggest improvements."
+          }
+        ],
+        "faq": [
+          {
+            "q": "Can we change manager in the middle of the financial year?",
+            "a": "Yes. We plan the handover with the board and your current manager so that invoicing, payments and bookkeeping continue without interruption."
+          },
+          {
+            "q": "How often is a ventilation inspection (OVK) required?",
+            "a": "The interval is set by the National Board of Housing, Building and Planning and depends on the type of building and ventilation system. We keep track of when it is due, book the inspection and make sure any remarks are fixed."
+          },
+          {
+            "q": "How long is an energy performance certificate valid?",
+            "a": "Ten years. We make sure it is renewed on time and suggest measures that lower your energy costs."
+          },
+          {
+            "q": "What is a maintenance plan?",
+            "a": "A plan of which parts of the property need maintenance and when, often 30–50 years ahead. It is the basis for the budget and for allocations to the maintenance fund."
+          },
+          {
+            "q": "Can we buy financial management only?",
+            "a": "Yes. Choose the parts that suit your co-op or property and add more later."
+          }
+        ],
+        "cta": {
+          "title": "What would management cost?",
+          "text": "Tell us about the property – number of apartments, premises and what you need help with. We will send you a quote."
+        }
+      },
+      "fastighetsdrift": {
+        "name": "Property maintenance",
+        "short": "Caretaking, repairs, grounds, snow clearing, cleaning and a 24/7 on-call service.",
+        "seo": {
+          "title": "Property maintenance and caretaking in {primaryCity}",
+          "description": "Caretaking, fault repairs, grounds maintenance, snow clearing, stairwell cleaning and 24/7 on-call service for properties in {serviceArea}."
+        },
+        "h1": "Property maintenance and caretaking",
+        "lead": "Daily care of the building, grounds and systems – and an on-call team that answers when something breaks.",
+        "intro": [
+          "The caretaker is the person residents meet most often. We aim to send the same people back to the same buildings, so they know both the property and the people who live there.",
+          "All work is logged, so you can see what has been done and what it has cost."
+        ],
+        "areas": [
+          {
+            "title": "Caretaking",
+            "text": "Inspection of the building and installations, replacing lighting, adjusting doors and locks."
+          },
+          {
+            "title": "Fault repairs",
+            "text": "Fault reports from residents are received, prioritised and fixed."
+          },
+          {
+            "title": "Grounds",
+            "text": "Lawn mowing, flower beds, shrubs, playgrounds and waste rooms."
+          },
+          {
+            "title": "Snow clearing and gritting",
+            "text": "Ploughing and gritting of paths, entrances and car parks."
+          },
+          {
+            "title": "Cleaning",
+            "text": "Stairwells, laundry rooms, basements and other shared spaces."
+          },
+          {
+            "title": "24/7 on-call",
+            "text": "Emergencies such as water leaks, power cuts and break-ins are handled every day of the year."
+          }
+        ],
+        "includes": [
+          "A permanent contact person and regular caretakers",
+          "Inspection rounds on an agreed schedule",
+          "Fault reporting online and by phone",
+          "24/7 on-call service for emergencies",
+          "Summary of work carried out",
+          "Coordination with management and tradespeople"
+        ],
+        "process": [
+          {
+            "title": "Contact",
+            "text": "You tell us about the property and what needs looking after."
+          },
+          {
+            "title": "Site visit",
+            "text": "We walk through the property and grounds with you."
+          },
+          {
+            "title": "Quote",
+            "text": "You get a proposed maintenance plan and a fixed monthly price."
+          },
+          {
+            "title": "Start-up",
+            "text": "We tell residents who to contact and how to report faults."
+          },
+          {
+            "title": "Ongoing care",
+            "text": "Inspection rounds, repairs and seasonal work according to plan."
+          },
+          {
+            "title": "Follow-up",
+            "text": "You get a summary and we adjust the plan as needed."
+          }
+        ],
+        "faq": [
+          {
+            "q": "What counts as an emergency?",
+            "a": "Faults that could cause injury or damage to the property if not fixed immediately – for example a water leak, a blocked drain, a power cut in the whole apartment, a break-in or a front door that will not lock."
+          },
+          {
+            "q": "How quickly does the on-call team arrive?",
+            "a": "Emergencies always come first. When you call we assess the situation straight away and deal with anything that can't wait as quickly as possible – less urgent jobs are scheduled into regular maintenance."
+          },
+          {
+            "q": "Can we order snow clearing separately?",
+            "a": "Yes. Snow clearing and gritting can be agreed for the season, with or without other caretaking."
+          },
+          {
+            "q": "How do we follow up on what has been done?",
+            "a": "Every job is logged with date and action. You get a summary as often as we agree and can always ask your contact person."
+          }
+        ],
+        "cta": {
+          "title": "Does your property need looking after?",
+          "text": "Tell us about the property and what you need, and we will come and take a look."
+        }
+      }
+    }
+  },
+  "brf": {
+    "seo": {
+      "title": "For housing co-ops – management and renovation",
+      "description": "We take the load off the co-op board: maintenance plans, renovation under one contract, financial management, annual reports and AGM support."
+    },
+    "h1": "We take the load off the board",
+    "lead": "Serving on a co-op board is a voluntary role with a lot of responsibility. We take care of the finances, the maintenance and the big projects – you make the decisions.",
+    "intro": [
+      "We work with housing co-operatives in {serviceArea}, from small associations with a handful of apartments to larger ones with commercial premises and garages.",
+      "You can hire us for a single renovation, for management, or both. The benefit of both is that the people planning the maintenance also know what it costs to carry out."
+    ],
+    "offerTitle": "What we can take care of",
+    "offer": [
+      {
+        "title": "Maintenance plan",
+        "text": "What needs doing, when and at what cost – the basis for budgets and fees.",
+        "list": [
+          "Condition survey of the property",
+          "Drafting and annual updates",
+          "Basis for allocations to the maintenance fund"
+        ]
+      },
+      {
+        "title": "Renovation under one contract",
+        "text": "Pipes, roof, facade, windows or EV charging – coordinated under one contract.",
+        "list": [
+          "Feasibility study and cost estimate",
+          "Information for members",
+          "Coordination of all trades"
+        ]
+      },
+      {
+        "title": "Financial management",
+        "text": "Fees, bookkeeping and payments handled continuously.",
+        "list": [
+          "Fee invoicing and debt collection",
+          "Budget and cash-flow plan",
+          "Bookkeeping"
+        ]
+      },
+      {
+        "title": "Annual report",
+        "text": "We prepare the documentation and draw up the annual report for the board to sign.",
+        "list": [
+          "Year-end accounts",
+          "Directors' report",
+          "Contact with the auditor"
+        ]
+      },
+      {
+        "title": "AGM support",
+        "text": "Support before and during the annual general meeting.",
+        "list": [
+          "Notice and agenda",
+          "Decision documents, for example for major renovations",
+          "Chair or minute-taker if required"
+        ]
+      },
+      {
+        "title": "Member administration",
+        "text": "The ongoing paperwork for members and apartments.",
+        "list": [
+          "Transfers",
+          "Pledges",
+          "Member and apartment register"
+        ]
+      }
+    ],
+    "checklist": {
+      "title": "Before pipe replacement – a checklist for the board",
+      "text": "What the board needs to decide before replacing the pipes: documentation, decisions, information for members and procurement.",
+      "button": "Download the checklist",
+      "meta": "PDF"
+    },
+    "process": [
+      {
+        "title": "First conversation",
+        "text": "We listen to what the board needs help with."
+      },
+      {
+        "title": "Review",
+        "text": "We go through finances, the maintenance plan and the condition of the property."
+      },
+      {
+        "title": "Proposal and quote",
+        "text": "You get a proposal with a fixed price to consider."
+      },
+      {
+        "title": "Decision",
+        "text": "The board or the general meeting decides. We prepare the documents."
+      },
+      {
+        "title": "Delivery",
+        "text": "We take over management or start the project."
+      },
+      {
+        "title": "Follow-up",
+        "text": "We report regularly and track progress against budget and plan."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Which decisions must be taken at the general meeting?",
+        "a": "It depends on the work and your co-op's statutes. Major renovations that affect members' apartments may require a decision at a general meeting, sometimes by a qualified majority. We help you find out what applies before you proceed."
+      },
+      {
+        "q": "Can you take over from our current manager?",
+        "a": "Yes. We plan the handover with the board and your current manager so fees and payments continue as normal."
+      },
+      {
+        "q": "How are members kept informed during a renovation?",
+        "a": "Through notices in the stairwell, letters and information meetings when needed. Members learn what will be done, when it affects them and who to contact."
+      },
+      {
+        "q": "What does it cost?",
+        "a": "It depends on the size of the co-op and what you need. After a first meeting you receive a quote with a fixed price for management and separate prices for any projects."
+      }
+    ],
+    "cta": {
+      "title": "Would you like a first conversation?",
+      "text": "We are happy to attend a board meeting and explain how we work."
+    }
+  },
+  "projects": {
+    "seo": {
+      "title": "Projects – new builds, renovation and management",
+      "description": "A selection of our projects in {serviceArea}: new construction, renovation, conversion and property management assignments."
+    },
+    "h1": "Projects",
+    "lead": "A selection of what we have built, renovated and taken over for management.",
+    "filter": {
+      "label": "Filter projects",
+      "category": "Project type",
+      "year": "Year",
+      "all": "All",
+      "allYears": "All years",
+      "results": "{count} projects",
+      "empty": "No projects match the filter.",
+      "reset": "Show all projects"
+    },
+    "categories": {
+      "nybyggnad": "New build",
+      "renovering": "Renovation",
+      "ombyggnad": "Conversion",
+      "förvaltning": "Management"
+    },
+    "facts": {
+      "title": "Facts",
+      "location": "Location",
+      "client": "Client",
+      "contractType": "Contract type",
+      "year": "Year",
+      "scope": "Scope",
+      "category": "Type"
+    },
+    "gallery": "Project images",
+    "related": "More projects",
+    "back": "All projects",
+    "empty": "No projects published yet.",
+    "cta": {
+      "title": "Planning a similar project?",
+      "text": "Tell us what you have in mind. We will come back with a proposed approach and price."
+    }
+  },
+  "tenants": {
+    "seo": {
+      "title": "Tenants and residents – fault reports and forms",
+      "description": "For residents of properties we manage: report a fault, find forms, house rules and information about moving in and out."
+    },
+    "h1": "For residents",
+    "lead": "Report a fault and find forms, house rules and answers to common questions.",
+    "emergency": {
+      "title": "Emergencies",
+      "text": "Water leak, power cut, break-in or anything else that cannot wait – call us straight away.",
+      "call": "Call us"
+    },
+    "faultCard": {
+      "title": "Report a fault",
+      "text": "Report faults in your apartment or in the building's shared spaces.",
+      "button": "Report a fault"
+    },
+    "myPages": {
+      "title": "My pages",
+      "text": "View invoices, your lease and your cases.",
+      "button": "Log in to My pages",
+      "missing": "Add the tenant portal address in src/config/company.ts (TENANT_PORTAL_URL)."
+    },
+    "nav": {
+      "faq": "Common questions",
+      "forms": "Forms",
+      "rules": "House rules",
+      "moving": "Moving in and out"
+    },
+    "faq": [
+      {
+        "q": "What counts as an emergency?",
+        "a": "Faults that could cause injury or damage to the property if not fixed immediately – for example a water leak, a blocked drain, a power cut in the whole apartment, a break-in or a front door that will not lock. Call us straight away on {phone}."
+      },
+      {
+        "q": "When will my fault be fixed?",
+        "a": "You get a confirmation once we have received your report. Non-urgent faults are normally fixed within a few working days. We will let you know if it takes longer, for example if parts need ordering."
+      },
+      {
+        "q": "Can you enter my apartment when I am not home?",
+        "a": "Only if you have given permission in your fault report. Otherwise we will contact you to book a time."
+      },
+      {
+        "q": "Who is responsible for what in the apartment?",
+        "a": "The landlord is responsible for the building and its fixed equipment. As a tenant you are responsible for taking care of the apartment and reporting faults. In a co-operative apartment, you as a member are responsible for interior maintenance according to the co-op's statutes."
+      },
+      {
+        "q": "Can I sublet my apartment?",
+        "a": "You need to apply and get approval before the subletting starts. Use the form under Forms."
+      },
+      {
+        "q": "How do I give notice on my apartment?",
+        "a": "Notice must be given in writing. Use the form under Forms or send a signed letter. The notice period for a rental apartment is normally three months unless otherwise agreed."
+      }
+    ],
+    "forms": {
+      "title": "Forms",
+      "text": "Download and fill in the form, then send it to us using the contact form or give it to your caretaker. The forms are in Swedish – contact us if you need help."
+    },
+    "rules": {
+      "title": "House rules",
+      "intro": "A few simple rules help everyone enjoy living here. The full rules are in your lease or the co-op's statutes.",
+      "items": [
+        {
+          "title": "Be considerate",
+          "text": "Keep noise down in the evening and at night, especially between 10 pm and 7 am."
+        },
+        {
+          "title": "Laundry room",
+          "text": "Book a time, stick to it and clean up after yourself."
+        },
+        {
+          "title": "Waste and recycling",
+          "text": "Sort into the right bins. Bulky and electrical waste goes to the municipality's recycling centre."
+        },
+        {
+          "title": "Stairwell",
+          "text": "Do not leave things in the stairwell. It is an escape route and must be kept clear."
+        },
+        {
+          "title": "Balconies and barbecues",
+          "text": "Electric and gas barbecues are fine on balconies and patios. Be considerate about smoke and smells."
+        },
+        {
+          "title": "Smoking",
+          "text": "Smoking is not allowed in stairwells, the laundry room or other shared spaces."
+        }
+      ]
+    },
+    "moving": {
+      "title": "Moving in and out",
+      "in": {
+        "title": "Moving in",
+        "items": [
+          "Arrange electricity and home insurance before you move in.",
+          "Collect your keys – we agree on a time and place once the lease is signed.",
+          "Check the apartment and report any faults within a week.",
+          "Register your change of address with the Swedish Tax Agency.",
+          "Order a name plate for the door and letterbox through the fault report form."
+        ]
+      },
+      "out": {
+        "title": "Moving out",
+        "items": [
+          "Give notice in writing. The notice period is normally three months.",
+          "We book a move-out inspection with you.",
+          "Clean the apartment, storage room and any garage.",
+          "Return all keys – we book a time for the handover together with the inspection.",
+          "Register your change of address with the Swedish Tax Agency."
+        ]
+      }
+    }
+  },
+  "faultReport": {
+    "seo": {
+      "title": "Report a fault in your apartment or building",
+      "description": "Report faults in your apartment or shared spaces. For emergencies such as water leaks, power cuts or break-ins – call us straight away."
+    },
+    "h1": "Report a fault",
+    "lead": "Report a fault in your apartment or in the building's shared spaces. We will confirm once we have received it.",
+    "emergency": "Emergencies (water leak, power cut, break-in) – call us straight away:",
+    "call": "Call us",
+    "asideTitle": "Good to know",
+    "aside": [
+      "Faults in shared spaces – stairwell, laundry room, lift – are reported the same way.",
+      "Attach a photo if you can. It helps us bring the right tools and parts.",
+      "Non-urgent faults are normally fixed within a few working days."
+    ]
+  },
+  "about": {
+    "seo": {
+      "title": "About us – local builder in {primaryCity}",
+      "description": "{companyName} builds, renovates and manages properties in {serviceArea}. See how we work and what we stand for."
+    },
+    "h1": "A local company, responsible all the way",
+    "lead": "We build, renovate and manage properties in {serviceArea}.",
+    "facts": {
+      "area": "Service area",
+      "orgNr": "Company reg. no.",
+      "group": "Group"
+    },
+    "story": {
+      "title": "Who we are",
+      "body": [
+        "Solrik is a Skåne-based property management and construction company and part of Radiant Group. We look after housing cooperatives and property owners throughout a building’s life – from day-to-day management and maintenance to renovation and new construction.",
+        "What sets us apart is that the same organisation manages, maintains and builds. The people planning the maintenance know what the work costs to carry out, and the people renovating know how the building will be looked after afterwards. For you, that means fewer handovers, clearer responsibility and one contact who knows the property."
+      ]
+    },
+    "values": {
+      "title": "What we stand for",
+      "items": [
+        {
+          "title": "Responsibility",
+          "text": "We take responsibility for the whole job, including what our subcontractors do. What is in the contract applies, and what we promise, we deliver."
+        },
+        {
+          "title": "Quality",
+          "text": "Done right the first time. We document our work with self-inspections and hand over a property that is easy to look after."
+        },
+        {
+          "title": "Proximity",
+          "text": "We work where we live. Short distances mean quick answers, and residents should recognise the people who come."
+        }
+      ]
+    },
+    "certifications": {
+      "title": "Certifications and memberships",
+      "intro": "Qualifications, certifications and trade associations."
+    },
+    "sustainability": {
+      "title": "Sustainability",
+      "intro": "Building and property management affect the environment and people for a long time. This is how we work.",
+      "items": [
+        {
+          "title": "Energy efficiency",
+          "text": "We propose measures that reduce energy use – insulation, ventilation with heat recovery and better heating controls. Every proposal is costed, so you can see both the saving and the payback time."
+        },
+        {
+          "title": "Choice of materials",
+          "text": "We choose durable materials and document them for future maintenance. Where possible we reuse materials instead of buying new."
+        },
+        {
+          "title": "Waste sorting",
+          "text": "Construction waste is sorted on site into the required fractions, including wood, metal, plastic, plasterboard, glass and mineral waste. That cuts both the environmental impact and the cost of waste handling."
+        },
+        {
+          "title": "Safe working environment",
+          "text": "Everyone should get home safely. We carry out risk assessments, draw up a work environment plan and act as safety coordinator (BAS-P and BAS-U) when required. A tidy, well-run site is part of the job."
+        }
+      ]
+    }
+  },
+  "news": {
+    "seo": {
+      "title": "News",
+      "description": "News from {companyName}: projects, information for residents and what is happening in the company."
+    },
+    "h1": "News",
+    "lead": "Projects, information for residents and what is happening in the company.",
+    "empty": "No news yet.",
+    "back": "All news",
+    "related": "More news"
+  },
+  "careers": {
+    "seo": {
+      "title": "Careers – construction and property jobs in {primaryCity}",
+      "description": "Jobs in construction and property management in {serviceArea}. We welcome open applications and apprentices."
+    },
+    "h1": "Work with us",
+    "lead": "We are looking for tradespeople, project managers and property managers who want to work locally and take responsibility for what they do.",
+    "whyTitle": "Why work here",
+    "why": [
+      {
+        "title": "Local work",
+        "text": "Our projects are in {serviceArea}. That means shorter journeys and more time at home."
+      },
+      {
+        "title": "Varied work",
+        "text": "New builds, renovation and management – you see the whole life of a building."
+      },
+      {
+        "title": "A safe workplace",
+        "text": "Tidy sites, the right equipment and time to do the job properly."
+      },
+      {
+        "title": "Development",
+        "text": "You grow with the work – through training, qualifications and new responsibilities."
+      }
+    ],
+    "positions": {
+      "title": "Open positions",
+      "empty": "We have no advertised positions right now. You are welcome to send an open application.",
+      "apply": "Read more and apply",
+      "deadline": "Apply by",
+      "location": "Location",
+      "extent": "Hours"
+    },
+    "spontaneous": {
+      "title": "Open application",
+      "text": "Can't find a suitable position? Send a few lines about yourself using the contact form and attach your CV. We keep applications for six months.",
+      "button": "Send an open application"
+    },
+    "apprentices": {
+      "title": "Apprentices",
+      "text": "We take on apprentices and students from upper-secondary building and construction programmes. You work alongside an experienced supervisor and try both construction and property maintenance. Get in touch using the contact form."
+    },
+    "job": {
+      "back": "All open positions",
+      "applyTitle": "How to apply",
+      "applyText": "Send your CV and a cover letter. Include the job title in your application.",
+      "applyButton": "Apply by email",
+      "applyFormButton": "Apply using the form"
+    }
+  },
+  "contact": {
+    "seo": {
+      "title": "Contact and quote requests – {primaryCity}",
+      "description": "Contact {companyName} – call us or send an enquiry about construction, renovation or property management in {serviceArea}."
+    },
+    "h1": "Contact us",
+    "lead": "Call us or send an enquiry using the form. We reply as soon as we can.",
+    "detailsTitle": "Contact details",
+    "form": {
+      "title": "Send an enquiry",
+      "intro": "A quote or a question? Briefly describe what you need and we will get back to you."
+    },
+    "faultLink": "Live in one of our buildings? Report a fault"
+  },
+  "forms": {
+    "required": "required",
+    "optional": "optional",
+    "requiredNote": "Fields marked * are required.",
+    "sending": "Sending…",
+    "successTitle": "Thank you! We have received your message.",
+    "successText": "We will get back to you as soon as we can, normally within a couple of working days.",
+    "errorTitle": "Your message could not be sent",
+    "errorText": "Something went wrong. Please try again, or call us on {phone}.",
+    "summaryTitle": "The form contains errors. Please correct the following:",
+    "consent": "I agree that {companyName} may process my personal data to handle this request in accordance with the",
+    "consentLink": "privacy policy",
+    "honeypot": "Leave this field empty",
+    "fileHint": "PDF, JPG, PNG or HEIC. Max {max} MB.",
+    "imageHint": "JPG, PNG or HEIC. Max {max} MB.",
+    "errors": {
+      "required": "Please fill in this field.",
+      "select": "Please choose an option.",
+      "email": "Enter a valid email address, for example name@example.com.",
+      "tel": "Enter a phone number using digits.",
+      "fileSize": "The file is too large. Max {max} MB.",
+      "fileType": "This file type is not supported.",
+      "consent": "You need to agree to us processing your data."
+    },
+    "quote": {
+      "submit": "Send enquiry",
+      "name": "Name",
+      "organization": "Company or housing co-op",
+      "email": "Email",
+      "phone": "Phone",
+      "propertyAddress": "Property address",
+      "service": "What is it about?",
+      "servicePlaceholder": "Choose",
+      "services": [
+        {
+          "value": "Nybyggnation",
+          "label": "New construction"
+        },
+        {
+          "value": "Renovering och ombyggnad",
+          "label": "Renovation and conversion"
+        },
+        {
+          "value": "Fastighetsförvaltning",
+          "label": "Property management"
+        },
+        {
+          "value": "Fastighetsdrift och skötsel",
+          "label": "Property maintenance"
+        },
+        {
+          "value": "Jobbansökan",
+          "label": "Job application"
+        },
+        {
+          "value": "Annat",
+          "label": "Other"
+        }
+      ],
+      "message": "Briefly describe what you need help with",
+      "messageHint": "For example scope, number of apartments or square metres, and preferred timeline.",
+      "startDate": "Preferred start",
+      "attachment": "Drawings or photos",
+      "subject": "Quote request"
+    },
+    "fault": {
+      "submit": "Send fault report",
+      "name": "Name",
+      "address": "Address",
+      "apartment": "Apartment number",
+      "apartmentHint": "Found in your lease or on your door.",
+      "phone": "Phone",
+      "email": "Email",
+      "issueType": "Type of fault",
+      "issuePlaceholder": "Choose type of fault",
+      "issues": [
+        {
+          "value": "Vatten och avlopp",
+          "label": "Water and drains"
+        },
+        {
+          "value": "El och belysning",
+          "label": "Electricity and lighting"
+        },
+        {
+          "value": "Värme och ventilation",
+          "label": "Heating and ventilation"
+        },
+        {
+          "value": "Vitvaror",
+          "label": "Kitchen appliances"
+        },
+        {
+          "value": "Dörrar, lås och fönster",
+          "label": "Doors, locks and windows"
+        },
+        {
+          "value": "Tvättstuga",
+          "label": "Laundry room"
+        },
+        {
+          "value": "Hiss",
+          "label": "Lift"
+        },
+        {
+          "value": "Trapphus och gemensamma utrymmen",
+          "label": "Stairwell and shared spaces"
+        },
+        {
+          "value": "Utemiljö och snöröjning",
+          "label": "Grounds and snow clearing"
+        },
+        {
+          "value": "Skadedjur",
+          "label": "Pests"
+        },
+        {
+          "value": "Övrigt",
+          "label": "Other"
+        }
+      ],
+      "description": "Describe the fault",
+      "descriptionHint": "Where is it, when did it start, and have you tried anything yourself?",
+      "photo": "Photo of the fault",
+      "masterKey": "May we enter with a master key if you are not at home?",
+      "masterKeyYes": "Yes",
+      "masterKeyNo": "No, contact me first"
+    }
+  },
+  "legal": {
+    "updatedLabel": "Last updated",
+    "updated": "2026-10-25",
+    "privacy": {
+      "seo": {
+        "title": "Privacy policy",
+        "description": "How {companyName} processes your personal data under the General Data Protection Regulation (GDPR), and what rights you have."
+      },
+      "h1": "Privacy policy",
+      "lead": "This page describes how we collect and use personal data, and what rights you have.",
+      "sections": [
+        {
+          "title": "Data controller",
+          "body": [
+            "{companyName} (company reg. no. {orgNr}) is the controller of your personal data. If you have questions, call us on {phone} or write to us using the contact form."
+          ],
+          "links": [
+            {
+              "label": "Go to the contact form",
+              "route": "contact#offert"
+            }
+          ]
+        },
+        {
+          "title": "What data we process",
+          "body": [
+            "We process the data you give us, for example when you send a quote request, report a fault, apply for a job or are a customer:"
+          ],
+          "list": [
+            "Name and contact details (phone, email, address)",
+            "Apartment number and details about the property",
+            "What you write in messages and fault reports",
+            "Photos and files you upload",
+            "Information in contracts, invoices and cases"
+          ]
+        },
+        {
+          "title": "Why we process the data",
+          "list": [
+            "Quote requests – to reply and provide a quote. Legal basis: legitimate interest and steps prior to a contract.",
+            "Fault reports – to fix the fault. Legal basis: performance of a contract, such as a lease or management agreement.",
+            "Customers and contracts – to perform the contract and invoice. Legal basis: contract.",
+            "Bookkeeping – to comply with the Swedish Bookkeeping Act. Legal basis: legal obligation.",
+            "Job applications – to handle recruitment. Legal basis: legitimate interest."
+          ]
+        },
+        {
+          "title": "How long we keep the data",
+          "list": [
+            "Quote requests that do not lead to a contract: twelve months.",
+            "Fault reports: two years after the case is closed.",
+            "Contracts and invoices: seven years under the Bookkeeping Act.",
+            "Job applications: six months after the recruitment ends."
+          ]
+        },
+        {
+          "title": "Who we share data with",
+          "body": [
+            "We never sell your data. We only share it when needed to carry out the work, for example with:"
+          ],
+          "list": [
+            "tradespeople and subcontractors fixing a fault or carrying out an assignment",
+            "the property owner or housing co-op we manage for",
+            "providers of IT and form handling ({formProvider}) who process data on our behalf",
+            "authorities when required by law"
+          ]
+        },
+        {
+          "title": "Transfers outside the EU/EEA",
+          "body": [
+            "Some IT providers may process data outside the EU/EEA, for example in the USA. We then make sure the transfer is supported by the GDPR, for example through the European Commission's standard contractual clauses or because the recipient is certified under the EU–US Data Privacy Framework."
+          ]
+        },
+        {
+          "title": "Your rights",
+          "body": [
+            "You have the right to:"
+          ],
+          "list": [
+            "find out what data we hold about you",
+            "have incorrect data corrected",
+            "have data erased when it is no longer needed",
+            "restrict or object to processing",
+            "receive data you have provided in a machine-readable format (data portability)",
+            "withdraw consent"
+          ],
+          "after": [
+            "Call us on {phone} or write to us using the contact form to exercise your rights."
+          ]
+        },
+        {
+          "title": "Complaints",
+          "body": [
+            "If you are unhappy with how we process your personal data, you can complain to the Swedish Authority for Privacy Protection (IMY), imy.se."
+          ]
+        },
+        {
+          "title": "Cookies",
+          "body": [
+            "Information about cookies is on our cookies page."
+          ],
+          "links": [
+            {
+              "label": "About cookies",
+              "route": "cookies"
+            }
+          ]
+        },
+        {
+          "title": "Changes",
+          "body": [
+            "We may update this policy. The latest version is always available here."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "seo": {
+        "title": "Cookie policy",
+        "description": "Information about cookies and similar technologies on the {companyName} website."
+      },
+      "h1": "Cookies",
+      "lead": "This page describes which cookies and similar technologies the website uses.",
+      "none": [
+        {
+          "title": "We do not use cookies",
+          "body": [
+            "This website sets no cookies and uses no tracking or marketing technology. You do not need to accept anything when you visit."
+          ]
+        },
+        {
+          "title": "Forms",
+          "body": [
+            "When you submit a form, the data is sent to our form service ({formProvider}). Read more in the privacy policy."
+          ],
+          "links": [
+            {
+              "label": "Privacy policy",
+              "route": "privacy"
+            }
+          ]
+        },
+        {
+          "title": "What is a cookie?",
+          "body": [
+            "A cookie is a small text file that a website stores in your browser. Under Swedish electronic communications law you must be informed about cookies and give consent to those that are not strictly necessary."
+          ]
+        }
+      ],
+      "analytics": [
+        {
+          "title": "Web analytics",
+          "body": [
+            "We use {analyticsName} to see how many people visit the website and which pages are used. The statistics help us improve the website. The analytics tool is only loaded if you have accepted it."
+          ]
+        },
+        {
+          "title": "Your choice is stored in your browser",
+          "body": [
+            "Your choice is stored in your browser's local storage so we do not have to ask again. You can change it at any time with the button below."
+          ]
+        },
+        {
+          "title": "Forms",
+          "body": [
+            "When you submit a form, the data is sent to our form service ({formProvider}). Read more in the privacy policy."
+          ],
+          "links": [
+            {
+              "label": "Privacy policy",
+              "route": "privacy"
+            }
+          ]
+        },
+        {
+          "title": "What is a cookie?",
+          "body": [
+            "A cookie is a small text file that a website stores in your browser. Under Swedish electronic communications law you must be informed about cookies and give consent to those that are not strictly necessary."
+          ]
+        }
+      ],
+      "changeConsent": "Change my choice"
+    },
+    "accessibility": {
+      "seo": {
+        "title": "Accessibility statement",
+        "description": "How {companyName} works with accessibility on the website and how to contact us if something does not work."
+      },
+      "h1": "Accessibility statement",
+      "lead": "We want everyone to be able to use this website, regardless of ability or assistive technology.",
+      "sections": [
+        {
+          "title": "How accessible is the website?",
+          "body": [
+            "The website is built to meet WCAG 2.1 level AA. It can be used with a keyboard and screen reader, works with enlarged text and follows your device's dark or light mode setting."
+          ]
+        },
+        {
+          "title": "Known issues",
+          "list": [
+            "Downloadable PDF forms are not always fully accessible. Contact us and we will help you another way."
+          ]
+        },
+        {
+          "title": "Contact us if something does not work",
+          "body": [
+            "If you find a problem or need content in another format, call us on {phone} or write to us using the contact form. We normally reply within a couple of working days."
+          ]
+        },
+        {
+          "title": "How we tested the website",
+          "body": [
+            "The website has been tested with automated tools and manually with a keyboard. The latest review was carried out in October 2026."
+          ]
+        }
+      ]
+    }
+  },
+  "thanks": {
+    "seo": {
+      "title": "Thank you for your message",
+      "description": "We have received your message."
+    },
+    "h1": "Thank you! We have received your message.",
+    "lead": "We will get back to you as soon as we can, normally within a couple of working days.",
+    "emergency": "Is it urgent? Call us straight away:",
+    "back": "Back to home"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "lead": "The page may have moved or been removed. Try one of the links below."
+  },
+  "consent": {
+    "title": "May we measure visits?",
+    "text": "We would like to use {analyticsName} to see how the website is used. Analytics only loads if you accept.",
+    "link": "Read about cookies",
+    "accept": "Accept",
+    "decline": "No thanks"
+  }
+}

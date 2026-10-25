@@ -1,0 +1,18 @@
+---
+/** One key figure. Values come from KEY_FIGURES in company.ts – never invented. */
+interface Props {
+  value: string;
+  unit?: string;
+  label: string;
+}
+
+const { value, unit, label } = Astro.props;
+---
+
+<div class="flex flex-col-reverse gap-2">
+  <dt class="text-muted">{label}</dt>
+  <dd class="flex items-baseline gap-2 font-display">
+    <span class="text-[clamp(2.5rem,2rem+2.4vw,3.75rem)] leading-none font-light tracking-[-0.03em] tabular-nums">{value}</span>
+    {unit && <span class="text-lg text-muted">{unit}</span>}
+  </dd>
+</div>

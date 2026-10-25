@@ -1,0 +1,85 @@
+---
+import { F_SKATT, INSTAGRAM_URL, LINKEDIN_URL, ORG_NR, PHONE, REGISTERED_OFFICE } from '~/config/company';
+import { getDict } from '~/i18n';
+import { routePath, servicePath, SERVICE_KEYS, type Lang } from '~/i18n/routes';
+import { isRealUrl, telHref } from '~/lib/format';
+import { hiddenRoutes } from '~/lib/nav';
+import Wordmark from './Wordmark.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getDict(lang);
+const tel = telHref(PHONE);
+const hidden = await hiddenRoutes(lang);
+
+const companyLinks = (['brf', 'projects', 'tenants', 'about', 'news', 'careers', 'contact'] as const)
+  .filter((key) => !hidden.has(key))
+  .map((key) => ({ href: routePath(key, lang), label: t.nav[key] }));
+const legalLinks = [
+  { href: routePath('privacy', lang), label: t.footer.privacy },
+  { href: routePath('cookies', lang), label: t.footer.cookies },
+  { href: routePath('accessibility', lang), label: t.footer.accessibility },
+];
+const social = [
+  { href: LINKEDIN_URL, label: 'LinkedIn' },
+  { href: INSTAGRAM_URL, label: 'Instagram' },
+].filter((s) => isRealUrl(s.href));
+
+const headingClass = 'text-sm font-semibold text-night-ink';
+const linkClass = 'inline-block py-2 text-night-muted underline-offset-4 hover:text-night-ink hover:underline';
+const legalLinkClass = 'inline-block py-3 text-night-muted underline-offset-4 hover:text-night-ink hover:underline';
+---
+
+<footer class="bg-night text-night-ink [--focus-ring:var(--c-night-accent)]">
+  <div class="container-site pt-20 pb-10 lg:pt-28">
+    <div class="grid gap-14 xl:grid-cols-12 xl:gap-16">
+      <div class="xl:col-span-4">
+        <Wordmark lang={lang} tone="night" />
+        <p class="mt-5 max-w-sm text-night-muted">{t.footer.tagline}</p>
+        <p class="mt-2 text-night-muted">{t.footer.group}</p>
+      </div>
+
+      <div class="grid gap-12 sm:grid-cols-3 xl:col-span-8">
+        <div>
+          <h2 class={headingClass}>{t.footer.contactTitle}</h2>
+          <address class="mt-2 text-night-muted not-italic [&>p:not(:has(a))]:py-2">
+            <p>{tel ? <a href={tel} class={linkClass}>{PHONE}</a> : PHONE}</p>
+            <p><a href={`${routePath('contact', lang)}#offert`} class={linkClass}>{t.footer.contactForm}</a></p>
+          </address>
+        </div>
+
+        <nav aria-labelledby="footer-services">
+          <h2 id="footer-services" class={headingClass}>{t.footer.servicesTitle}</h2>
+          <ul class="mt-2">
+            {SERVICE_KEYS.map((key) => (
+              <li><a href={servicePath(key, lang)} class={linkClass}>{t.services.items[key].name}</a></li>
+            ))}
+          </ul>
+        </nav>
+
+        <nav aria-labelledby="footer-company">
+          <h2 id="footer-company" class={headingClass}>{t.footer.companyTitle}</h2>
+          <ul class="mt-2">
+            {companyLinks.map((link) => <li><a href={link.href} class={linkClass}>{link.label}</a></li>)}
+            {social.map((s) => <li><a href={s.href} class={linkClass} rel="me noopener">{s.label}</a></li>)}
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="mt-20 flex flex-col gap-4 border-t border-night-line pt-8 text-sm text-night-muted lg:flex-row lg:items-center lg:justify-between">
+      <p class="flex flex-wrap gap-x-5 gap-y-1">
+        <span>{t.footer.copyright}</span>
+        <span>{t.common.orgNr} {ORG_NR}</span>
+        {REGISTERED_OFFICE && <span>{t.common.registeredOffice}: {REGISTERED_OFFICE}</span>}
+        {F_SKATT && <span>{t.common.fTax}</span>}
+      </p>
+      <ul class="flex flex-wrap gap-x-6">
+        {legalLinks.map((link) => <li><a href={link.href} class={legalLinkClass}>{link.label}</a></li>)}
+      </ul>
+    </div>
+  </div>
+</footer>

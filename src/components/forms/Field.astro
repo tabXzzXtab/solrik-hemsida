@@ -1,0 +1,109 @@
+---
+/**
+ * Labelled form control: text-like inputs, select, textarea or file.
+ * Hint and error are wired to the control with aria-describedby.
+ */
+import type { HTMLAttributes } from 'astro/types';
+import { getDict } from '~/i18n';
+import type { Lang } from '~/i18n/routes';
+
+interface Props {
+  lang: Lang;
+  id: string;
+  name: string;
+  label: string;
+  as?: 'input' | 'select' | 'textarea';
+  type?: 'text' | 'email' | 'tel' | 'date' | 'file';
+  required?: boolean;
+  hint?: string;
+  autocomplete?: HTMLAttributes<'input'>['autocomplete'];
+  inputmode?: HTMLAttributes<'input'>['inputmode'];
+  placeholder?: string;
+  options?: Array<{ value: string; label: string }>;
+  accept?: string;
+  rows?: number;
+  maxlength?: number;
+  pattern?: string;
+  class?: string;
+}
+
+const {
+  lang,
+  id,
+  name,
+  label,
+  as = 'input',
+  type = 'text',
+  required = false,
+  hint,
+  autocomplete,
+  inputmode,
+  placeholder,
+  options = [],
+  accept,
+  rows = 6,
+  maxlength,
+  pattern,
+  class: className,
+} = Astro.props;
+
+const t = getDict(lang);
+const hintId = hint ? `${id}-hint` : undefined;
+const errorId = `${id}-error`;
+const describedby = [hintId, errorId].filter(Boolean).join(' ');
+
+const control =
+  'block w-full rounded-lg border-[1.5px] border-line-strong bg-surface px-3.5 text-base text-ink transition-colors placeholder:text-muted/80 hover:border-ink focus:border-ink aria-[invalid=true]:border-danger';
+const common = { id, name, required, 'aria-describedby': describedby, 'data-label': label };
+---
+
+<div class={className}>
+  <label for={id} class="flex items-baseline gap-1.5 font-semibold">
+    {label}
+    {
+      required ? (
+        <>
+          <span aria-hidden="true" class="text-accent-text">*</span>
+          <span class="sr-only">({t.forms.required})</span>
+        </>
+      ) : (
+        <span class="text-sm font-normal text-muted">({t.forms.optional})</span>
+      )
+    }
+  </label>
+  {hint && <p id={hintId} class="mt-1 text-sm text-muted">{hint}</p>}
+  <div class="mt-2">
+    {
+      as === 'select' ? (
+        <select {...common} class:list={[control, 'min-h-12 py-2 pr-10']}>
+          <option value="">{placeholder}</option>
+          {options.map((o) => <option value={o.value}>{o.label}</option>)}
+        </select>
+      ) : as === 'textarea' ? (
+        <textarea {...common} rows={rows} maxlength={maxlength} class:list={[control, 'py-3 leading-relaxed']} />
+      ) : type === 'file' ? (
+        <input
+          {...common}
+          type="file"
+          accept={accept}
+          class:list={[
+            control,
+            'min-h-12 py-2 file:mr-4 file:min-h-9 file:cursor-pointer file:rounded-lg file:border-0 file:bg-ink file:px-4 file:font-semibold file:text-canvas',
+          ]}
+        />
+      ) : (
+        <input
+          {...common}
+          type={type}
+          autocomplete={autocomplete}
+          inputmode={inputmode}
+          placeholder={placeholder}
+          maxlength={maxlength}
+          pattern={pattern}
+          class:list={[control, 'min-h-12 py-2']}
+        />
+      )
+    }
+  </div>
+  <p id={errorId} data-field-error hidden class="mt-2 flex items-center gap-1.5 text-sm font-semibold text-danger"></p>
+</div>

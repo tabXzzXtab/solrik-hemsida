@@ -1,0 +1,34 @@
+---
+import { getDict } from '~/i18n';
+import { routePath, type Lang } from '~/i18n/routes';
+
+interface Props {
+  lang: Lang;
+  id: string;
+}
+
+const { lang, id } = Astro.props;
+const t = getDict(lang);
+---
+
+<div>
+  <div class="flex gap-3">
+    <input
+      id={id}
+      name="consent"
+      type="checkbox"
+      value="yes"
+      required
+      aria-describedby={`${id}-error`}
+      data-label={t.forms.consentLink}
+      class="mt-0.5 size-6 shrink-0 cursor-pointer accent-[var(--c-accent)]"
+    />
+    <label for={id} class="cursor-pointer">
+      {t.forms.consent}{' '}
+      <a href={routePath('privacy', lang)} class="font-semibold text-accent-text underline">{t.forms.consentLink}</a>.
+      <span aria-hidden="true" class="text-accent-text">*</span>
+      <span class="sr-only">({t.forms.required})</span>
+    </label>
+  </div>
+  <p id={`${id}-error`} data-field-error hidden class="mt-2 text-sm font-semibold text-danger"></p>
+</div>

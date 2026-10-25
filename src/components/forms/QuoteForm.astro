@@ -1,0 +1,45 @@
+---
+/** Offertförfrågan / quote request. Field names are identical in both languages (one Netlify form). */
+import { MAX_UPLOAD_BYTES } from '~/config/site';
+import { getDict } from '~/i18n';
+import type { Lang } from '~/i18n/routes';
+import { fill } from '~/lib/format';
+import Form from './Form.astro';
+import Field from './Field.astro';
+import ConsentField from './ConsentField.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getDict(lang);
+const f = t.forms.quote;
+const max = String(MAX_UPLOAD_BYTES / 1024 / 1024);
+const id = 'quote';
+---
+
+<Form lang={lang} form="quote" id="quote-form" submitLabel={f.submit} subject={f.subject}>
+  <div class="grid gap-8 sm:grid-cols-2">
+    <Field lang={lang} id={`${id}-name`} name="name" label={f.name} required autocomplete="name" />
+    <Field lang={lang} id={`${id}-organization`} name="organization" label={f.organization} autocomplete="organization" />
+    <Field lang={lang} id={`${id}-email`} name="email" type="email" label={f.email} required autocomplete="email" />
+    <Field lang={lang} id={`${id}-phone`} name="phone" type="tel" label={f.phone} autocomplete="tel" inputmode="tel" pattern="[0-9+\(\)\s\-]{6,}" />
+  </div>
+  <Field lang={lang} id={`${id}-address`} name="property_address" label={f.propertyAddress} autocomplete="street-address" />
+  <div class="grid gap-8 sm:grid-cols-2">
+    <Field lang={lang} id={`${id}-service`} name="service" as="select" label={f.service} required placeholder={f.servicePlaceholder} options={f.services} />
+    <Field lang={lang} id={`${id}-start`} name="start_date" type="date" label={f.startDate} />
+  </div>
+  <Field lang={lang} id={`${id}-message`} name="message" as="textarea" label={f.message} hint={f.messageHint} required maxlength={4000} />
+  <Field
+    lang={lang}
+    id={`${id}-attachment`}
+    name="attachment"
+    type="file"
+    label={f.attachment}
+    hint={fill(t.forms.fileHint, { max })}
+    accept=".pdf,.jpg,.jpeg,.png,.heic,.heif,application/pdf,image/jpeg,image/png,image/heic"
+  />
+  <ConsentField lang={lang} id={`${id}-consent`} />
+</Form>

@@ -1,0 +1,15 @@
+---
+/** Plain notice on entries marked `example: true` in their frontmatter. */
+import { getDict } from '~/i18n';
+import type { Lang } from '~/i18n/routes';
+
+interface Props {
+  lang: Lang;
+}
+
+const t = getDict(Astro.props.lang);
+---
+
+<div role="note" class="border-b border-line bg-sunken">
+  <div class="container-site py-3"><p class="max-w-xl text-sm text-muted">{t.common.exampleNotice}</p></div>
+</div>

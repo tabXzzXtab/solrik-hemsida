@@ -1,0 +1,47 @@
+---
+/**
+ * Rendered only when PUBLIC_ANALYTICS_PROVIDER is set. Analytics loads after
+ * consent (or immediately if PUBLIC_ANALYTICS_REQUIRE_CONSENT=false).
+ * Non-modal and positioned over the page, so it causes no layout shift.
+ */
+import { ANALYTICS } from '~/config/site';
+import { getDict } from '~/i18n';
+import { routePath, type Lang } from '~/i18n/routes';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getDict(lang);
+const src = ANALYTICS.provider === 'plausible' ? ANALYTICS.plausibleSrc : ANALYTICS.umamiSrc;
+---
+
+<section
+  id="consent-banner"
+  hidden
+  aria-labelledby="consent-title"
+  data-provider={ANALYTICS.provider}
+  data-src={src}
+  data-domain={ANALYTICS.plausibleDomain}
+  data-website-id={ANALYTICS.umamiWebsiteId}
+  data-require-consent={String(ANALYTICS.requireConsent)}
+  class="fixed inset-x-3 bottom-[calc(4.75rem+env(safe-area-inset-bottom))] z-50 max-w-md border border-line-strong bg-surface p-6 shadow-2xl sm:left-auto lg:bottom-6"
+>
+  <h2 id="consent-title" class="text-lg font-bold">{t.consent.title}</h2>
+  <p class="mt-2 text-base text-muted">
+    {t.consent.text}{' '}<a href={routePath('cookies', lang)} class="text-accent-text underline">{t.consent.link}</a>
+  </p>
+  <div class="mt-4 flex gap-3">
+    <button type="button" data-consent="granted" class="min-h-11 flex-1 rounded-lg bg-accent px-4 font-semibold text-accent-ink hover:bg-accent-strong">
+      {t.consent.accept}
+    </button>
+    <button type="button" data-consent="denied" class="min-h-11 flex-1 rounded-lg border-[1.5px] border-ink px-4 font-semibold">
+      {t.consent.decline}
+    </button>
+  </div>
+</section>
+
+<script>
+  import '~/scripts/consent';
+</script>

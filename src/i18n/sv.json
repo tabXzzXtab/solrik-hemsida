@@ -1,0 +1,1396 @@
+{
+  "meta": {
+    "locale": "sv-SE",
+    "ogLocale": "sv_SE",
+    "skipToContent": "Hoppa till innehållet"
+  },
+  "nav": {
+    "label": "Huvudmeny",
+    "utilityLabel": "Genvägar",
+    "home": "Startsida",
+    "services": "Tjänster",
+    "brf": "För BRF",
+    "projects": "Projekt",
+    "tenants": "Hyresgäst & boende",
+    "about": "Om oss",
+    "news": "Nyheter",
+    "careers": "Karriär",
+    "contact": "Kontakt",
+    "faultReport": "Felanmälan",
+    "callUs": "Ring oss",
+    "myPages": "Mina sidor",
+    "menu": "Meny",
+    "otherLanguage": "English",
+    "otherLanguageLabel": "Read this page in English",
+    "breadcrumbLabel": "Brödsmulor",
+    "mobileActions": "Snabbval"
+  },
+  "common": {
+    "readMore": "Läs mer",
+    "phone": "Telefon",
+    "serviceArea": "Verksamhetsområde",
+    "orgNr": "Org.nr",
+    "registeredOffice": "Säte",
+    "fTax": "Godkänd för F-skatt",
+    "exampleNotice": "Exempelinnehåll – ersätt eller ta bort innan publicering. Sidan är dold för sökmotorer så länge den är markerad som exempel.",
+    "published": "Publicerad",
+    "updated": "Uppdaterad",
+    "download": "Ladda ner",
+    "contactPerson": "Kontaktperson",
+    "onThisPage": "På den här sidan",
+    "promisesIntro": "Samma utgångspunkt i varje uppdrag, stort som litet."
+  },
+  "cta": {
+    "title": "Berätta om ert projekt",
+    "text": "Beskriv kort vad som ska göras – vi återkommer med upplägg och pris.",
+    "primary": "Begär offert",
+    "secondary": "Ring {phone}"
+  },
+  "footer": {
+    "tagline": "Fastighetsförvaltning, drift, renovering och nybyggnation i {serviceArea}.",
+    "group": "En del av {parentGroup}",
+    "contactTitle": "Kontakt",
+    "servicesTitle": "Tjänster",
+    "companyTitle": "Företaget",
+    "privacy": "Integritetspolicy",
+    "cookies": "Cookies",
+    "accessibility": "Tillgänglighet",
+    "copyright": "© {year} {companyName}",
+    "contactForm": "Kontaktformulär"
+  },
+  "home": {
+    "seo": {
+      "title": "Bygg, renovering och förvaltning i {primaryCity}",
+      "description": "Bygg, renovering och fastighetsförvaltning i {serviceArea}. En avtalspart hela vägen – för BRF, fastighetsägare och företag."
+    },
+    "hero": {
+      "title": "Fastighetsförvaltning – en del av {parentGroup}",
+      "lead": "Förvaltning, skötsel och renovering för bostadsrättsföreningar och fastighetsägare i {serviceArea}.",
+      "primary": "Begär offert",
+      "secondary": "Felanmälan"
+    },
+    "routing": {
+      "title": "Vad gäller det?",
+      "tiles": [
+        {
+          "question": "Behöver du fastighetsförvaltning?",
+          "text": "Ekonomi, teknik och administration.",
+          "link": "Fastighetsförvaltning",
+          "route": "service:fastighetsforvaltning"
+        },
+        {
+          "question": "Ska föreningen renovera?",
+          "text": "Stambyte, tak, fasad och fönster.",
+          "link": "För BRF",
+          "route": "brf"
+        },
+        {
+          "question": "Vill du bygga?",
+          "text": "Från ritning till inflyttning.",
+          "link": "Nybyggnation",
+          "route": "service:nybyggnation"
+        },
+        {
+          "question": "Bor du hos oss?",
+          "text": "Anmäl fel i lägenheten eller huset.",
+          "link": "Felanmälan",
+          "route": "faultReport"
+        }
+      ]
+    },
+    "services": {
+      "title": "Allt för fastigheten – i ett företag",
+      "link": "Alla tjänster"
+    },
+    "promises": {
+      "title": "Det här kan du räkna med"
+    },
+    "figures": {
+      "title": "{companyShortName} i siffror"
+    },
+    "projects": {
+      "title": "Senaste projekten",
+      "intro": "Ett urval av det vi har byggt, renoverat och tagit över i förvaltning.",
+      "link": "Se alla projekt",
+      "empty": "Projekt läggs upp här när de är klara."
+    },
+    "local": {
+      "title": "Nära fastigheterna vi tar hand om",
+      "body": [
+        "Korta resor, hantverkare som känner husen och en kontaktperson som svarar i telefon."
+      ],
+      "areaLabel": "Verksamhetsområde"
+    },
+    "news": {
+      "title": "Senaste nytt",
+      "link": "Alla nyheter",
+      "empty": "Inga nyheter ännu."
+    }
+  },
+  "services": {
+    "overview": {
+      "seo": {
+        "title": "Tjänster – bygg, renovering och förvaltning",
+        "description": "Nybyggnation, renovering, fastighetsförvaltning och fastighetsdrift i {serviceArea}. Välj en tjänst eller låt oss ta hand om helheten."
+      },
+      "h1": "Bygg, renovering och förvaltning",
+      "lead": "Vi tar hand om fastigheten genom hela livet – från nybygge och renovering till förvaltning och daglig skötsel.",
+      "listTitle": "Våra tjänster",
+      "whyTitle": "Fördelen med en part",
+      "why": [
+        {
+          "title": "Ett avtal",
+          "text": "Vi samordnar alla hantverkare och leverantörer. Ni har en motpart och en kontaktperson."
+        },
+        {
+          "title": "Kunskap om huset",
+          "text": "Den som har byggt eller renoverat fastigheten vet hur den fungerar när den ska skötas."
+        },
+        {
+          "title": "Kortare vägar",
+          "text": "Fel som upptäcks i driften går direkt till dem som kan åtgärda dem – utan nya upphandlingar."
+        }
+      ]
+    },
+    "labels": {
+      "areas": "Det här gör vi",
+      "includes": "Det här ingår",
+      "process": "Så går det till",
+      "faq": "Vanliga frågor",
+      "related": "Andra tjänster",
+      "promises": "Det här kan du räkna med"
+    },
+    "items": {
+      "nybyggnation": {
+        "name": "Nybyggnation",
+        "short": "Bostadshus, flerbostadshus och lokaler – som totalentreprenad eller utförandeentreprenad.",
+        "seo": {
+          "title": "Nybyggnation i {primaryCity} – bostäder och lokaler",
+          "description": "Vi bygger flerbostadshus, småhus och lokaler i {serviceArea}. Totalentreprenad eller utförandeentreprenad, fast pris och en kontaktperson."
+        },
+        "h1": "Nybyggnation av bostäder och lokaler",
+        "lead": "Vi bygger flerbostadshus, småhus och lokaler i {serviceArea} – med fast pris och en kontaktperson från start till slutbesiktning.",
+        "intro": [
+          "Ni kan komma till oss med färdiga bygghandlingar eller bara en idé och en tomt. Vi hjälper till med det som behövs däremellan: projektering, bygglov, kalkyl och tidplan.",
+          "Under byggtiden har ni en projektledare som håller ihop allt och stämmer av med er med jämna mellanrum."
+        ],
+        "areas": [
+          {
+            "title": "Flerbostadshus",
+            "text": "Hyresrätter och bostadsrätter, med stomme i trä eller betong."
+          },
+          {
+            "title": "Småhus, par- och radhus",
+            "text": "Enstaka hus eller mindre grupper av bostäder."
+          },
+          {
+            "title": "Lokaler",
+            "text": "Kontor, butiker, verksamhetslokaler och lager."
+          },
+          {
+            "title": "Till- och påbyggnader",
+            "text": "Mer yta på befintliga fastigheter, på bredden eller på höjden."
+          }
+        ],
+        "explainer": {
+          "title": "Totalentreprenad eller utförandeentreprenad?",
+          "intro": "Entreprenadformen avgör vem som ansvarar för vad. Båda fungerar bra – det handlar om hur mycket ni vill styra själva.",
+          "columns": [
+            {
+              "title": "Totalentreprenad",
+              "text": "Vi ansvarar för både projektering och byggande. Ni beskriver vad ni vill ha – funktion, kvalitet och budget – och vi tar fram lösningarna.",
+              "points": [
+                "En part ansvarar för hela projektet",
+                "Passar när ni vill lämna över detaljerna",
+                "Regleras normalt av branschens standardavtal ABT"
+              ]
+            },
+            {
+              "title": "Utförandeentreprenad",
+              "text": "Ni, eller er arkitekt, tar fram ritningar och beskrivningar. Vi bygger enligt handlingarna och ansvarar för utförandet.",
+              "points": [
+                "Ni styr utformningen i detalj",
+                "Passar när projekteringen redan är klar",
+                "Regleras normalt av branschens standardavtal AB"
+              ]
+            }
+          ]
+        },
+        "includes": [
+          "Kalkyl och fast pris enligt överenskommet underlag",
+          "Hjälp med bygglov och tekniskt samråd",
+          "Projektledning och samordning av alla underentreprenörer",
+          "Arbetsmiljöansvar som BAS-P och BAS-U vid behov",
+          "Egenkontroller och dokumentation under byggtiden",
+          "Slutbesiktning, relationshandlingar och drift- och skötselinstruktioner",
+          "Garanti enligt branschens standardavtal, med garantibesiktning"
+        ],
+        "process": [
+          {
+            "title": "Kontakt",
+            "text": "Ni berättar om projektet. Vi frågar om behov, tidplan och budget."
+          },
+          {
+            "title": "Platsbesök",
+            "text": "Vi tittar på tomten eller fastigheten och går igenom förutsättningarna."
+          },
+          {
+            "title": "Offert",
+            "text": "Ni får pris och tidplan, och vi går igenom underlaget tillsammans."
+          },
+          {
+            "title": "Genomförande",
+            "text": "Vi bygger. Ni har en projektledare och regelbundna avstämningar."
+          },
+          {
+            "title": "Slutbesiktning",
+            "text": "En besiktningsman kontrollerar att arbetet är utfört enligt avtalet."
+          },
+          {
+            "title": "Garanti",
+            "text": "Fel som uppstår under garantitiden åtgärdar vi. Före utgången gör vi en garantibesiktning."
+          }
+        ],
+        "faq": [
+          {
+            "q": "Hur lång tid tar det att bygga?",
+            "a": "Det beror på storlek, stomme, bygglov och årstid. Ni får en tidplan för just ert projekt tillsammans med offerten, och vi stämmer av den löpande under bygget."
+          },
+          {
+            "q": "Kan ni hjälpa till med bygglov?",
+            "a": "Ja. Vi tar fram de handlingar som behövs och håller kontakten med kommunen. Själva beslutet fattas av kommunens byggnadsnämnd."
+          },
+          {
+            "q": "Vad ingår i det fasta priset?",
+            "a": "Allt som står i det avtalade underlaget. Ändringar och tillägg som ni beställer under bygget prissätts innan de utförs, så att ni alltid vet vad de kostar."
+          },
+          {
+            "q": "Vem är kontrollansvarig?",
+            "a": "De flesta byggprojekt kräver en certifierad kontrollansvarig (KA) med självständig ställning i förhållande till oss som entreprenör. Vi hjälper er att hitta en."
+          },
+          {
+            "q": "Vilken garanti lämnar ni?",
+            "a": "Vi lämnar garanti enligt branschens standardavtal, räknat från godkänd slutbesiktning. Innan garantitiden går ut gör vi en garantibesiktning tillsammans med er."
+          }
+        ],
+        "cta": {
+          "title": "Planerar ni att bygga?",
+          "text": "Berätta om tomten, idén eller ritningarna ni har. Vi återkommer med förslag på upplägg."
+        }
+      },
+      "renovering": {
+        "name": "Renovering & ombyggnad",
+        "short": "Stambyte, tak, fasad, fönster, badrum och energiåtgärder – för föreningar och fastighetsägare.",
+        "seo": {
+          "title": "Renovering och stambyte i {primaryCity}",
+          "description": "Stambyte, tak, fasad, fönster, badrum, vindsinredning och solceller i {serviceArea}. En avtalspart och fast pris för BRF och fastighetsägare."
+        },
+        "h1": "Renovering och ombyggnad",
+        "lead": "Vi renoverar bostadshus och lokaler i {serviceArea} – från enstaka badrum till stambyte i hela fastigheten.",
+        "intro": [
+          "Renovering i bebodda hus kräver planering. Vi lägger upp arbetet så att de boende vet vad som händer, när det händer och hur länge det pågår.",
+          "Ni har en kontaktperson som samordnar alla yrkesgrupper – rörmokare, elektriker, plattsättare och snickare – under ett och samma avtal."
+        ],
+        "areas": [
+          {
+            "title": "Stambyte",
+            "text": "Nya avlopps- och vattenledningar, ofta tillsammans med nya badrum. Vi planerar tillfälliga lösningar för de boende."
+          },
+          {
+            "title": "Tak",
+            "text": "Omläggning, plåtarbeten, takavvattning och tilläggsisolering."
+          },
+          {
+            "title": "Fasad",
+            "text": "Puts, tegel, trä och balkonger – reparation eller helt nytt."
+          },
+          {
+            "title": "Fönster",
+            "text": "Renovering eller byte till energieffektiva fönster och dörrar."
+          },
+          {
+            "title": "Badrum",
+            "text": "Helrenovering med tätskikt enligt branschregler för våtrum, med dokumentation."
+          },
+          {
+            "title": "Vindsinredning",
+            "text": "Nya bostäder på vinden – från bygglov till inflyttning."
+          },
+          {
+            "title": "Solceller",
+            "text": "Solcellsanläggningar på tak, inklusive anslutning och dokumentation."
+          },
+          {
+            "title": "Energieffektivisering",
+            "text": "Tilläggsisolering, ventilation med värmeåtervinning och styrning av värme."
+          }
+        ],
+        "includes": [
+          "Besiktning och genomgång av nuläget",
+          "Förslag på åtgärder, tidplan och fast pris",
+          "Information till de boende före och under arbetet",
+          "Samordning av alla yrkesgrupper under ett avtal",
+          "Arbetsmiljöansvar som BAS-P och BAS-U vid behov",
+          "Egenkontroller, dokumentation och slutbesiktning",
+          "Garanti på utfört arbete enligt branschens standardavtal"
+        ],
+        "process": [
+          {
+            "title": "Kontakt",
+            "text": "Ni berättar vad som behöver göras och när det skulle passa."
+          },
+          {
+            "title": "Besiktning",
+            "text": "Vi går igenom fastigheten och underhållsplanen om ni har en."
+          },
+          {
+            "title": "Offert",
+            "text": "Ni får åtgärdsförslag, tidplan och fast pris att fatta beslut på."
+          },
+          {
+            "title": "Genomförande",
+            "text": "Vi informerar de boende och utför arbetet enligt tidplanen."
+          },
+          {
+            "title": "Slutbesiktning",
+            "text": "Arbetet kontrolleras och dokumentationen lämnas över."
+          },
+          {
+            "title": "Garanti",
+            "text": "Fel som uppstår under garantitiden åtgärdar vi utan kostnad."
+          }
+        ],
+        "faq": [
+          {
+            "q": "Kan vi bo kvar under ett stambyte?",
+            "a": "Oftast ja, men under en period går det inte att använda badrum och kök fullt ut. Vi ordnar tillfälliga lösningar, till exempel duschar och toaletter, och informerar alla boende i god tid."
+          },
+          {
+            "q": "Kan jag få ROT-avdrag?",
+            "a": "Privatpersoner kan få ROT-avdrag för arbetskostnaden vid renovering av sin bostad. Vi drar av beloppet direkt på fakturan. Reglerna ändras ibland, så kontrollera vad som gäller på Skatteverkets webbplats."
+          },
+          {
+            "q": "Hur vet vi vad som behöver göras?",
+            "a": "Vi börjar med en besiktning och går igenom underhållsplanen. Därefter får ni ett förslag med prioriteringar, så att ni kan välja vad som görs nu och vad som kan vänta."
+          },
+          {
+            "q": "Behövs bygglov?",
+            "a": "Vissa åtgärder, till exempel ändrad fasad eller vindsinredning, kräver bygglov eller anmälan. Vi tar reda på vad som gäller och hjälper till med ansökan."
+          },
+          {
+            "q": "Hur stora blir störningarna?",
+            "a": "Det beror på arbetet. I tidplanen ser ni vilka dagar det blir buller eller avstängt vatten och el. De boende får information i trapphus och brevlåda i god tid."
+          }
+        ],
+        "cta": {
+          "title": "Dags att renovera?",
+          "text": "Berätta vad som behöver göras. Vi börjar med en besiktning och ger er ett underlag att fatta beslut på."
+        }
+      },
+      "fastighetsforvaltning": {
+        "name": "Fastighetsförvaltning",
+        "short": "Ekonomisk, teknisk och administrativ förvaltning för BRF och fastighetsägare.",
+        "seo": {
+          "title": "Fastighetsförvaltning för BRF i {primaryCity}",
+          "description": "Ekonomisk, teknisk och administrativ förvaltning i {serviceArea}: avgifter, budget, underhållsplan, OVK, energideklaration och uthyrning."
+        },
+        "h1": "Fastighetsförvaltning för BRF och fastighetsägare",
+        "lead": "Vi sköter ekonomin, tekniken och administrationen så att styrelsen och ägaren kan fokusera på besluten.",
+        "intro": [
+          "Förvaltningen kan köpas samlat eller i delar. Många börjar med ekonomisk förvaltning och lägger till teknisk förvaltning när underhållsplanen ska uppdateras.",
+          "Ni får en namngiven förvaltare som känner fastigheten och som går att nå direkt."
+        ],
+        "areas": [
+          {
+            "title": "Ekonomisk förvaltning",
+            "text": "Löpande ekonomi och redovisning.",
+            "list": [
+              "Avgifts- och hyresavisering",
+              "Budget och likviditetsplanering",
+              "Löpande bokföring och leverantörsbetalningar",
+              "Underlag till årsredovisning och deklaration",
+              "Påminnelser och kravhantering"
+            ]
+          },
+          {
+            "title": "Teknisk förvaltning",
+            "text": "Fastighetens skick och underhåll.",
+            "list": [
+              "Underhållsplan – upprättande och uppdatering",
+              "Besiktningar och statusbedömningar",
+              "OVK – obligatorisk ventilationskontroll",
+              "Energideklaration",
+              "Upphandling och uppföljning av entreprenader"
+            ]
+          },
+          {
+            "title": "Administrativ förvaltning",
+            "text": "Kontakten med hyresgäster och medlemmar.",
+            "list": [
+              "Uthyrning av lägenheter, lokaler och parkering",
+              "Hyreskontrakt och avtal",
+              "Kölistor och bostadskö",
+              "Överlåtelser och pantsättningar i BRF",
+              "Medlems- och lägenhetsförteckning"
+            ]
+          }
+        ],
+        "includes": [
+          "En namngiven förvaltare som kontaktperson",
+          "Löpande ekonomiska rapporter till styrelsen eller ägaren",
+          "Underlag inför styrelsemöten",
+          "Uppföljning av underhållsplanen",
+          "Hjälp inför och under stämman"
+        ],
+        "process": [
+          {
+            "title": "Kontakt",
+            "text": "Ni berättar om fastigheten och vad ni vill ha hjälp med."
+          },
+          {
+            "title": "Genomgång",
+            "text": "Vi går igenom avtal, ekonomi och fastighetens skick."
+          },
+          {
+            "title": "Offert",
+            "text": "Ni får ett förslag med fast pris för de delar ni har valt."
+          },
+          {
+            "title": "Överlämning",
+            "text": "Vi tar över från nuvarande förvaltare utan avbrott i aviseringar och betalningar."
+          },
+          {
+            "title": "Löpande förvaltning",
+            "text": "Förvaltaren sköter det dagliga och rapporterar till er."
+          },
+          {
+            "title": "Uppföljning",
+            "text": "Vi följer upp budget och underhållsplan och föreslår förbättringar."
+          }
+        ],
+        "faq": [
+          {
+            "q": "Kan vi byta förvaltare mitt i räkenskapsåret?",
+            "a": "Ja. Vi planerar överlämningen tillsammans med styrelsen och den nuvarande förvaltaren, så att aviseringar, betalningar och bokföring fortsätter utan avbrott."
+          },
+          {
+            "q": "Hur ofta ska OVK göras?",
+            "a": "Intervallet bestäms av Boverkets regler och beror på byggnadstyp och ventilationssystem. Vi håller koll på när det är dags, bokar kontrollen och ser till att eventuella anmärkningar åtgärdas."
+          },
+          {
+            "q": "Hur länge gäller en energideklaration?",
+            "a": "En energideklaration gäller i tio år. Vi ser till att den förnyas i tid och tar fram förslag på åtgärder som sänker energikostnaden."
+          },
+          {
+            "q": "Vad är en underhållsplan?",
+            "a": "En plan över vilka delar av fastigheten som behöver underhållas och när, ofta 30–50 år framåt. Den är grunden för budgeten och för avsättningar till underhållsfonden."
+          },
+          {
+            "q": "Kan vi köpa bara ekonomisk förvaltning?",
+            "a": "Ja. Ni väljer de delar som passar föreningen eller fastigheten och kan lägga till fler senare."
+          }
+        ],
+        "cta": {
+          "title": "Vad skulle förvaltningen kosta?",
+          "text": "Berätta om fastigheten – antal lägenheter, lokaler och vad ni vill ha hjälp med. Vi återkommer med en offert."
+        }
+      },
+      "fastighetsdrift": {
+        "name": "Fastighetsdrift & skötsel",
+        "short": "Fastighetsskötsel, felavhjälpning, utemiljö, snöröjning, städning och jour dygnet runt.",
+        "seo": {
+          "title": "Fastighetsskötsel och fastighetsdrift i {primaryCity}",
+          "description": "Fastighetsskötsel, felavhjälpning, utemiljö, snöröjning, trappstädning och jour dygnet runt för fastigheter i {serviceArea}."
+        },
+        "h1": "Fastighetsdrift och fastighetsskötsel",
+        "lead": "Daglig skötsel av hus, gård och teknik – och en jour som svarar när något går sönder.",
+        "intro": [
+          "Fastighetsskötaren är den de boende träffar oftast. Vi strävar efter att samma personer kommer tillbaka till samma hus, så att de känner både fastigheten och dem som bor där.",
+          "Allt arbete registreras, så att ni kan följa upp vad som har gjorts och vad det har kostat."
+        ],
+        "areas": [
+          {
+            "title": "Fastighetsskötsel",
+            "text": "Tillsyn av byggnad och installationer, byte av belysning, justering av dörrar och lås."
+          },
+          {
+            "title": "Felavhjälpning",
+            "text": "Felanmälningar från boende tas emot, prioriteras och åtgärdas."
+          },
+          {
+            "title": "Utemiljö",
+            "text": "Gräsklippning, rabatter, buskar, lekplatser och miljörum."
+          },
+          {
+            "title": "Snöröjning och halkbekämpning",
+            "text": "Plogning och sandning av gångar, entréer och parkeringar."
+          },
+          {
+            "title": "Städning",
+            "text": "Trappstädning, tvättstugor, källare och andra gemensamma utrymmen."
+          },
+          {
+            "title": "Jour dygnet runt",
+            "text": "Akuta fel som vattenläckor, strömavbrott och inbrott tas om hand alla dagar."
+          }
+        ],
+        "includes": [
+          "Fast kontaktperson och återkommande fastighetsskötare",
+          "Rondering enligt överenskommet schema",
+          "Felanmälan via webben och telefon",
+          "Jour dygnet runt för akuta fel",
+          "Sammanställning av utförda arbeten",
+          "Samordning med förvaltning och hantverkare"
+        ],
+        "process": [
+          {
+            "title": "Kontakt",
+            "text": "Ni berättar om fastigheten och vad som ska skötas."
+          },
+          {
+            "title": "Platsbesök",
+            "text": "Vi går runt i fastigheten och på gården tillsammans med er."
+          },
+          {
+            "title": "Offert",
+            "text": "Ni får ett förslag på skötselplan och fast månadspris."
+          },
+          {
+            "title": "Uppstart",
+            "text": "Vi informerar de boende om vem de kontaktar och hur felanmälan görs."
+          },
+          {
+            "title": "Löpande skötsel",
+            "text": "Rondering, felavhjälpning och säsongsarbeten enligt plan."
+          },
+          {
+            "title": "Uppföljning",
+            "text": "Ni får en sammanställning och vi justerar planen efter behov."
+          }
+        ],
+        "faq": [
+          {
+            "q": "Vad räknas som ett akut fel?",
+            "a": "Fel som kan orsaka skada på person eller fastighet om de inte åtgärdas direkt, till exempel vattenläcka, stopp i avlopp, strömavbrott i hela lägenheten, inbrott eller en ytterdörr som inte går att låsa."
+          },
+          {
+            "q": "Hur snabbt kommer jouren?",
+            "a": "Akuta fel prioriteras alltid. När du ringer gör vi en bedömning direkt och åtgärdar det som inte kan vänta så snabbt som möjligt – mindre brådskande ärenden planeras in i den vanliga skötseln."
+          },
+          {
+            "q": "Kan vi beställa snöröjning separat?",
+            "a": "Ja. Snöröjning och halkbekämpning kan avtalas för säsongen, med eller utan övrig fastighetsskötsel."
+          },
+          {
+            "q": "Hur följer vi upp vad som har gjorts?",
+            "a": "Alla ärenden registreras med datum och åtgärd. Ni får en sammanställning med den frekvens vi kommer överens om och kan alltid fråga er kontaktperson."
+          }
+        ],
+        "cta": {
+          "title": "Behöver fastigheten skötas?",
+          "text": "Berätta om fastigheten och vad ni vill ha hjälp med, så kommer vi ut och tittar."
+        }
+      }
+    }
+  },
+  "brf": {
+    "seo": {
+      "title": "För BRF – förvaltning och renovering i {primaryCity}",
+      "description": "Vi avlastar BRF-styrelsen: underhållsplan, renovering med en avtalspart, ekonomisk förvaltning, årsredovisning och stämmohjälp."
+    },
+    "h1": "Vi avlastar styrelsen",
+    "lead": "Att sitta i en BRF-styrelse är ett ideellt uppdrag med stort ansvar. Vi tar hand om ekonomin, underhållet och de stora projekten – ni fattar besluten.",
+    "intro": [
+      "Vi arbetar med föreningar i {serviceArea}, från små föreningar med några lägenheter till större föreningar med lokaler och garage.",
+      "Ni kan anlita oss för en enskild renovering, för förvaltningen eller för båda. Fördelen med båda är att de som planerar underhållet också vet vad det kostar att genomföra."
+    ],
+    "offerTitle": "Det här kan vi ta hand om",
+    "offer": [
+      {
+        "title": "Underhållsplan",
+        "text": "Vad som behöver göras, när och vad det kostar – grunden för budget och avgifter.",
+        "list": [
+          "Statusbesiktning av fastigheten",
+          "Upprättande och årlig uppdatering",
+          "Underlag för avsättning till underhållsfonden"
+        ]
+      },
+      {
+        "title": "Ombyggnad med en avtalspart",
+        "text": "Stambyte, tak, fasad, fönster eller laddplatser – samordnat under ett avtal.",
+        "list": [
+          "Förstudie och kostnadsbedömning",
+          "Information till medlemmarna",
+          "Samordning av alla yrkesgrupper"
+        ]
+      },
+      {
+        "title": "Ekonomisk förvaltning",
+        "text": "Avgifter, bokföring och betalningar sköts löpande.",
+        "list": [
+          "Avgiftsavisering och kravhantering",
+          "Budget och likviditetsplan",
+          "Löpande bokföring"
+        ]
+      },
+      {
+        "title": "Årsredovisning",
+        "text": "Vi tar fram underlag och upprättar årsredovisningen för styrelsens underskrift.",
+        "list": [
+          "Bokslut",
+          "Förvaltningsberättelse",
+          "Kontakt med revisorn"
+        ]
+      },
+      {
+        "title": "Stämmohjälp",
+        "text": "Stöd inför och under föreningsstämman.",
+        "list": [
+          "Kallelse och dagordning",
+          "Beslutsunderlag, till exempel inför stora renoveringar",
+          "Mötesordförande eller protokollförare vid behov"
+        ]
+      },
+      {
+        "title": "Medlemsadministration",
+        "text": "Det löpande pappersarbetet kring medlemmar och lägenheter.",
+        "list": [
+          "Överlåtelser",
+          "Pantsättningar",
+          "Medlems- och lägenhetsförteckning"
+        ]
+      }
+    ],
+    "checklist": {
+      "title": "Inför stambyte – checklista för styrelsen",
+      "text": "Vad styrelsen behöver ta ställning till innan ett stambyte: underlag, beslut, information till medlemmarna och upphandling.",
+      "button": "Ladda ner checklistan",
+      "meta": "PDF"
+    },
+    "process": [
+      {
+        "title": "Första samtal",
+        "text": "Vi lyssnar på vad styrelsen behöver hjälp med."
+      },
+      {
+        "title": "Genomgång",
+        "text": "Vi går igenom ekonomi, underhållsplan och fastighetens skick."
+      },
+      {
+        "title": "Förslag och offert",
+        "text": "Ni får ett förslag med fast pris att ta ställning till."
+      },
+      {
+        "title": "Beslut",
+        "text": "Styrelsen eller stämman beslutar. Vi tar fram underlaget."
+      },
+      {
+        "title": "Genomförande",
+        "text": "Vi tar över förvaltningen eller startar projektet."
+      },
+      {
+        "title": "Uppföljning",
+        "text": "Vi rapporterar löpande och följer upp mot budget och plan."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Vilka beslut måste tas på stämman?",
+        "a": "Det beror på åtgärden och föreningens stadgar. Större ombyggnader som påverkar medlemmarnas lägenheter kan kräva beslut på stämma, ibland med kvalificerad majoritet. Vi hjälper er att ta reda på vad som gäller innan ni går vidare."
+      },
+      {
+        "q": "Kan ni ta över efter vår nuvarande förvaltare?",
+        "a": "Ja. Vi planerar överlämningen tillsammans med styrelsen och den nuvarande förvaltaren, så att avgifter och betalningar fortsätter som vanligt."
+      },
+      {
+        "q": "Hur informeras medlemmarna under en renovering?",
+        "a": "Med anslag i trapphus, brev och vid behov informationsmöten. Medlemmarna får veta vad som ska göras, när det påverkar dem och vem de kan kontakta."
+      },
+      {
+        "q": "Vad kostar det?",
+        "a": "Det beror på föreningens storlek och vad ni vill ha hjälp med. Efter ett första möte får ni en offert med fast pris för förvaltningen och separata priser för eventuella projekt."
+      }
+    ],
+    "cta": {
+      "title": "Vill ni ha ett första samtal?",
+      "text": "Vi kommer gärna till ett styrelsemöte och berättar hur vi arbetar."
+    }
+  },
+  "projects": {
+    "seo": {
+      "title": "Projekt – nybyggnation, renovering och förvaltning",
+      "description": "Ett urval av våra projekt i {serviceArea}: nybyggnation, renovering, ombyggnad och förvaltningsuppdrag."
+    },
+    "h1": "Projekt",
+    "lead": "Ett urval av det vi har byggt, renoverat och tagit över i förvaltning.",
+    "filter": {
+      "label": "Filtrera projekt",
+      "category": "Typ av projekt",
+      "year": "År",
+      "all": "Alla",
+      "allYears": "Alla år",
+      "results": "{count} projekt",
+      "empty": "Inga projekt matchar filtret.",
+      "reset": "Visa alla projekt"
+    },
+    "categories": {
+      "nybyggnad": "Nybyggnad",
+      "renovering": "Renovering",
+      "ombyggnad": "Ombyggnad",
+      "förvaltning": "Förvaltning"
+    },
+    "facts": {
+      "title": "Fakta",
+      "location": "Plats",
+      "client": "Beställare",
+      "contractType": "Entreprenadform",
+      "year": "År",
+      "scope": "Omfattning",
+      "category": "Typ"
+    },
+    "gallery": "Bilder från projektet",
+    "related": "Fler projekt",
+    "back": "Alla projekt",
+    "empty": "Inga projekt publicerade ännu.",
+    "cta": {
+      "title": "Har ni ett liknande projekt?",
+      "text": "Berätta vad ni planerar. Vi återkommer med förslag på upplägg och pris."
+    }
+  },
+  "tenants": {
+    "seo": {
+      "title": "Hyresgäst och boende – felanmälan och blanketter",
+      "description": "För dig som bor i en fastighet vi förvaltar: gör en felanmälan, hitta blanketter, trivselregler och information om in- och utflyttning."
+    },
+    "h1": "För dig som bor hos oss",
+    "lead": "Här gör du felanmälan och hittar blanketter, trivselregler och svar på vanliga frågor.",
+    "emergency": {
+      "title": "Akuta fel",
+      "text": "Vattenläcka, strömavbrott, inbrott eller annat som inte kan vänta – ring oss direkt.",
+      "call": "Ring oss"
+    },
+    "faultCard": {
+      "title": "Felanmälan",
+      "text": "Anmäl fel i lägenheten eller i husets gemensamma utrymmen.",
+      "button": "Gör en felanmälan"
+    },
+    "myPages": {
+      "title": "Mina sidor",
+      "text": "Se avier, kontrakt och dina ärenden.",
+      "button": "Logga in på Mina sidor",
+      "missing": "Lägg in adressen till hyresgästportalen i src/config/company.ts (TENANT_PORTAL_URL)."
+    },
+    "nav": {
+      "faq": "Vanliga frågor",
+      "forms": "Blanketter",
+      "rules": "Trivselregler",
+      "moving": "Flytta in och ut"
+    },
+    "faq": [
+      {
+        "q": "Vad räknas som ett akut fel?",
+        "a": "Fel som kan orsaka skada på person eller fastighet om de inte åtgärdas direkt – till exempel vattenläcka, stopp i avlopp, strömavbrott i hela lägenheten, inbrott eller en ytterdörr som inte går att låsa. Ring oss då direkt på {phone}."
+      },
+      {
+        "q": "När åtgärdas min felanmälan?",
+        "a": "Du får en bekräftelse när vi har tagit emot ärendet. Fel som inte är akuta åtgärdas normalt inom några arbetsdagar. Vi hör av oss om det tar längre tid, till exempel om reservdelar behöver beställas."
+      },
+      {
+        "q": "Får ni gå in i lägenheten när jag inte är hemma?",
+        "a": "Bara om du har gett oss tillåtelse i felanmälan. Annars kontaktar vi dig för att boka en tid."
+      },
+      {
+        "q": "Vem ansvarar för vad i lägenheten?",
+        "a": "Hyresvärden ansvarar för fastigheten och den fasta utrustningen. Som hyresgäst ansvarar du för att vårda lägenheten och anmäla fel. I en bostadsrätt ansvarar du som medlem för det inre underhållet enligt föreningens stadgar."
+      },
+      {
+        "q": "Får jag hyra ut i andra hand?",
+        "a": "Du behöver ansöka och få ett godkännande innan uthyrningen börjar. Använd blanketten under Blanketter."
+      },
+      {
+        "q": "Hur säger jag upp min lägenhet?",
+        "a": "Uppsägningen ska vara skriftlig. Använd blanketten under Blanketter eller skicka ett undertecknat brev. Uppsägningstiden för en hyreslägenhet är normalt tre månader om inget annat har avtalats."
+      }
+    ],
+    "forms": {
+      "title": "Blanketter",
+      "text": "Ladda ner och fyll i blanketten. Skicka den till oss via kontaktformuläret eller lämna den till din fastighetsskötare."
+    },
+    "rules": {
+      "title": "Trivselregler",
+      "intro": "Några enkla regler gör att alla trivs. De fullständiga ordningsreglerna finns i ditt hyresavtal eller i föreningens stadgar.",
+      "items": [
+        {
+          "title": "Visa hänsyn",
+          "text": "Var tyst på kvällar och nätter, särskilt mellan klockan 22 och 07."
+        },
+        {
+          "title": "Tvättstugan",
+          "text": "Boka tid, håll tiden och städa efter dig."
+        },
+        {
+          "title": "Sopor och återvinning",
+          "text": "Sortera i rätt kärl. Grovavfall och elavfall lämnas på kommunens återvinningscentral."
+        },
+        {
+          "title": "Trapphuset",
+          "text": "Ställ inte saker i trapphuset. Det är en utrymningsväg och ska hållas fritt."
+        },
+        {
+          "title": "Balkong och grill",
+          "text": "El- och gasolgrill går bra på balkong och uteplats. Visa hänsyn mot grannarna när det gäller rök och os."
+        },
+        {
+          "title": "Rökning",
+          "text": "Rökning är inte tillåten i trapphus, tvättstuga eller andra gemensamma utrymmen."
+        }
+      ]
+    },
+    "moving": {
+      "title": "Flytta in och ut",
+      "in": {
+        "title": "Flytta in",
+        "items": [
+          "Teckna elavtal och hemförsäkring före tillträdet.",
+          "Hämta nycklar – vi kommer överens om tid och plats när kontraktet är klart.",
+          "Gå igenom lägenheten och anmäl eventuella fel inom en vecka.",
+          "Gör adressändring hos Skatteverket.",
+          "Namnskylt till dörr och brevlåda beställer du via felanmälan."
+        ]
+      },
+      "out": {
+        "title": "Flytta ut",
+        "items": [
+          "Säg upp lägenheten skriftligt. Uppsägningstiden är normalt tre månader.",
+          "Vi bokar en avflyttningsbesiktning med dig.",
+          "Flyttstäda lägenheten, förrådet och eventuellt garage.",
+          "Lämna alla nycklar – vi bokar tid för överlämningen i samband med besiktningen.",
+          "Gör adressändring hos Skatteverket."
+        ]
+      }
+    }
+  },
+  "faultReport": {
+    "seo": {
+      "title": "Felanmälan – anmäl fel i lägenhet eller fastighet",
+      "description": "Anmäl fel i din lägenhet eller i gemensamma utrymmen. Vid akuta fel som vattenläcka, strömavbrott eller inbrott – ring oss direkt."
+    },
+    "h1": "Felanmälan",
+    "lead": "Anmäl fel i din lägenhet eller i husets gemensamma utrymmen. Vi bekräftar när vi har tagit emot ärendet.",
+    "emergency": "Akuta fel (vattenläcka, strömavbrott, inbrott) – ring oss direkt:",
+    "call": "Ring oss",
+    "asideTitle": "Bra att veta",
+    "aside": [
+      "Fel i gemensamma utrymmen – trapphus, tvättstuga, hiss – anmäler du på samma sätt.",
+      "Bifoga gärna en bild. Då kan vi ta med rätt verktyg och reservdelar.",
+      "Fel som inte är akuta åtgärdas normalt inom några arbetsdagar."
+    ]
+  },
+  "about": {
+    "seo": {
+      "title": "Om oss – bygg- och förvaltningsföretag i {primaryCity}",
+      "description": "{companyName} bygger, renoverar och förvaltar fastigheter i {serviceArea}. Läs om hur vi arbetar och vad vi står för."
+    },
+    "h1": "Ett lokalt företag med ansvar hela vägen",
+    "lead": "Vi bygger, renoverar och förvaltar fastigheter i {serviceArea}.",
+    "facts": {
+      "area": "Verksamhetsområde",
+      "orgNr": "Org.nr",
+      "group": "Koncern"
+    },
+    "story": {
+      "title": "Vilka vi är",
+      "body": [
+        "Solrik är ett skånskt företag inom fastighetsförvaltning och bygg och en del av Radiant Group. Vi tar hand om bostadsrättsföreningar och fastighetsägare genom hela fastighetens liv – från den dagliga förvaltningen och skötseln till renoveringar och nybyggnation.",
+        "Det som skiljer oss från många andra är att samma organisation förvaltar, sköter och bygger. Den som planerar underhållet vet vad åtgärderna kostar att genomföra, och den som renoverar vet hur huset ska skötas efteråt. För er betyder det färre överlämningar, tydligare ansvar och en kontakt som känner fastigheten."
+      ]
+    },
+    "values": {
+      "title": "Det här står vi för",
+      "items": [
+        {
+          "title": "Ansvar",
+          "text": "Vi tar ansvar för helheten, även för det våra underentreprenörer gör. Det som står i avtalet gäller, och det vi lovar håller vi."
+        },
+        {
+          "title": "Kvalitet",
+          "text": "Rätt utfört första gången. Vi dokumenterar arbetet med egenkontroller och lämnar över en fastighet som är lätt att sköta."
+        },
+        {
+          "title": "Närhet",
+          "text": "Vi arbetar där vi bor. Korta avstånd ger snabba svar, och de som bor i husen ska känna igen den som kommer."
+        }
+      ]
+    },
+    "certifications": {
+      "title": "Certifieringar och medlemskap",
+      "intro": "Behörigheter, certifieringar och branschorganisationer."
+    },
+    "sustainability": {
+      "title": "Hållbarhet",
+      "intro": "Byggande och förvaltning påverkar miljön och människor under lång tid. Så här arbetar vi.",
+      "items": [
+        {
+          "title": "Energieffektivitet",
+          "text": "Vi föreslår åtgärder som sänker energibehovet – isolering, ventilation med värmeåtervinning och bättre styrning av värme. Varje förslag räknas hem, så att ni ser både besparing och återbetalningstid."
+        },
+        {
+          "title": "Materialval",
+          "text": "Vi väljer material med lång livslängd och dokumenterar dem för framtida underhåll. Där det går återbrukar vi material i stället för att köpa nytt."
+        },
+        {
+          "title": "Avfallssortering",
+          "text": "Byggavfall sorteras på arbetsplatsen i de fraktioner som krävs, bland annat trä, metall, plast, gips, glas och mineral. Det minskar både miljöpåverkan och kostnaden för avfallshantering."
+        },
+        {
+          "title": "Säker arbetsmiljö",
+          "text": "Alla ska komma hem oskadda. Vi gör riskbedömningar, upprättar arbetsmiljöplan och tar rollen som BAS-P och BAS-U när det krävs. Ordning och reda på arbetsplatsen är en del av jobbet."
+        }
+      ]
+    }
+  },
+  "news": {
+    "seo": {
+      "title": "Nyheter",
+      "description": "Nyheter från {companyName}: projekt, information till boende och vad som händer i företaget."
+    },
+    "h1": "Nyheter",
+    "lead": "Om projekt, information till boende och vad som händer i företaget.",
+    "empty": "Inga nyheter ännu.",
+    "back": "Alla nyheter",
+    "related": "Fler nyheter"
+  },
+  "careers": {
+    "seo": {
+      "title": "Karriär – lediga jobb inom bygg i {primaryCity}",
+      "description": "Lediga jobb inom bygg och fastighetsförvaltning i {serviceArea}. Vi tar emot spontanansökningar och lärlingar."
+    },
+    "h1": "Jobba hos oss",
+    "lead": "Vi söker hantverkare, projektledare och förvaltare som vill arbeta lokalt och ta ansvar för det de gör.",
+    "whyTitle": "Därför ska du jobba här",
+    "why": [
+      {
+        "title": "Lokala uppdrag",
+        "text": "Våra projekt finns i {serviceArea}. Det betyder kortare resor och mer tid hemma."
+      },
+      {
+        "title": "Varierat arbete",
+        "text": "Nybyggnation, renovering och förvaltning – du får se hela fastighetens liv."
+      },
+      {
+        "title": "Trygg arbetsplats",
+        "text": "Ordning på arbetsplatsen, rätt utrustning och tid att göra jobbet ordentligt."
+      },
+      {
+        "title": "Utveckling",
+        "text": "Du får växa i takt med uppdragen – genom utbildningar, behörigheter och nya ansvarsområden."
+      }
+    ],
+    "positions": {
+      "title": "Lediga tjänster",
+      "empty": "Just nu har vi inga utannonserade tjänster. Skicka gärna en spontanansökan.",
+      "apply": "Läs mer och ansök",
+      "deadline": "Sista ansökningsdag",
+      "location": "Ort",
+      "extent": "Omfattning"
+    },
+    "spontaneous": {
+      "title": "Spontanansökan",
+      "text": "Hittar du ingen tjänst som passar? Skicka några rader om dig själv via kontaktformuläret och bifoga ditt CV. Vi sparar ansökan i sex månader.",
+      "button": "Skicka spontanansökan"
+    },
+    "apprentices": {
+      "title": "Lärlingar",
+      "text": "Vi tar emot lärlingar och elever från gymnasiets bygg- och anläggningsprogram. Du arbetar tillsammans med en erfaren handledare och får prova på både bygg och fastighetsskötsel. Hör av dig via kontaktformuläret."
+    },
+    "job": {
+      "back": "Alla lediga tjänster",
+      "applyTitle": "Så ansöker du",
+      "applyText": "Skicka CV och personligt brev. Skriv tjänstens namn i ansökan.",
+      "applyButton": "Ansök via e-post",
+      "applyFormButton": "Ansök via formuläret"
+    }
+  },
+  "contact": {
+    "seo": {
+      "title": "Kontakt och offertförfrågan – {primaryCity}",
+      "description": "Kontakta {companyName} – ring oss eller skicka en förfrågan om bygg, renovering eller förvaltning i {serviceArea}."
+    },
+    "h1": "Kontakta oss",
+    "lead": "Ring oss eller skicka en förfrågan via formuläret. Vi svarar så snart vi kan.",
+    "detailsTitle": "Kontaktuppgifter",
+    "form": {
+      "title": "Skicka en förfrågan",
+      "intro": "Gäller det en offert eller en fråga? Beskriv kort vad ni behöver, så återkommer vi."
+    },
+    "faultLink": "Bor du hos oss? Gör en felanmälan"
+  },
+  "forms": {
+    "required": "obligatoriskt",
+    "optional": "valfritt",
+    "requiredNote": "Fält markerade med * är obligatoriska.",
+    "sending": "Skickar…",
+    "successTitle": "Tack! Vi har tagit emot ditt meddelande.",
+    "successText": "Vi återkommer så snart vi kan, normalt inom ett par arbetsdagar.",
+    "errorTitle": "Det gick inte att skicka",
+    "errorText": "Något gick fel. Försök igen, eller ring oss på {phone}.",
+    "summaryTitle": "Formuläret innehåller fel. Rätta följande:",
+    "consent": "Jag godkänner att {companyName} behandlar mina personuppgifter för att hantera ärendet enligt",
+    "consentLink": "integritetspolicyn",
+    "honeypot": "Lämna det här fältet tomt",
+    "fileHint": "PDF, JPG, PNG eller HEIC. Max {max} MB.",
+    "imageHint": "JPG, PNG eller HEIC. Max {max} MB.",
+    "errors": {
+      "required": "Fyll i fältet.",
+      "select": "Välj ett alternativ.",
+      "email": "Skriv en giltig e-postadress, till exempel namn@exempel.se.",
+      "tel": "Skriv ett telefonnummer med siffror.",
+      "fileSize": "Filen är för stor. Max {max} MB.",
+      "fileType": "Filtypen stöds inte.",
+      "consent": "Du behöver godkänna att vi behandlar dina uppgifter."
+    },
+    "quote": {
+      "submit": "Skicka förfrågan",
+      "name": "Namn",
+      "organization": "Företag eller BRF",
+      "email": "E-post",
+      "phone": "Telefon",
+      "propertyAddress": "Fastighetens adress",
+      "service": "Vad gäller det?",
+      "servicePlaceholder": "Välj",
+      "services": [
+        {
+          "value": "Nybyggnation",
+          "label": "Nybyggnation"
+        },
+        {
+          "value": "Renovering och ombyggnad",
+          "label": "Renovering och ombyggnad"
+        },
+        {
+          "value": "Fastighetsförvaltning",
+          "label": "Fastighetsförvaltning"
+        },
+        {
+          "value": "Fastighetsdrift och skötsel",
+          "label": "Fastighetsdrift och skötsel"
+        },
+        {
+          "value": "Jobbansökan",
+          "label": "Jobbansökan"
+        },
+        {
+          "value": "Annat",
+          "label": "Annat"
+        }
+      ],
+      "message": "Beskriv kort vad ni behöver hjälp med",
+      "messageHint": "Till exempel omfattning, antal lägenheter eller kvadratmeter och önskad tidplan.",
+      "startDate": "Önskad start",
+      "attachment": "Ritningar eller bilder",
+      "subject": "Offertförfrågan"
+    },
+    "fault": {
+      "submit": "Skicka felanmälan",
+      "name": "Namn",
+      "address": "Adress",
+      "apartment": "Lägenhetsnummer",
+      "apartmentHint": "Finns i hyresavtalet eller på dörren.",
+      "phone": "Telefon",
+      "email": "E-post",
+      "issueType": "Typ av fel",
+      "issuePlaceholder": "Välj typ av fel",
+      "issues": [
+        {
+          "value": "Vatten och avlopp",
+          "label": "Vatten och avlopp"
+        },
+        {
+          "value": "El och belysning",
+          "label": "El och belysning"
+        },
+        {
+          "value": "Värme och ventilation",
+          "label": "Värme och ventilation"
+        },
+        {
+          "value": "Vitvaror",
+          "label": "Vitvaror"
+        },
+        {
+          "value": "Dörrar, lås och fönster",
+          "label": "Dörrar, lås och fönster"
+        },
+        {
+          "value": "Tvättstuga",
+          "label": "Tvättstuga"
+        },
+        {
+          "value": "Hiss",
+          "label": "Hiss"
+        },
+        {
+          "value": "Trapphus och gemensamma utrymmen",
+          "label": "Trapphus och gemensamma utrymmen"
+        },
+        {
+          "value": "Utemiljö och snöröjning",
+          "label": "Utemiljö och snöröjning"
+        },
+        {
+          "value": "Skadedjur",
+          "label": "Skadedjur"
+        },
+        {
+          "value": "Övrigt",
+          "label": "Övrigt"
+        }
+      ],
+      "description": "Beskriv felet",
+      "descriptionHint": "Var finns felet, när började det och har du provat något själv?",
+      "photo": "Bild på felet",
+      "masterKey": "Får vi gå in med huvudnyckel om du inte är hemma?",
+      "masterKeyYes": "Ja",
+      "masterKeyNo": "Nej, kontakta mig först"
+    }
+  },
+  "legal": {
+    "updatedLabel": "Senast uppdaterad",
+    "updated": "2026-10-25",
+    "privacy": {
+      "seo": {
+        "title": "Integritetspolicy",
+        "description": "Så behandlar {companyName} dina personuppgifter enligt dataskyddsförordningen (GDPR), och vilka rättigheter du har."
+      },
+      "h1": "Integritetspolicy",
+      "lead": "Här beskriver vi hur vi samlar in och använder personuppgifter, och vilka rättigheter du har.",
+      "sections": [
+        {
+          "title": "Personuppgiftsansvarig",
+          "body": [
+            "{companyName} (org.nr {orgNr}) är personuppgiftsansvarig för behandlingen av dina personuppgifter. Har du frågor kan du ringa oss på {phone} eller skriva till oss via kontaktformuläret."
+          ],
+          "links": [
+            {
+              "label": "Till kontaktformuläret",
+              "route": "contact#offert"
+            }
+          ]
+        },
+        {
+          "title": "Vilka uppgifter vi behandlar",
+          "body": [
+            "Vi behandlar de uppgifter du själv lämnar, till exempel när du skickar en offertförfrågan, gör en felanmälan, söker jobb eller är kund hos oss:"
+          ],
+          "list": [
+            "Namn och kontaktuppgifter (telefon, e-post, adress)",
+            "Lägenhetsnummer och uppgifter om fastigheten",
+            "Det du skriver i meddelanden och felanmälningar",
+            "Bilder och filer du laddar upp",
+            "Uppgifter i avtal, fakturor och ärenden"
+          ]
+        },
+        {
+          "title": "Varför vi behandlar uppgifterna",
+          "list": [
+            "Offertförfrågningar – för att svara och lämna offert. Rättslig grund: berättigat intresse och åtgärder före avtal.",
+            "Felanmälningar – för att åtgärda felet. Rättslig grund: fullgörande av avtal, till exempel hyres- eller förvaltningsavtal.",
+            "Kunder och avtal – för att fullgöra avtalet och fakturera. Rättslig grund: avtal.",
+            "Bokföring – för att uppfylla bokföringslagen. Rättslig grund: rättslig förpliktelse.",
+            "Jobbansökningar – för att hantera rekryteringen. Rättslig grund: berättigat intresse."
+          ]
+        },
+        {
+          "title": "Hur länge vi sparar uppgifterna",
+          "list": [
+            "Offertförfrågningar som inte leder till avtal: tolv månader.",
+            "Felanmälningar: två år efter att ärendet har avslutats.",
+            "Avtal och fakturor: sju år enligt bokföringslagen.",
+            "Jobbansökningar: sex månader efter avslutad rekrytering."
+          ]
+        },
+        {
+          "title": "Vem vi delar uppgifterna med",
+          "body": [
+            "Vi säljer aldrig dina uppgifter. Vi delar dem bara när det behövs för att utföra uppdraget, till exempel med:"
+          ],
+          "list": [
+            "hantverkare och underentreprenörer som åtgärdar ett fel eller utför ett uppdrag",
+            "fastighetsägaren eller bostadsrättsföreningen som vi förvaltar åt",
+            "leverantörer av IT och formulärhantering ({formProvider}) som behandlar uppgifter för vår räkning",
+            "myndigheter när lagen kräver det"
+          ]
+        },
+        {
+          "title": "Överföring utanför EU/EES",
+          "body": [
+            "Vissa IT-leverantörer kan behandla uppgifter utanför EU/EES, till exempel i USA. Vi ser då till att överföringen har stöd i dataskyddsförordningen, till exempel genom EU-kommissionens standardavtalsklausuler eller genom att mottagaren är ansluten till EU–US Data Privacy Framework."
+          ]
+        },
+        {
+          "title": "Dina rättigheter",
+          "body": [
+            "Du har rätt att:"
+          ],
+          "list": [
+            "få veta vilka uppgifter vi har om dig (registerutdrag)",
+            "få felaktiga uppgifter rättade",
+            "få uppgifter raderade när de inte längre behövs",
+            "begränsa eller invända mot behandlingen",
+            "få ut uppgifter du har lämnat i ett maskinläsbart format (dataportabilitet)",
+            "återkalla ett samtycke"
+          ],
+          "after": [
+            "Ring oss på {phone} eller skriv till oss via kontaktformuläret för att använda dina rättigheter."
+          ]
+        },
+        {
+          "title": "Klagomål",
+          "body": [
+            "Om du är missnöjd med hur vi behandlar dina personuppgifter kan du lämna klagomål till Integritetsskyddsmyndigheten (IMY), imy.se."
+          ]
+        },
+        {
+          "title": "Cookies",
+          "body": [
+            "Information om cookies finns på sidan om cookies."
+          ],
+          "links": [
+            {
+              "label": "Om cookies",
+              "route": "cookies"
+            }
+          ]
+        },
+        {
+          "title": "Ändringar",
+          "body": [
+            "Vi kan komma att uppdatera policyn. Den senaste versionen finns alltid här."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "seo": {
+        "title": "Cookies",
+        "description": "Information om cookies och liknande tekniker på {companyName}s webbplats."
+      },
+      "h1": "Cookies",
+      "lead": "Här beskriver vi vilka cookies och liknande tekniker som används på webbplatsen.",
+      "none": [
+        {
+          "title": "Vi använder inga cookies",
+          "body": [
+            "Webbplatsen sätter inga cookies och använder ingen spårning eller marknadsföringsteknik. Du behöver därför inte godkänna något när du besöker oss."
+          ]
+        },
+        {
+          "title": "Formulär",
+          "body": [
+            "När du skickar ett formulär skickas uppgifterna till vår formulärtjänst ({formProvider}). Läs mer i integritetspolicyn."
+          ],
+          "links": [
+            {
+              "label": "Integritetspolicy",
+              "route": "privacy"
+            }
+          ]
+        },
+        {
+          "title": "Vad är en cookie?",
+          "body": [
+            "En cookie är en liten textfil som en webbplats sparar i din webbläsare. Enligt lagen om elektronisk kommunikation ska du få information om cookies och lämna samtycke till sådana som inte är nödvändiga."
+          ]
+        }
+      ],
+      "analytics": [
+        {
+          "title": "Webbanalys",
+          "body": [
+            "Vi använder {analyticsName} för att se hur många som besöker webbplatsen och vilka sidor som används. Statistiken används för att förbättra webbplatsen. Analysverktyget laddas bara om du har godkänt det."
+          ]
+        },
+        {
+          "title": "Ditt val sparas i webbläsaren",
+          "body": [
+            "Ditt val sparas i webbläsarens lokala lagring så att vi inte behöver fråga igen. Du kan ändra ditt val när som helst med knappen nedan."
+          ]
+        },
+        {
+          "title": "Formulär",
+          "body": [
+            "När du skickar ett formulär skickas uppgifterna till vår formulärtjänst ({formProvider}). Läs mer i integritetspolicyn."
+          ],
+          "links": [
+            {
+              "label": "Integritetspolicy",
+              "route": "privacy"
+            }
+          ]
+        },
+        {
+          "title": "Vad är en cookie?",
+          "body": [
+            "En cookie är en liten textfil som en webbplats sparar i din webbläsare. Enligt lagen om elektronisk kommunikation ska du få information om cookies och lämna samtycke till sådana som inte är nödvändiga."
+          ]
+        }
+      ],
+      "changeConsent": "Ändra mitt val"
+    },
+    "accessibility": {
+      "seo": {
+        "title": "Tillgänglighetsredogörelse",
+        "description": "Så arbetar {companyName} med tillgänglighet på webbplatsen och hur du kontaktar oss om något inte fungerar."
+      },
+      "h1": "Tillgänglighetsredogörelse",
+      "lead": "Vi vill att alla ska kunna använda webbplatsen, oavsett funktionsförmåga eller hjälpmedel.",
+      "sections": [
+        {
+          "title": "Hur tillgänglig är webbplatsen?",
+          "body": [
+            "Webbplatsen är byggd för att uppfylla WCAG 2.1 på nivå AA. Den går att använda med tangentbord och skärmläsare, fungerar med förstorad text och följer inställningen för mörkt eller ljust läge i din enhet."
+          ]
+        },
+        {
+          "title": "Kända brister",
+          "list": [
+            "Nedladdningsbara blanketter i PDF-format är inte alltid fullt tillgängliga. Kontakta oss så hjälper vi dig på annat sätt."
+          ]
+        },
+        {
+          "title": "Kontakta oss om något inte fungerar",
+          "body": [
+            "Om du upptäcker problem eller behöver innehåll i ett annat format, ring oss på {phone} eller skriv till oss via kontaktformuläret. Vi svarar normalt inom ett par arbetsdagar."
+          ]
+        },
+        {
+          "title": "Hur vi har testat webbplatsen",
+          "body": [
+            "Webbplatsen har testats med automatiska verktyg och manuellt med tangentbord. Den senaste granskningen gjordes i oktober 2026."
+          ]
+        }
+      ]
+    }
+  },
+  "thanks": {
+    "seo": {
+      "title": "Tack för ditt meddelande",
+      "description": "Vi har tagit emot ditt meddelande."
+    },
+    "h1": "Tack! Vi har tagit emot ditt meddelande.",
+    "lead": "Vi återkommer så snart vi kan, normalt inom ett par arbetsdagar.",
+    "emergency": "Är det akut? Ring oss direkt:",
+    "back": "Till startsidan"
+  },
+  "notFound": {
+    "title": "Sidan finns inte",
+    "lead": "Sidan kan ha flyttats eller tagits bort. Prova någon av länkarna nedan."
+  },
+  "consent": {
+    "title": "Får vi mäta besöken?",
+    "text": "Vi vill använda {analyticsName} för att se hur webbplatsen används. Analysen laddas bara om du godkänner.",
+    "link": "Läs mer om cookies",
+    "accept": "Godkänn",
+    "decline": "Nej tack"
+  }
+}

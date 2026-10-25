@@ -1,0 +1,44 @@
+---
+import type { Lang } from '~/i18n/routes';
+import { getDict } from '~/i18n';
+
+export interface Crumb {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  lang: Lang;
+  items: Crumb[];
+  tone?: 'default' | 'night';
+}
+
+const { lang, items, tone = 'default' } = Astro.props;
+const t = getDict(lang);
+---
+
+<nav aria-label={t.nav.breadcrumbLabel} class:list={['text-sm', tone === 'night' ? 'text-night-muted' : 'text-muted']}>
+  <ol class="flex flex-wrap items-center gap-x-2 gap-y-1">
+    {
+      items.map((item, i) => {
+        const last = i === items.length - 1;
+        return (
+          <li class="flex items-center gap-2">
+            {last ? (
+              <span aria-current="page" class:list={[tone === 'night' ? 'text-night-ink' : 'text-ink', 'font-medium']}>
+                {item.label}
+              </span>
+            ) : (
+              <>
+                <a href={item.href} class="tap underline-offset-4 hover:underline">
+                  {item.label}
+                </a>
+                <span aria-hidden="true" class="opacity-60">/</span>
+              </>
+            )}
+          </li>
+        );
+      })
+    }
+  </ol>
+</nav>

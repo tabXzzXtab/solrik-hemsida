@@ -1,0 +1,49 @@
+---
+/**
+ * Hero for inner pages. The H1 and lead stay in the first mobile viewport;
+ * the image (if any) comes after the text on small screens.
+ */
+import type { Lang } from '~/i18n/routes';
+import type { ImageSlot } from '~/config/images';
+import Breadcrumbs, { type Crumb } from '~/components/layout/Breadcrumbs.astro';
+import Figure from './Figure.astro';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  lead?: string;
+  breadcrumbs: Crumb[];
+  image?: { src: ImageSlot['src']; alt: string } | null;
+}
+
+const { lang, title, lead, breadcrumbs, image } = Astro.props;
+---
+
+<div class="container-site pt-8 pb-16 lg:pt-10 lg:pb-24">
+  <Breadcrumbs lang={lang} items={breadcrumbs} />
+  <div class:list={['mt-10 grid gap-12 lg:mt-16 lg:grid-cols-12 lg:gap-16', image && 'lg:items-center']}>
+    <div class:list={[image ? 'lg:col-span-6' : 'lg:col-span-9']}>
+      <h1 class="text-h1 font-semibold tracking-[-0.02em]">{title}</h1>
+      {lead && <p class="mt-6 max-w-2xl text-lead text-muted">{lead}</p>}
+      {Astro.slots.has('actions') && (
+        <div class="mt-10 flex flex-wrap gap-3">
+          <slot name="actions" />
+        </div>
+      )}
+    </div>
+    {
+      image && (
+        <div class="lg:col-span-6">
+          <Figure
+            src={image.src}
+            alt={image.alt}
+            priority
+            aspect="aspect-[4/3]"
+            sizes="(min-width: 64rem) 46vw, 100vw"
+            widths={[480, 768, 1080, 1440]}
+          />
+        </div>
+      )
+    }
+  </div>
+</div>

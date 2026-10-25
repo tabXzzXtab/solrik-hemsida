@@ -1,0 +1,27 @@
+---
+/** Links to the same page in the other language (falls back to its home page). */
+import { getDict, OTHER_LANG } from '~/i18n';
+import { routePath, type Lang } from '~/i18n/routes';
+
+interface Props {
+  lang: Lang;
+  alternates: Partial<Record<Lang, string>>;
+  class?: string;
+  compact?: boolean;
+}
+
+const { lang, alternates, class: className, compact = false } = Astro.props;
+const t = getDict(lang);
+const other = OTHER_LANG[lang];
+const href = alternates[other] ?? routePath('home', other);
+---
+
+<a
+  href={href}
+  hreflang={other}
+  lang={other}
+  class:list={['inline-flex items-center underline-offset-4 hover:underline', className]}
+  aria-label={t.nav.otherLanguageLabel}
+>
+  {compact ? other.toUpperCase() : t.nav.otherLanguage}
+</a>

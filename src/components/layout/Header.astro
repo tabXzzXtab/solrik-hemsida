@@ -1,0 +1,156 @@
+---
+import { PHONE, TENANT_PORTAL_URL } from '~/config/company';
+import { getDict } from '~/i18n';
+import { routePath, servicePath, SERVICE_KEYS, type Lang, type RouteKey } from '~/i18n/routes';
+import { isRealUrl, telHref } from '~/lib/format';
+import { hiddenRoutes } from '~/lib/nav';
+import Icon from '~/components/ui/Icon.astro';
+import Button from '~/components/ui/Button.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import Logo from './Logo.astro';
+
+interface Props {
+  lang: Lang;
+  alternates: Partial<Record<Lang, string>>;
+}
+
+const { lang, alternates } = Astro.props;
+const t = getDict(lang);
+const current = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
+
+const allPrimary: Array<{ key: RouteKey; label: string }> = [
+  { key: 'services', label: t.nav.services },
+  { key: 'brf', label: t.nav.brf },
+  { key: 'projects', label: t.nav.projects },
+  { key: 'tenants', label: t.nav.tenants },
+  { key: 'about', label: t.nav.about },
+  { key: 'contact', label: t.nav.contact },
+];
+const hidden = await hiddenRoutes(lang);
+const primary = allPrimary.filter((item) => !hidden.has(item.key));
+const items = primary.map((item) => {
+  const href = routePath(item.key, lang);
+  return { ...item, href, exact: current === href, active: current.startsWith(href) };
+});
+
+const tel = telHref(PHONE);
+const faultHref = routePath('faultReport', lang);
+const portal = isRealUrl(TENANT_PORTAL_URL) ? TENANT_PORTAL_URL : null;
+const linkClass = 'underline-offset-4 hover:underline';
+---
+
+<!-- Utility bar (desktop) -->
+<div class="hidden border-b border-line bg-sunken text-sm lg:block">
+  <div class="container-site flex h-10 items-center justify-between gap-6">
+    <p class="text-muted">{t.footer.group}</p>
+    <nav aria-label={t.nav.utilityLabel}>
+      <ul class="flex items-center gap-7">
+        {!hidden.has('news') && <li><a href={routePath('news', lang)} class={linkClass}>{t.nav.news}</a></li>}
+        <li><a href={routePath('careers', lang)} class={linkClass}>{t.nav.careers}</a></li>
+        {portal && <li><a href={portal} class={linkClass}>{t.nav.myPages}</a></li>}
+        <li><LanguageSwitcher lang={lang} alternates={alternates} /></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<!-- Main bar: sticky at every size, so the menu (mobile) and phone number (desktop) stay in reach -->
+<header class="sticky top-0 z-40 border-b border-line bg-canvas [@media(max-height:30rem)]:static">
+  <div class="container-site flex h-[var(--header-h)] items-center justify-between gap-6">
+    <Logo lang={lang} />
+
+    <nav aria-label={t.nav.label} class="hidden xl:block">
+      <ul class="flex items-center gap-2">
+        {
+          items.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                aria-current={item.exact ? 'page' : undefined}
+                class:list={[
+                  'inline-flex min-h-11 items-center px-3 font-medium underline-offset-[6px] decoration-2 transition-colors hover:text-accent-text',
+                  item.active ? 'text-accent-text underline' : 'hover:underline',
+                ]}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="flex shrink-0 items-center gap-3 sm:gap-5">
+      {
+        tel ? (
+          <a href={tel} class="hidden font-semibold tabular-nums underline-offset-4 hover:underline lg:inline">{PHONE}</a>
+        ) : (
+          <span class="hidden font-semibold lg:inline">{PHONE}</span>
+        )
+      }
+      <!-- Visibility wrappers: Button/LanguageSwitcher set their own display -->
+      <div class="hidden md:block">
+        <Button href={faultHref} variant="primary">{t.nav.faultReport}</Button>
+      </div>
+      <div class="hidden sm:block lg:hidden">
+        <LanguageSwitcher lang={lang} alternates={alternates} compact class="min-h-11 px-1 text-sm font-medium" />
+      </div>
+      <button
+        type="button"
+        class="group inline-flex min-h-11 items-center gap-2 rounded-lg border-[1.5px] border-line-strong px-4 font-semibold xl:hidden"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        data-menu-toggle
+      >
+        <Icon name="menu" size={20} class="group-aria-expanded:hidden" />
+        <Icon name="x" size={20} class="hidden group-aria-expanded:block" />
+        <span>{t.nav.menu}</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile / tablet menu -->
+  <div id="mobile-menu" hidden class="max-h-[calc(100dvh-var(--header-h))] overflow-y-auto border-t border-line bg-canvas xl:hidden">
+    <nav aria-label={t.nav.label} class="container-site pt-8 pb-28 lg:pb-10">
+      <ul class="divide-y divide-line border-y border-line">
+        {
+          items.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                aria-current={item.exact ? 'page' : undefined}
+                class:list={['flex min-h-16 items-center font-display text-2xl font-semibold tracking-tight', item.active && 'text-accent-text']}
+              >
+                {item.label}
+              </a>
+              {item.key === 'services' && (
+                <ul class="mb-5 grid gap-1 sm:grid-cols-2">
+                  {SERVICE_KEYS.map((key) => (
+                    <li>
+                      <a href={servicePath(key, lang)} class="flex min-h-11 items-center text-muted underline-offset-4 hover:underline">
+                        {t.services.items[key].name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+      <ul class="mt-8 grid grid-cols-2 gap-x-6 gap-y-1 text-base">
+        {!hidden.has('news') && <li><a href={routePath('news', lang)} class="flex min-h-11 items-center underline-offset-4 hover:underline">{t.nav.news}</a></li>}
+        <li><a href={routePath('careers', lang)} class="flex min-h-11 items-center underline-offset-4 hover:underline">{t.nav.careers}</a></li>
+        {portal && <li><a href={portal} class="flex min-h-11 items-center underline-offset-4 hover:underline">{t.nav.myPages}</a></li>}
+        <li><LanguageSwitcher lang={lang} alternates={alternates} class="min-h-11" /></li>
+      </ul>
+      <div class="mt-8 space-y-2 text-base">
+        <p><span class="text-muted">{t.nav.callUs}:</span>{' '}{tel ? <a href={tel} class="font-semibold underline">{PHONE}</a> : <span class="font-semibold">{PHONE}</span>}</p>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  import '~/scripts/menu';
+</script>

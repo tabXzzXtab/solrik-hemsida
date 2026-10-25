@@ -1,0 +1,63 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { getDict } from '~/i18n';
+import { routeAlternates, type Lang } from '~/i18n/routes';
+import { getProjects } from '~/lib/content';
+import { crumbs } from '~/lib/nav';
+import PageHero from '~/components/ui/PageHero.astro';
+import ProjectCard from '~/components/blocks/ProjectCard.astro';
+import ProjectFilter from '~/components/blocks/ProjectFilter.astro';
+import CTABand from '~/components/blocks/CTABand.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getDict(lang);
+const p = t.projects;
+const projects = await getProjects(lang);
+const years = [...new Set(projects.map((e) => e.data.year))].sort((a, b) => b - a);
+const trail = crumbs(lang, 'projects');
+---
+
+<BaseLayout
+  lang={lang}
+  title={p.seo.title}
+  description={p.seo.description}
+  alternates={routeAlternates('projects')}
+  noindex={!projects.length}
+  breadcrumbs={trail}
+  pageType="CollectionPage"
+>
+  <PageHero lang={lang} title={p.h1} lead={p.lead} breadcrumbs={trail} />
+
+  <section aria-label={p.h1} class="pb-12 lg:pb-16">
+    <div class="container-site">
+      {
+        projects.length ? (
+          <>
+            <ProjectFilter lang={lang} years={years} total={projects.length} />
+            <ul class="mt-12 grid gap-x-10 gap-y-16 md:grid-cols-2 lg:mt-16 lg:grid-cols-3">
+              {projects.map((entry) => (
+                <li data-project-item data-category={entry.data.category} data-year={String(entry.data.year)}>
+                  <ProjectCard lang={lang} entry={entry} headingLevel={2} />
+                </li>
+              ))}
+            </ul>
+            <div data-filter-empty hidden class="mt-12 rounded-[var(--radius-card)] bg-sunken p-10 text-center">
+              <p class="text-lead">{p.filter.empty}</p>
+              <button type="button" data-filter-reset class="mt-4 inline-flex min-h-11 items-center font-semibold text-accent-text underline">
+                {p.filter.reset}
+              </button>
+            </div>
+          </>
+        ) : (
+          <p class="text-lead text-muted">{p.empty}</p>
+        )
+      }
+    </div>
+  </section>
+
+  <CTABand lang={lang} title={p.cta.title} text={p.cta.text} />
+</BaseLayout>

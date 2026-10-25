@@ -1,0 +1,26 @@
+---
+/**
+ * Heading level (document structure) is independent from appearance (style),
+ * so editors can pick the right level without changing the look.
+ */
+interface Props {
+  level?: 1 | 2 | 3 | 4;
+  appearance?: 'display' | 'h1' | 'h2' | 'h3' | 'h4';
+  class?: string;
+  id?: string;
+}
+
+const { level = 2, appearance, class: className, id } = Astro.props;
+const Tag = `h${level}` as 'h1' | 'h2' | 'h3' | 'h4';
+const look = appearance ?? (`h${level}` as const);
+
+const styles = {
+  display: 'text-display font-semibold tracking-[-0.022em]',
+  h1: 'text-h1 font-semibold tracking-[-0.02em]',
+  h2: 'text-h2 font-semibold',
+  h3: 'text-h3 font-semibold',
+  h4: 'text-lg font-semibold tracking-normal',
+};
+---
+
+<Tag id={id} class:list={[styles[look], className]}><slot /></Tag>

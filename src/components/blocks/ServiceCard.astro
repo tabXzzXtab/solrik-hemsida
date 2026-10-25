@@ -1,0 +1,32 @@
+---
+import type { Lang } from '~/i18n/routes';
+import type { ImageSlot } from '~/config/images';
+import Figure from '~/components/ui/Figure.astro';
+
+interface Props {
+  lang: Lang;
+  name: string;
+  text: string;
+  href: string;
+  image: ImageSlot;
+  headingLevel?: 2 | 3;
+}
+
+const { lang, name, text, href, image, headingLevel = 3 } = Astro.props;
+const H = `h${headingLevel}` as 'h2' | 'h3';
+---
+
+<article class="group relative flex h-full flex-col">
+  <Figure
+    src={image.src}
+    alt={image.alt[lang]}
+    aspect="aspect-[4/3]"
+    sizes="(min-width: 80rem) 22vw, (min-width: 40rem) 45vw, 100vw"
+    widths={[400, 640, 900]}
+    imgClass="transition-transform duration-300 motion-safe:group-hover:scale-[1.02]"
+  />
+  <H class="mt-6 text-h3 font-semibold">
+    <a href={href} class="card-link underline-offset-4 group-hover:underline">{name}</a>
+  </H>
+  <p class="mt-2 text-muted">{text}</p>
+</article>

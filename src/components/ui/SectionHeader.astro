@@ -1,0 +1,29 @@
+---
+/** Section heading with an optional intro and an optional text link aligned to the right. */
+import Heading from './Heading.astro';
+
+interface Props {
+  id: string;
+  title: string;
+  intro?: string;
+  level?: 2 | 3;
+  link?: { href: string; label: string } | null;
+  class?: string;
+}
+
+const { id, title, intro, level = 2, link, class: className } = Astro.props;
+---
+
+<header class:list={['flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between lg:gap-16', className]}>
+  <div class="max-w-3xl">
+    <Heading level={level} appearance="h2" id={id}>{title}</Heading>
+    {intro && <p class="mt-4 text-lead text-muted">{intro}</p>}
+  </div>
+  {
+    link && (
+      <a href={link.href} class="tap shrink-0 font-semibold text-accent-text underline underline-offset-4 decoration-1 hover:decoration-2">
+        {link.label}
+      </a>
+    )
+  }
+</header>

@@ -1,0 +1,55 @@
+---
+/** Felanmälan / fault report. Field names are identical in both languages (one Netlify form). */
+import { MAX_UPLOAD_BYTES } from '~/config/site';
+import { getDict } from '~/i18n';
+import type { Lang } from '~/i18n/routes';
+import { fill } from '~/lib/format';
+import Form from './Form.astro';
+import Field from './Field.astro';
+import ConsentField from './ConsentField.astro';
+import RadioGroup from './RadioGroup.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getDict(lang);
+const f = t.forms.fault;
+const max = String(MAX_UPLOAD_BYTES / 1024 / 1024);
+const id = 'fault';
+---
+
+<Form lang={lang} form="faultReport" id="fault-form" submitLabel={f.submit} subject={t.nav.faultReport}>
+  <Field lang={lang} id={`${id}-name`} name="name" label={f.name} required autocomplete="name" />
+  <div class="grid gap-8 sm:grid-cols-[2fr_1fr]">
+    <Field lang={lang} id={`${id}-address`} name="address" label={f.address} required autocomplete="street-address" />
+    <Field lang={lang} id={`${id}-apartment`} name="apartment" label={f.apartment} hint={f.apartmentHint} inputmode="numeric" maxlength={12} />
+  </div>
+  <div class="grid gap-8 sm:grid-cols-2">
+    <Field lang={lang} id={`${id}-phone`} name="phone" type="tel" label={f.phone} required autocomplete="tel" inputmode="tel" pattern="[0-9+\(\)\s\-]{6,}" />
+    <Field lang={lang} id={`${id}-email`} name="email" type="email" label={f.email} required autocomplete="email" />
+  </div>
+  <Field lang={lang} id={`${id}-type`} name="issue_type" as="select" label={f.issueType} required placeholder={f.issuePlaceholder} options={f.issues} />
+  <Field lang={lang} id={`${id}-description`} name="description" as="textarea" label={f.description} hint={f.descriptionHint} required maxlength={4000} />
+  <Field
+    lang={lang}
+    id={`${id}-photo`}
+    name="photo"
+    type="file"
+    label={f.photo}
+    hint={fill(t.forms.imageHint, { max })}
+    accept="image/*,.heic,.heif"
+  />
+  <RadioGroup
+    lang={lang}
+    id={`${id}-master-key`}
+    name="master_key"
+    legend={f.masterKey}
+    options={[
+      { value: 'ja', label: f.masterKeyYes },
+      { value: 'nej', label: f.masterKeyNo },
+    ]}
+  />
+  <ConsentField lang={lang} id={`${id}-consent`} />
+</Form>

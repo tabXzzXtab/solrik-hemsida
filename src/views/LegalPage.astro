@@ -1,0 +1,85 @@
+---
+/** Integritetspolicy, Cookies and Tillgänglighetsredogörelse share this template. */
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { ANALYTICS_ENABLED } from '~/config/site';
+import { getDict } from '~/i18n';
+import { resolveRoute, routeAlternates, type Lang } from '~/i18n/routes';
+import { crumbs } from '~/lib/nav';
+import Breadcrumbs from '~/components/layout/Breadcrumbs.astro';
+
+interface Props {
+  lang: Lang;
+  page: 'privacy' | 'cookies' | 'accessibility';
+}
+
+interface LegalSection {
+  title: string;
+  body?: string[];
+  list?: string[];
+  after?: string[];
+  links?: Array<{ label: string; route: string }>;
+}
+
+const { lang, page } = Astro.props;
+const t = getDict(lang);
+const legal = t.legal;
+const doc = legal[page];
+const sections: LegalSection[] =
+  page === 'cookies' ? (ANALYTICS_ENABLED ? legal.cookies.analytics : legal.cookies.none) : page === 'privacy' ? legal.privacy.sections : legal.accessibility.sections;
+const trail = crumbs(lang, { label: doc.h1, href: Astro.url.pathname });
+const slug = (s: string) =>
+  s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+---
+
+<BaseLayout lang={lang} title={doc.seo.title} description={doc.seo.description} alternates={routeAlternates(page)} breadcrumbs={trail}>
+  <div class="container-site pt-8 pb-20 lg:pt-10 lg:pb-32">
+    <Breadcrumbs lang={lang} items={trail} />
+    <header class="mt-10 max-w-2xl lg:mt-16">
+      <h1 class="text-h1 font-semibold tracking-[-0.02em]">{doc.h1}</h1>
+      <p class="mt-6 text-lead text-muted">{doc.lead}</p>
+      <p class="mt-4 text-sm text-muted">{legal.updatedLabel}: {legal.updated}</p>
+    </header>
+
+    <div class="mt-14 grid gap-12 lg:mt-20 lg:grid-cols-12 lg:gap-20">
+      <nav aria-labelledby="toc-title" class="lg:col-span-3">
+        <div class="lg:sticky lg:top-[calc(var(--header-h)+2rem)]">
+          <p id="toc-title" class="text-sm text-muted">{t.common.onThisPage}</p>
+          <ol class="mt-2 text-base">
+            {sections.map((s) => <li><a href={`#${slug(s.title)}`} class="block py-2.5 underline-offset-4 hover:underline">{s.title}</a></li>)}
+          </ol>
+        </div>
+      </nav>
+
+      <div class="max-w-[62ch] lg:col-span-8 lg:col-start-5">
+        {
+          sections.map((s) => (
+            <section id={slug(s.title)} aria-labelledby={`${slug(s.title)}-h`} class="scroll-mt-28 pb-12">
+              <h2 id={`${slug(s.title)}-h`} class="text-h3 font-semibold">{s.title}</h2>
+              <div class="mt-4 space-y-4">
+                {s.body?.map((p) => <p>{p}</p>)}
+                {s.list && (
+                  <ul class="list-disc space-y-2 pl-5 marker:text-line-strong">
+                    {s.list.map((li) => <li>{li}</li>)}
+                  </ul>
+                )}
+                {s.after?.map((p) => <p>{p}</p>)}
+                {s.links?.map((link) => (
+                  <p>
+                    <a href={resolveRoute(link.route, lang)} class="tap font-semibold text-accent-text underline underline-offset-4">{link.label}</a>
+                  </p>
+                ))}
+              </div>
+            </section>
+          ))
+        }
+        {
+          page === 'cookies' && ANALYTICS_ENABLED && (
+            <button type="button" data-consent-reset class="inline-flex min-h-12 items-center rounded-lg border-[1.5px] border-line-strong px-6 font-semibold hover:border-ink">
+              {legal.cookies.changeConsent}
+            </button>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</BaseLayout>

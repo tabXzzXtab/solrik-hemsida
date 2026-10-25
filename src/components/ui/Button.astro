@@ -1,0 +1,50 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+/**
+ * primary / secondary: on light backgrounds. outline-light: on the dark footer.
+ */
+type Variant = 'primary' | 'secondary' | 'outline-light';
+
+interface Props extends Omit<HTMLAttributes<'a'>, 'href'> {
+  href?: string | null;
+  variant?: Variant;
+  size?: 'md' | 'lg';
+  type?: 'button' | 'submit';
+  class?: string;
+  full?: boolean;
+}
+
+const { href, variant = 'primary', size = 'md', type = 'button', class: className, full = false, ...rest } = Astro.props;
+
+const variants: Record<Variant, string> = {
+  primary: 'bg-accent text-accent-ink border-transparent hover:bg-accent-strong',
+  secondary: 'bg-transparent text-ink border-line-strong hover:border-ink',
+  'outline-light': 'bg-transparent text-night-ink border-night-ink/60 hover:border-night-ink',
+};
+
+const sizes = {
+  md: 'min-h-12 px-6 text-base',
+  lg: 'min-h-14 px-7 text-[1.0625rem]',
+};
+
+const classes = [
+  'inline-flex items-center justify-center rounded-lg border-[1.5px] font-semibold leading-tight no-underline transition duration-150 active:scale-[0.98]',
+  variants[variant],
+  sizes[size],
+  full && 'w-full',
+  className,
+];
+---
+
+{
+  href ? (
+    <a href={href} class:list={classes} {...rest}>
+      <slot />
+    </a>
+  ) : (
+    <button type={type} class:list={classes} {...(rest as HTMLAttributes<'button'>)}>
+      <slot />
+    </button>
+  )
+}

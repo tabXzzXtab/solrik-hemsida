@@ -1,0 +1,15 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  meta?: string;
+  label: string;
+}
+
+const { href, title, meta = 'PDF', label } = Astro.props;
+---
+
+<a href={href} download class="group flex items-baseline justify-between gap-6 border-t border-line py-5 no-underline">
+  <span class="font-medium group-hover:underline underline-offset-4">{title}</span>
+  <span class="shrink-0 text-sm text-muted">{label} ({meta})</span>
+</a>

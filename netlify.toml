@@ -1,0 +1,22 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Swedish lives at the root; send guessed /sv/ URLs to the real page in one hop.
+[[redirects]]
+  from = "/sv/*"
+  to = "/:splat"
+  status = 301
+  force = true
+
+# Preview/branch deploys: never index (the HTML also gets noindex via CONTEXT).
+[context.deploy-preview]
+  [context.deploy-preview.environment]
+    PUBLIC_NOINDEX = "true"
+
+[context.branch-deploy]
+  [context.branch-deploy.environment]
+    PUBLIC_NOINDEX = "true"

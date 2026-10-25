@@ -1,0 +1,82 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { IMAGES } from '~/config/images';
+import { getDict } from '~/i18n';
+import { routeAlternates, routePath, type Lang } from '~/i18n/routes';
+import { getJobs } from '~/lib/content';
+import { crumbs } from '~/lib/nav';
+import Button from '~/components/ui/Button.astro';
+import PageHero from '~/components/ui/PageHero.astro';
+import Section from '~/components/ui/Section.astro';
+import SectionHeader from '~/components/ui/SectionHeader.astro';
+import JobRow from '~/components/blocks/JobRow.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getDict(lang);
+const c = t.careers;
+const jobs = await getJobs(lang);
+const trail = crumbs(lang, 'careers');
+---
+
+<BaseLayout
+  lang={lang}
+  title={c.seo.title}
+  description={c.seo.description}
+  alternates={routeAlternates('careers')}
+  image={IMAGES.careers.src}
+  imageAlt={IMAGES.careers.alt[lang]}
+  breadcrumbs={trail}
+>
+  <PageHero lang={lang} title={c.h1} lead={c.lead} breadcrumbs={trail} image={{ src: IMAGES.careers.src, alt: IMAGES.careers.alt[lang] }}>
+    <Fragment slot="actions">
+      <Button href="#positions">{c.positions.title}</Button>
+    </Fragment>
+  </PageHero>
+
+  <Section labelledby="why-title" flush="top">
+    <SectionHeader id="why-title" title={c.whyTitle} />
+    <ul class="mt-12 grid gap-x-12 gap-y-12 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4">
+      {
+        c.why.map((item) => (
+          <li>
+            <h3 class="text-xl font-semibold">{item.title}</h3>
+            <p class="mt-2 text-muted">{item.text}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </Section>
+
+  <Section id="positions" tone="sunken" labelledby="positions-title">
+    <SectionHeader id="positions-title" title={c.positions.title} />
+    {
+      jobs.length ? (
+        <div class="mt-10 border-b border-line lg:mt-14">
+          {jobs.map((entry) => <JobRow lang={lang} entry={entry} />)}
+        </div>
+      ) : (
+        <p class="mt-10 text-lead text-muted">{c.positions.empty}</p>
+      )
+    }
+  </Section>
+
+  <Section labelledby="spontaneous-title">
+    <div class="grid gap-8 lg:grid-cols-2">
+      <div class="rounded-[var(--radius-card)] bg-accent-soft p-10 lg:p-14">
+        <h2 id="spontaneous-title" class="text-h2 font-semibold">{c.spontaneous.title}</h2>
+        <p class="mt-4 max-w-md text-lead text-muted">{c.spontaneous.text}</p>
+        <div class="mt-10">
+          <Button href={`${routePath('contact', lang)}#offert`} size="lg">{c.spontaneous.button}</Button>
+        </div>
+      </div>
+      <div class="rounded-[var(--radius-card)] bg-sunken p-10 lg:p-14">
+        <h2 class="text-h2 font-semibold">{c.apprentices.title}</h2>
+        <p class="mt-4 max-w-md text-lead text-muted">{c.apprentices.text}</p>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>

@@ -1,0 +1,31 @@
+---
+/** Project image gallery with captions. */
+import type { ImageMetadata } from 'astro';
+import Figure from '~/components/ui/Figure.astro';
+
+interface Props {
+  images: Array<{ src: ImageMetadata; alt: string }>;
+}
+
+const { images } = Astro.props;
+---
+
+<ul class="mt-10 grid gap-10 md:grid-cols-2 lg:gap-12">
+  {
+    images.map((img, i) => {
+      const wide = images.length % 2 === 1 && i === 0;
+      return (
+        <li class:list={[wide && 'md:col-span-2']}>
+          <Figure
+            src={img.src}
+            alt={img.alt}
+            caption={img.alt}
+            aspect={wide ? 'aspect-[16/9]' : 'aspect-[3/2]'}
+            sizes={wide ? '(min-width: 86rem) 79rem, 100vw' : '(min-width: 48rem) 45vw, 100vw'}
+            widths={wide ? [640, 1080, 1600] : [480, 768, 1080]}
+          />
+        </li>
+      );
+    })
+  }
+</ul>

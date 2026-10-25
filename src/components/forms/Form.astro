@@ -1,0 +1,119 @@
+---
+/**
+ * Form shell shared by the quote and fault-report forms.
+ *
+ * Provider (PUBLIC_FORM_PROVIDER):
+ *   netlify   – Netlify Forms; detected at deploy from data-netlify. No-JS posts redirect to the thank-you page.
+ *   formspree – posts to PUBLIC_FORM_ENDPOINT_* (https://formspree.io/f/…).
+ *   custom    – posts multipart/form-data to PUBLIC_FORM_ENDPOINT_*; any 2xx counts as success.
+ *
+ * Spam: hidden honeypot field (bot-field / _gotcha). With JS, submissions are
+ * validated client-side and sent with fetch; without JS the browser's native
+ * validation and a normal POST are used.
+ */
+import { FORM_ENDPOINTS, FORM_PROVIDER, MAX_UPLOAD_BYTES, NETLIFY_FORM_NAMES, type FormName } from '~/config/site';
+import { getDict } from '~/i18n';
+import { routePath, type Lang } from '~/i18n/routes';
+import { fill } from '~/lib/format';
+
+interface Props {
+  lang: Lang;
+  form: FormName;
+  id: string;
+  submitLabel: string;
+  /** Subject line for e-mail notifications (Formspree/custom). */
+  subject: string;
+}
+
+const { lang, form, id, submitLabel, subject } = Astro.props;
+const t = getDict(lang);
+const maxMb = String(MAX_UPLOAD_BYTES / 1024 / 1024);
+
+const netlify = FORM_PROVIDER === 'netlify';
+const endpoint = netlify ? '/' : FORM_ENDPOINTS[form];
+const action = netlify ? routePath('thanks', lang) : endpoint;
+const honeypotName = netlify ? 'bot-field' : FORM_PROVIDER === 'formspree' ? '_gotcha' : 'website';
+const missingEndpoint = !netlify && !endpoint;
+const netlifyAttrs = netlify ? { 'data-netlify': 'true', 'netlify-honeypot': 'bot-field' } : {};
+---
+
+<div class="relative">
+  {
+    missingEndpoint && (
+      <p role="note" class="mb-6 border-l-4 border-danger bg-danger-soft p-4 text-sm">
+        PUBLIC_FORM_PROVIDER={FORM_PROVIDER}, men endpoint saknas. Sätt {form === 'quote' ? 'PUBLIC_FORM_ENDPOINT_QUOTE' : 'PUBLIC_FORM_ENDPOINT_FAULT_REPORT'} i miljövariablerna.
+      </p>
+    )
+  }
+  <form
+    id={id}
+    name={NETLIFY_FORM_NAMES[form]}
+    method="POST"
+    action={action}
+    enctype="multipart/form-data"
+    data-form
+    data-provider={FORM_PROVIDER}
+    data-endpoint={endpoint}
+    data-max-bytes={MAX_UPLOAD_BYTES}
+    data-msg-required={t.forms.errors.required}
+    data-msg-select={t.forms.errors.select}
+    data-msg-email={t.forms.errors.email}
+    data-msg-tel={t.forms.errors.tel}
+    data-msg-file-size={fill(t.forms.errors.fileSize, { max: maxMb })}
+    data-msg-file-type={t.forms.errors.fileType}
+    data-msg-consent={t.forms.errors.consent}
+    data-msg-sending={t.forms.sending}
+    class="space-y-6"
+    {...netlifyAttrs}
+  >
+    {netlify && <input type="hidden" name="form-name" value={NETLIFY_FORM_NAMES[form]} />}
+    {!netlify && <input type="hidden" name="form" value={form} />}
+    <input type="hidden" name="language" value={lang} />
+    <input type="hidden" name="_subject" value={subject} />
+
+    <div
+      data-error-summary
+      hidden
+      tabindex="-1"
+      class="rounded-[var(--radius-card)] bg-danger-soft p-6 outline-none focus-visible:outline-3 focus-visible:outline-danger"
+      aria-labelledby={`${id}-summary-title`}
+      role="group"
+    >
+      <p id={`${id}-summary-title`} class="font-semibold text-danger">{t.forms.summaryTitle}</p>
+      <ul class="mt-3 list-inside list-disc space-y-1 text-base"></ul>
+    </div>
+
+    <p data-honeypot class="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
+      <label>
+        {t.forms.honeypot}
+        <input type="text" name={honeypotName} tabindex="-1" autocomplete="off" />
+      </label>
+    </p>
+
+    <slot />
+
+    <p class="text-sm text-muted">{t.forms.requiredNote}</p>
+
+    <div data-form-error hidden role="alert" class="rounded-[var(--radius-card)] bg-danger-soft p-6">
+      <p class="font-semibold text-danger">{t.forms.errorTitle}</p>
+      <p class="mt-1 text-base">{t.forms.errorText}</p>
+    </div>
+
+    <button
+      type="submit"
+      data-submit
+      class="inline-flex min-h-14 w-full items-center justify-center rounded-lg bg-accent px-8 text-[1.0625rem] font-semibold text-accent-ink transition-colors hover:bg-accent-strong disabled:cursor-wait disabled:opacity-70 sm:w-auto"
+    >
+      <span data-submit-label>{submitLabel}</span>
+    </button>
+  </form>
+
+  <div data-form-success hidden tabindex="-1" role="status" class="rounded-[var(--radius-card)] bg-success-soft p-8 outline-none lg:p-10">
+    <p class="font-display text-2xl font-semibold">{t.forms.successTitle}</p>
+    <p class="mt-3">{t.forms.successText}</p>
+  </div>
+</div>
+
+<script>
+  import '~/scripts/forms';
+</script>

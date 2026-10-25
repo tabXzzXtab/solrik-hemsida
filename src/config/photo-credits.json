@@ -1,0 +1,121 @@
+{
+  "hero": {
+    "id": 17327952,
+    "photographer": "Efrem Efre",
+    "photographerUrl": "https://www.pexels.com/@efrem-efre-2786187",
+    "url": "https://www.pexels.com/photo/apartment-blocks-in-a-residential-part-of-a-city-17327952/",
+    "alt": "Contemporary apartment buildings with colorful balconies in Jönköping, Sweden."
+  },
+  "nybyggnation": {
+    "id": 209266,
+    "photographer": "Pixabay",
+    "photographerUrl": "https://www.pexels.com/@pixabay",
+    "url": "https://www.pexels.com/photo/brown-and-gray-wooden-2-storey-house-near-tree-209266/",
+    "alt": "A partially built wooden house under construction, showcasing its progress and design in daylight."
+  },
+  "renovering": {
+    "id": 5511087,
+    "photographer": "Mike van Schoonderwalt",
+    "photographerUrl": "https://www.pexels.com/@mike-van-schoonderwalt-1884800",
+    "url": "https://www.pexels.com/photo/a-building-in-a-city-being-restored-5511087/",
+    "alt": "Scaffolding at a city construction site with clear blue skies."
+  },
+  "fastighetsforvaltning": {
+    "id": 20164723,
+    "photographer": "Efrem Efre",
+    "photographerUrl": "https://www.pexels.com/@efrem-efre-2786187",
+    "url": "https://www.pexels.com/photo/residential-building-with-balconies-20164723/",
+    "alt": "Contemporary apartment building with balconies in Jönköping, Sweden."
+  },
+  "fastighetsdrift": {
+    "id": 12087398,
+    "photographer": "Vaan Photography",
+    "photographerUrl": "https://www.pexels.com/@vaan-photos",
+    "url": "https://www.pexels.com/photo/a-man-mowing-the-green-lawn-12087398/",
+    "alt": "A man operating a lawn mower on a sunny day in a lush green garden, surrounded by trees and foliage."
+  },
+  "brf": {
+    "id": 18816141,
+    "photographer": "Efrem Efre",
+    "photographerUrl": "https://www.pexels.com/@efrem-efre-2786187",
+    "url": "https://www.pexels.com/photo/apartment-building-18816141/",
+    "alt": "A modern apartment building in Jönköping, Sweden with stylish balconies and autumn foliage."
+  },
+  "hyresgast": {
+    "id": 29174543,
+    "photographer": "SHOX ART",
+    "photographerUrl": "https://www.pexels.com/@shox",
+    "url": "https://www.pexels.com/photo/green-residential-building-in-urban-area-29174543/",
+    "alt": "Green apartment building with autumn foliage and empty benches on a cloudy day."
+  },
+  "om-oss": {
+    "id": 8961007,
+    "photographer": "Mikael Blomkvist",
+    "photographerUrl": "https://www.pexels.com/@mikael-blomkvist",
+    "url": "https://www.pexels.com/photo/man-in-blue-shirt-wearing-yellow-hard-hat-standing-beside-a-woman-in-blue-long-sleeve-shirt-8961007/",
+    "alt": "Two engineers at a construction site wearing hard hats and safety vests, standing confidently."
+  },
+  "karriar": {
+    "id": 8961401,
+    "photographer": "Mikael Blomkvist",
+    "photographerUrl": "https://www.pexels.com/@mikael-blomkvist",
+    "url": "https://www.pexels.com/photo/man-in-black-shirt-holding-black-power-tool-8961401/",
+    "alt": "A construction worker using a power drill on a building site, outdoors during the day."
+  },
+  "projekt-stambyte-1": {
+    "id": 26568746,
+    "photographer": "Damir K",
+    "photographerUrl": "https://www.pexels.com/@damir",
+    "url": "https://www.pexels.com/photo/traditional-brick-buildings-in-a-city-26568746/",
+    "alt": "Aerial view of traditional brick apartments with red rooftops in a lush green neighborhood."
+  },
+  "projekt-stambyte-2": {
+    "id": 8134805,
+    "photographer": "Max Vakhtbovych",
+    "photographerUrl": "https://www.pexels.com/@artbovich",
+    "url": "https://www.pexels.com/photo/gray-and-white-tiled-bathroom-8134805/",
+    "alt": "A spacious and stylish bathroom featuring modern design elements like a sleek bathtub and stone tiles."
+  },
+  "projekt-stambyte-3": {
+    "id": 29226620,
+    "photographer": "Sergei Starostin",
+    "photographerUrl": "https://www.pexels.com/@sejio402",
+    "url": "https://www.pexels.com/photo/professional-plumber-installing-a-radiator-pipe-29226620/",
+    "alt": "Close-up of a plumber installing a radiator pipe using specialized tools."
+  },
+  "projekt-parhus-1": {
+    "id": 14128509,
+    "photographer": "Jan van der Wolf",
+    "photographerUrl": "https://www.pexels.com/@jan-van-der-wolf-11680885",
+    "url": "https://www.pexels.com/photo/brick-houses-under-the-blue-sky-14128509/",
+    "alt": "Contemporary brick houses with triangular roofs stand tall under a vivid blue sky."
+  },
+  "projekt-parhus-2": {
+    "id": 37499254,
+    "photographer": "SERHAT TUĞ",
+    "photographerUrl": "https://www.pexels.com/@serhattugg",
+    "url": "https://www.pexels.com/photo/construction-worker-inspecting-roof-frame-outdoors-37499254/",
+    "alt": "A construction worker surveys a wooden roof frame build on a sunny day."
+  },
+  "projekt-parhus-3": {
+    "id": 4792480,
+    "photographer": "Anete Lusina",
+    "photographerUrl": "https://www.pexels.com/@anete-lusina",
+    "url": "https://www.pexels.com/photo/pen-with-ruler-and-eyeglasses-placed-on-house-plan-4792480/",
+    "alt": "From above of ruler with pencil and glasses placed on paper sheet of house plan for construction"
+  },
+  "nyhet-projekt": {
+    "id": 38031941,
+    "photographer": "Hakan Tunc",
+    "photographerUrl": "https://www.pexels.com/@hakan-tunc-1340594407",
+    "url": "https://www.pexels.com/photo/historic-green-building-in-munich-germany-38031941/",
+    "alt": "A beautiful view of a historic green building with red roof in Munich, Germany, showcasing European architectural charm."
+  },
+  "nyhet-vinter": {
+    "id": 35610382,
+    "photographer": "Werner Redlich",
+    "photographerUrl": "https://www.pexels.com/@werner-redlich-993686172",
+    "url": "https://www.pexels.com/photo/snow-covered-suburban-neighborhood-on-sunny-winter-day-35610382/",
+    "alt": "A quiet suburban street covered in snow, with houses and cars under a clear blue sky."
+  }
+}

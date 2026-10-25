@@ -1,0 +1,29 @@
+---
+/** Fallback thank-you page for form posts without JavaScript (Netlify Forms). Not indexed. */
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { getDict } from '~/i18n';
+import { routeAlternates, routePath, type Lang } from '~/i18n/routes';
+import Button from '~/components/ui/Button.astro';
+import EmergencyNotice from '~/components/blocks/EmergencyNotice.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getDict(lang);
+const th = t.thanks;
+---
+
+<BaseLayout lang={lang} title={th.seo.title} description={th.seo.description} alternates={routeAlternates('thanks')} noindex>
+  <div class="container-site py-24 lg:py-40">
+    <div class="max-w-3xl">
+      <h1 class="text-h1 font-semibold tracking-[-0.02em]">{th.h1}</h1>
+      <p class="mt-6 text-lead text-muted">{th.lead}</p>
+      <EmergencyNotice text={th.emergency} callLabel={t.tenants.emergency.call} class="mt-12" />
+      <div class="mt-12">
+        <Button href={routePath('home', lang)} variant="secondary">{th.back}</Button>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,38 @@
+---
+import type { Lang } from '~/i18n/routes';
+import { routePath } from '~/i18n/routes';
+import { getDict } from '~/i18n';
+import { PHONE } from '~/config/company';
+import { telHref } from '~/lib/format';
+import Button from '~/components/ui/Button.astro';
+
+interface Props {
+  lang: Lang;
+  title?: string;
+  text?: string;
+  primaryHref?: string;
+  primaryLabel?: string;
+}
+
+const { lang, title, text, primaryHref, primaryLabel } = Astro.props;
+const t = getDict(lang);
+const contactPath = routePath('contact', lang);
+const tel = telHref(PHONE) ?? contactPath;
+// One CTA band per page, so a fixed id is safe.
+const headingId = 'cta-band-heading';
+---
+
+<section aria-labelledby={headingId} class="py-20 lg:py-32">
+  <div class="container-site">
+    <div class="grid gap-10 rounded-[var(--radius-card)] bg-accent-soft px-8 py-14 sm:px-12 lg:px-16 lg:py-20 xl:grid-cols-12 xl:items-end">
+      <div class="xl:col-span-7">
+        <h2 id={headingId} class="text-h2 font-semibold">{title ?? t.cta.title}</h2>
+        <p class="mt-4 max-w-xl text-lead text-muted">{text ?? t.cta.text}</p>
+      </div>
+      <div class="flex flex-col gap-3 sm:flex-row xl:col-span-5 xl:justify-end [&>a]:whitespace-nowrap">
+        <Button href={primaryHref ?? `${contactPath}#offert`} variant="primary" size="lg">{primaryLabel ?? t.cta.primary}</Button>
+        <Button href={tel} variant="secondary" size="lg">{t.cta.secondary}</Button>
+      </div>
+    </div>
+  </div>
+</section>

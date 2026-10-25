@@ -1,0 +1,34 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getDict } from '~/i18n';
+import { entryPath, type Lang } from '~/i18n/routes';
+import { entrySlug } from '~/lib/content';
+import { formatDate, isoDate } from '~/lib/format';
+
+interface Props {
+  lang: Lang;
+  entry: CollectionEntry<'jobs'>;
+}
+
+const { lang, entry } = Astro.props;
+const t = getDict(lang);
+const { data } = entry;
+const href = entryPath('jobs', entrySlug(entry), lang);
+---
+
+<article class="group relative border-t border-line py-8 lg:py-10">
+  <h3 class="text-xl font-semibold lg:text-2xl">
+    <a href={href} class="card-link underline-offset-4 group-hover:underline">{data.title}</a>
+  </h3>
+  <p class="mt-2 max-w-2xl text-muted">{data.description}</p>
+  <p class="mt-4 text-sm text-muted">
+    {data.location} · {data.extent}
+    {
+      data.deadline && (
+        <>
+          {' · '}{t.careers.positions.deadline} <time datetime={isoDate(data.deadline)}>{formatDate(data.deadline, lang)}</time>
+        </>
+      )
+    }
+  </p>
+</article>

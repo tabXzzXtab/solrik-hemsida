@@ -1,0 +1,39 @@
+---
+interface Props {
+  id?: string;
+  tone?: 'canvas' | 'surface' | 'sunken' | 'night';
+  spacing?: 'sm' | 'md' | 'lg' | 'none';
+  /** Drop the top padding when the previous section has the same tone. */
+  flush?: 'top' | 'bottom';
+  labelledby?: string;
+  class?: string;
+}
+
+const { id, tone = 'canvas', spacing = 'md', flush, labelledby, class: className } = Astro.props;
+
+const tones = {
+  canvas: '',
+  surface: 'bg-surface',
+  sunken: 'bg-sunken',
+  night: 'bg-night text-night-ink',
+};
+const top = { none: '', sm: 'pt-16 lg:pt-20', md: 'pt-20 lg:pt-36', lg: 'pt-28 lg:pt-44' };
+const bottom = { none: '', sm: 'pb-16 lg:pb-20', md: 'pb-20 lg:pb-36', lg: 'pb-28 lg:pb-44' };
+---
+
+<section
+  id={id}
+  aria-labelledby={labelledby}
+  class:list={[
+    tones[tone],
+    flush !== 'top' && top[spacing],
+    flush !== 'bottom' && bottom[spacing],
+    // Skip layout/paint of off-screen sections until they approach the viewport.
+    '[content-visibility:auto] [contain-intrinsic-size:auto_640px]',
+    className,
+  ]}
+>
+  <div class="container-site">
+    <slot />
+  </div>
+</section>

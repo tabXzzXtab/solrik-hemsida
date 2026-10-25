@@ -1,0 +1,162 @@
+---
+import { Picture } from 'astro:assets';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { KEY_FIGURES, PHONE, SERVICE_AREA } from '~/config/company';
+import { IMAGES, SERVICE_IMAGES } from '~/config/images';
+import { getDict } from '~/i18n';
+import { resolveRoute, routeAlternates, routePath, servicePath, SERVICE_KEYS, type Lang } from '~/i18n/routes';
+import { getNews, getProjects } from '~/lib/content';
+import { telHref } from '~/lib/format';
+import Button from '~/components/ui/Button.astro';
+import Figure from '~/components/ui/Figure.astro';
+import Section from '~/components/ui/Section.astro';
+import SectionHeader from '~/components/ui/SectionHeader.astro';
+import RoutingTile from '~/components/blocks/RoutingTile.astro';
+import ServiceCard from '~/components/blocks/ServiceCard.astro';
+import PromiseStrip from '~/components/blocks/PromiseStrip.astro';
+import StatFigure from '~/components/blocks/StatFigure.astro';
+import ProjectCard from '~/components/blocks/ProjectCard.astro';
+import NewsRow from '~/components/blocks/NewsRow.astro';
+import CTABand from '~/components/blocks/CTABand.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getDict(lang);
+const h = t.home;
+const projects = (await getProjects(lang)).slice(0, 3);
+const news = (await getNews(lang)).slice(0, 3);
+const tel = telHref(PHONE);
+const figureCols = { 2: 'sm:grid-cols-2', 3: 'sm:grid-cols-3' }[KEY_FIGURES.length] ?? 'sm:grid-cols-2 lg:grid-cols-4';
+// Figures, projects and news only render when there is real content; keep the
+// light/sunken rhythm intact whichever of them are missing.
+const localTone = KEY_FIGURES.length || projects.length ? 'sunken' : 'canvas';
+---
+
+<BaseLayout lang={lang} title={h.seo.title} description={h.seo.description} alternates={routeAlternates('home')}>
+  <!-- Hero: calm headline, photo leads -->
+  <section aria-labelledby="hero-title" class="pt-14 lg:pt-24">
+    <div class="container-site">
+      <div class="grid gap-8 lg:grid-cols-12 lg:items-end lg:gap-16">
+        <h1 id="hero-title" class="text-display font-semibold tracking-[-0.022em] text-balance lg:col-span-7">{h.hero.title}</h1>
+        <div class="lg:col-span-5 lg:pb-1.5">
+          <p class="max-w-md text-lead text-muted">{h.hero.lead}</p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Button href={`${routePath('contact', lang)}#offert`} variant="primary">{h.hero.primary}</Button>
+            <Button href={routePath('faultReport', lang)} variant="secondary">{h.hero.secondary}</Button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-site mt-12 lg:mt-20">
+      <figure>
+        <div class="aspect-[4/3] overflow-hidden rounded-[var(--radius-card)] bg-sunken sm:aspect-[16/9] lg:aspect-[21/9]">
+          <Picture
+            src={IMAGES.hero.src}
+            alt={IMAGES.hero.alt[lang]}
+            widths={[640, 960, 1280, 1920, 2400]}
+            sizes="(min-width: 86rem) 79rem, 100vw"
+            formats={['avif', 'webp']}
+            priority
+            class="h-full w-full object-cover"
+          />
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Visitor routing -->
+  <Section labelledby="routing-title">
+    <SectionHeader id="routing-title" title={h.routing.title} />
+    <div class="mt-12 grid gap-px overflow-hidden rounded-[var(--radius-card)] border border-line bg-line sm:grid-cols-2 lg:mt-16 xl:grid-cols-4">
+      {h.routing.tiles.map((tile) => <RoutingTile question={tile.question} text={tile.text} link={tile.link} href={resolveRoute(tile.route, lang)} />)}
+    </div>
+  </Section>
+
+  <!-- Services -->
+  <Section labelledby="services-title" flush="top">
+    <SectionHeader id="services-title" title={h.services.title} link={{ href: routePath('services', lang), label: h.services.link }} />
+    <div class="mt-12 grid gap-x-10 gap-y-16 sm:grid-cols-2 lg:mt-16 xl:grid-cols-4">
+      {
+        SERVICE_KEYS.map((key) => (
+          <ServiceCard
+            lang={lang}
+            name={t.services.items[key].name}
+            text={t.services.items[key].short}
+            href={servicePath(key, lang)}
+            image={SERVICE_IMAGES[key]}
+          />
+        ))
+      }
+    </div>
+  </Section>
+
+  <!-- Promises -->
+  <Section tone="sunken" labelledby="promises-title">
+    <PromiseStrip lang={lang} title={h.promises.title} headingId="promises-title" />
+  </Section>
+
+  <!-- Key figures -->
+  {
+    KEY_FIGURES.length > 0 && (
+      <Section labelledby="figures-title">
+        <SectionHeader id="figures-title" title={h.figures.title} />
+        <dl class:list={['mt-12 grid gap-12 lg:mt-16', figureCols]}>
+          {KEY_FIGURES.map((f) => <StatFigure value={f.value} unit={f.unit[lang]} label={f.label[lang]} />)}
+        </dl>
+      </Section>
+    )
+  }
+
+  <!-- Featured projects -->
+  {
+    projects.length > 0 && (
+      <Section labelledby="projects-title" flush={KEY_FIGURES.length ? 'top' : undefined}>
+        <SectionHeader id="projects-title" title={h.projects.title} link={{ href: routePath('projects', lang), label: h.projects.link }} />
+        <ul class="mt-12 grid gap-x-10 gap-y-16 md:grid-cols-2 lg:mt-16 lg:grid-cols-3">
+          {projects.map((entry) => (
+            <li>
+              <ProjectCard lang={lang} entry={entry} />
+            </li>
+          ))}
+        </ul>
+      </Section>
+    )
+  }
+
+  <!-- Local company -->
+  <Section tone={localTone} labelledby="local-title">
+    <div class="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-20">
+      <div class="lg:col-span-6">
+        <Figure src={IMAGES.local.src} alt={IMAGES.local.alt[lang]} aspect="aspect-[4/3]" sizes="(min-width: 64rem) 44vw, 100vw" widths={[480, 768, 1080, 1440]} />
+      </div>
+      <div class="lg:col-span-5 lg:col-start-8">
+        <h2 id="local-title" class="text-h2 font-semibold">{h.local.title}</h2>
+        <div class="mt-5 space-y-4 text-lead text-muted">
+          {h.local.body.map((p) => <p>{p}</p>)}
+        </div>
+        <p class="mt-6 text-muted">{h.local.areaLabel}: <span class="font-medium text-ink">{SERVICE_AREA[lang]}</span></p>
+        <div class="mt-10 border-t border-line pt-8">
+          <p class="text-sm text-muted">{t.nav.callUs}</p>
+          {tel ? <a href={tel} class="tap text-2xl font-semibold tabular-nums underline-offset-4 hover:underline">{PHONE}</a> : <p class="mt-1 text-2xl font-semibold">{PHONE}</p>}
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Latest news -->
+  {
+    news.length > 0 && (
+      <Section labelledby="news-title" flush={localTone === 'canvas' ? 'top' : undefined}>
+        <SectionHeader id="news-title" title={h.news.title} link={{ href: routePath('news', lang), label: h.news.link }} />
+        <div class="mt-10 border-b border-line lg:mt-14">
+          {news.map((entry) => <NewsRow lang={lang} entry={entry} />)}
+        </div>
+      </Section>
+    )
+  }
+
+  <CTABand lang={lang} />
+</BaseLayout>

@@ -1,0 +1,84 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { SERVICE_IMAGES } from '~/config/images';
+import { getDict } from '~/i18n';
+import { routeAlternates, servicePath, SERVICE_KEYS, type Lang } from '~/i18n/routes';
+import { crumbs } from '~/lib/nav';
+import PageHero from '~/components/ui/PageHero.astro';
+import Section from '~/components/ui/Section.astro';
+import SectionHeader from '~/components/ui/SectionHeader.astro';
+import Figure from '~/components/ui/Figure.astro';
+import PromiseStrip from '~/components/blocks/PromiseStrip.astro';
+import CTABand from '~/components/blocks/CTABand.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getDict(lang);
+const o = t.services.overview;
+const trail = crumbs(lang, 'services');
+---
+
+<BaseLayout lang={lang} title={o.seo.title} description={o.seo.description} alternates={routeAlternates('services')} breadcrumbs={trail} pageType="CollectionPage">
+  <PageHero lang={lang} title={o.h1} lead={o.lead} breadcrumbs={trail} />
+
+  <section aria-labelledby="services-list-title" class="pb-20 lg:pb-36">
+    <div class="container-site">
+      <h2 id="services-list-title" class="sr-only">{o.listTitle}</h2>
+      <ul class="space-y-20 lg:space-y-32">
+        {
+          SERVICE_KEYS.map((key, i) => {
+            const s = t.services.items[key];
+            const img = SERVICE_IMAGES[key];
+            const flip = i % 2 === 1;
+            return (
+              <li class="group relative grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-20">
+                <div class:list={['lg:col-span-7', flip && 'lg:order-2']}>
+                  <Figure
+                    src={img.src}
+                    alt={img.alt[lang]}
+                    aspect="aspect-[3/2]"
+                    sizes="(min-width: 64rem) 55vw, 100vw"
+                    widths={[480, 768, 1080, 1440]}
+                    priority={i === 0}
+                  />
+                </div>
+                <div class:list={['lg:col-span-5', flip && 'lg:order-1']}>
+                  <h3 class="text-h2 font-semibold">
+                    <a href={servicePath(key, lang)} class="underline-offset-[6px] hover:underline">{s.name}</a>
+                  </h3>
+                  <p class="mt-4 max-w-md text-lead text-muted">{s.short}</p>
+                  <a href={servicePath(key, lang)} class="tap mt-8 font-semibold text-accent-text underline underline-offset-4">
+                    {t.common.readMore}<span class="sr-only">: {s.name}</span>
+                  </a>
+                </div>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </div>
+  </section>
+
+  <Section tone="sunken" labelledby="why-title">
+    <SectionHeader id="why-title" title={o.whyTitle} />
+    <ul class="mt-12 grid gap-12 md:grid-cols-3 lg:mt-16 lg:gap-16">
+      {
+        o.why.map((item) => (
+          <li>
+            <h3 class="text-h3 font-semibold">{item.title}</h3>
+            <p class="mt-3 text-muted">{item.text}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </Section>
+
+  <Section labelledby="promises-title">
+    <PromiseStrip lang={lang} title={t.services.labels.promises} headingId="promises-title" />
+  </Section>
+
+  <CTABand lang={lang} />
+</BaseLayout>

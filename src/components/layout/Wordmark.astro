@@ -1,0 +1,22 @@
+---
+/** Text wordmark for the dark footer, where the dark-green logo artwork would not show. */
+import { COMPANY_SHORT_NAME } from '~/config/company';
+import { getDict } from '~/i18n';
+import { routePath, type Lang } from '~/i18n/routes';
+
+interface Props {
+  lang: Lang;
+  tone?: 'default' | 'night';
+}
+
+const { lang, tone = 'default' } = Astro.props;
+const t = getDict(lang);
+---
+
+<a
+  href={routePath('home', lang)}
+  class:list={['inline-flex min-h-11 min-w-0 items-center no-underline', tone === 'night' ? 'text-night-ink' : 'text-ink']}
+  aria-label={`${COMPANY_SHORT_NAME} – ${t.nav.home}`}
+>
+  <span class="truncate py-1 font-display text-xl leading-none font-semibold tracking-[-0.015em]">{COMPANY_SHORT_NAME}</span>
+</a>

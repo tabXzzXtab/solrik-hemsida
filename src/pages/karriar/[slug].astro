@@ -1,0 +1,12 @@
+---
+import JobDetail from '~/views/JobDetail.astro';
+import { entryStaticPaths } from '~/lib/content';
+
+export async function getStaticPaths() {
+  return entryStaticPaths('jobs', 'sv');
+}
+
+const { entry } = Astro.props;
+---
+
+<JobDetail lang="sv" entry={entry} />

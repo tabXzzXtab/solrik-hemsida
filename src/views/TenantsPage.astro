@@ -1,0 +1,126 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { DOCUMENTS, SHOW_TENANTS_PAGE, TENANT_PORTAL_URL } from '~/config/company';
+import { getDict } from '~/i18n';
+import { routeAlternates, routePath, type Lang } from '~/i18n/routes';
+import { isRealUrl } from '~/lib/format';
+import { crumbs } from '~/lib/nav';
+import { faqNode } from '~/lib/schema';
+import Button from '~/components/ui/Button.astro';
+import Section from '~/components/ui/Section.astro';
+import SectionHeader from '~/components/ui/SectionHeader.astro';
+import Breadcrumbs from '~/components/layout/Breadcrumbs.astro';
+import EmergencyNotice from '~/components/blocks/EmergencyNotice.astro';
+import FAQAccordion from '~/components/blocks/FAQAccordion.astro';
+import DownloadCard from '~/components/blocks/DownloadCard.astro';
+import Checklist from '~/components/blocks/Checklist.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getDict(lang);
+const p = t.tenants;
+const site = Astro.site!;
+const url = new URL(routePath('tenants', lang), site).href;
+const trail = crumbs(lang, 'tenants');
+const portal = isRealUrl(TENANT_PORTAL_URL) ? TENANT_PORTAL_URL : null;
+const onPage = [
+  { id: 'faq', label: p.nav.faq },
+  { id: 'forms', label: p.nav.forms },
+  { id: 'rules', label: p.nav.rules },
+  { id: 'moving', label: p.nav.moving },
+];
+---
+
+<BaseLayout
+  lang={lang}
+  title={p.seo.title}
+  description={p.seo.description}
+  alternates={routeAlternates('tenants')}
+  noindex={!SHOW_TENANTS_PAGE}
+  breadcrumbs={trail}
+  schema={[faqNode(url, p.faq)]}
+>
+  <div class="container-site pt-8 pb-16 lg:pt-10 lg:pb-24">
+    <Breadcrumbs lang={lang} items={trail} />
+    <div class="mt-10 grid gap-12 lg:mt-16 lg:grid-cols-12 lg:gap-16">
+      <div class="lg:col-span-7">
+        <h1 class="text-h1 font-semibold tracking-[-0.02em]">{p.h1}</h1>
+        <p class="mt-6 max-w-2xl text-lead text-muted">{p.lead}</p>
+      </div>
+      <nav aria-labelledby="on-page" class="lg:col-span-4 lg:col-start-9 lg:self-end">
+        <p id="on-page" class="text-sm text-muted">{t.common.onThisPage}</p>
+        <ul class="mt-1">
+          {onPage.map((item) => <li><a href={`#${item.id}`} class="inline-block py-2 font-medium text-accent-text underline underline-offset-4">{item.label}</a></li>)}
+        </ul>
+      </nav>
+    </div>
+
+    <EmergencyNotice title={p.emergency.title} text={p.emergency.text} callLabel={p.emergency.call} class="mt-14 lg:mt-20" />
+
+    <div class:list={['mt-8 grid gap-8', portal && 'md:grid-cols-2']}>
+      <div class="flex flex-col rounded-[var(--radius-card)] bg-accent-soft p-8 lg:p-10">
+        <h2 class="text-h3 font-semibold">{p.faultCard.title}</h2>
+        <p class="mt-2 text-muted">{p.faultCard.text}</p>
+        <div class="mt-8">
+          <Button href={routePath('faultReport', lang)}>{p.faultCard.button}</Button>
+        </div>
+      </div>
+      {
+        portal && (
+          <div class="flex flex-col rounded-[var(--radius-card)] bg-sunken p-8 lg:p-10">
+            <h2 class="text-h3 font-semibold">{p.myPages.title}</h2>
+            <p class="mt-2 text-muted">{p.myPages.text}</p>
+            <div class="mt-8">
+              <Button href={portal} variant="secondary">{p.myPages.button}</Button>
+            </div>
+          </div>
+        )
+      }
+    </div>
+  </div>
+
+  <Section id="faq" labelledby="faq-title" flush="top">
+    <SectionHeader id="faq-title" title={p.nav.faq} />
+    <div class="mt-10 lg:mt-14 lg:ml-[calc(100%/12*4)]">
+      <FAQAccordion items={p.faq} />
+    </div>
+  </Section>
+
+  <Section id="forms" tone="sunken" labelledby="forms-title">
+    <SectionHeader id="forms-title" title={p.forms.title} intro={p.forms.text} />
+    <div class="mt-10 border-b border-line lg:mt-14 lg:ml-[calc(100%/12*4)]">
+      {DOCUMENTS.tenantForms.map((doc) => <DownloadCard href={doc.file} title={doc.title[lang]} label={t.common.download} />)}
+    </div>
+  </Section>
+
+  <Section id="rules" labelledby="rules-title">
+    <SectionHeader id="rules-title" title={p.rules.title} intro={p.rules.intro} />
+    <ul class="mt-12 grid gap-x-16 gap-y-10 md:grid-cols-2 lg:mt-16 lg:grid-cols-3">
+      {
+        p.rules.items.map((rule) => (
+          <li>
+            <h3 class="text-xl font-semibold">{rule.title}</h3>
+            <p class="mt-2 text-muted">{rule.text}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </Section>
+
+  <Section id="moving" tone="sunken" labelledby="moving-title">
+    <SectionHeader id="moving-title" title={p.moving.title} />
+    <div class="mt-12 grid gap-12 lg:mt-16 lg:grid-cols-2 lg:gap-20">
+      <div>
+        <h3 class="text-h3 font-semibold">{p.moving.in.title}</h3>
+        <Checklist items={p.moving.in.items} columns={1} class="mt-6" />
+      </div>
+      <div>
+        <h3 class="text-h3 font-semibold">{p.moving.out.title}</h3>
+        <Checklist items={p.moving.out.items} columns={1} class="mt-6" />
+      </div>
+    </div>
+  </Section>
+</BaseLayout>

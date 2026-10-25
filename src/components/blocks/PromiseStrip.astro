@@ -1,0 +1,36 @@
+---
+/**
+ * The promises from company.ts as a quiet two-column block: heading on the
+ * left, one hairline row per promise on the right (title, then a muted line).
+ */
+import { PROMISES } from '~/config/company';
+import { getDict } from '~/i18n';
+import type { Lang } from '~/i18n/routes';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  /** Heading id, referenced by the parent section's aria-labelledby. */
+  headingId: string;
+}
+
+const { lang, title, headingId } = Astro.props;
+const t = getDict(lang);
+---
+
+<div class="grid gap-10 lg:grid-cols-12 lg:gap-16">
+  <div class="lg:col-span-4">
+    <h2 id={headingId} class="text-h2 font-semibold text-balance">{title}</h2>
+    <p class="mt-4 max-w-sm text-muted">{t.common.promisesIntro}</p>
+  </div>
+  <dl class="border-b border-line lg:col-span-8">
+    {
+      PROMISES.map((p) => (
+        <div class="grid gap-1 border-t border-line py-5 sm:grid-cols-12 sm:gap-8 lg:py-6">
+          <dt class="font-semibold sm:col-span-5">{p.title[lang]}</dt>
+          <dd class="text-muted sm:col-span-7">{p.text[lang]}</dd>
+        </div>
+      ))
+    }
+  </dl>
+</div>

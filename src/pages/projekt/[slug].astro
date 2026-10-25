@@ -1,0 +1,12 @@
+---
+import ProjectDetail from '~/views/ProjectDetail.astro';
+import { entryStaticPaths } from '~/lib/content';
+
+export async function getStaticPaths() {
+  return entryStaticPaths('projects', 'sv');
+}
+
+const { entry } = Astro.props;
+---
+
+<ProjectDetail lang="sv" entry={entry} />

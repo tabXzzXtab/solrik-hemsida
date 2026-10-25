@@ -1,0 +1,38 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getDict } from '~/i18n';
+import { entryPath, type Lang } from '~/i18n/routes';
+import { entrySlug } from '~/lib/content';
+import Figure from '~/components/ui/Figure.astro';
+
+interface Props {
+  lang: Lang;
+  entry: CollectionEntry<'projects'>;
+  headingLevel?: 2 | 3;
+  sizes?: string;
+}
+
+const { lang, entry, headingLevel = 3, sizes = '(min-width: 64rem) 30vw, (min-width: 40rem) 45vw, 100vw' } = Astro.props;
+const t = getDict(lang);
+const { data } = entry;
+const href = entryPath('projects', entrySlug(entry), lang);
+const cover = data.images[0];
+const H = `h${headingLevel}` as 'h2' | 'h3';
+const meta = [t.projects.categories[data.category], data.location, data.year].join(' · ');
+---
+
+<article class="group relative flex h-full flex-col">
+  <Figure
+    src={cover.src}
+    alt={cover.alt}
+    aspect="aspect-[3/2]"
+    sizes={sizes}
+    widths={[400, 640, 960]}
+    imgClass="transition-transform duration-300 motion-safe:group-hover:scale-[1.02]"
+  />
+  <p class="mt-6 text-sm text-muted">{meta}</p>
+  <H class="mt-2 text-xl font-semibold lg:text-2xl">
+    <a href={href} class="card-link underline-offset-4 group-hover:underline">{data.title}</a>
+  </H>
+  <p class="mt-2 line-clamp-2 text-muted">{data.description}</p>
+</article>

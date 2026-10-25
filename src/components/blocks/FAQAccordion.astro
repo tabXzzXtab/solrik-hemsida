@@ -1,0 +1,28 @@
+---
+/** Native <details> accordion: no JavaScript, content is in the HTML for crawlers. */
+import Icon from '~/components/ui/Icon.astro';
+
+interface Props {
+  items: Array<{ q: string; a: string }>;
+  headingLevel?: 3 | 4;
+}
+
+const { items, headingLevel = 3 } = Astro.props;
+const H = `h${headingLevel}` as 'h3' | 'h4';
+---
+
+<div class="border-b border-line">
+  {
+    items.map((item) => (
+      <details class="group border-t border-line">
+        <summary class="flex min-h-16 cursor-pointer items-center justify-between gap-8 py-7 hover:text-accent-text">
+          <H class="text-lg font-semibold lg:text-xl">{item.q}</H>
+          <Icon name="chevron-down" size={22} class="text-muted transition-transform group-open:rotate-180" />
+        </summary>
+        <div class="max-w-2xl pb-8 text-muted">
+          <p>{item.a}</p>
+        </div>
+      </details>
+    ))
+  }
+</div>

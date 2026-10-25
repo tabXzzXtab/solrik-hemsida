@@ -1,0 +1,102 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import { getImage } from 'astro:assets';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { getDict } from '~/i18n';
+import { entryPath, routePath, type Lang } from '~/i18n/routes';
+import { entryAlternates, entrySlug, getNews } from '~/lib/content';
+import { formatDate, isoDate } from '~/lib/format';
+import { crumbs } from '~/lib/nav';
+import { articleNode } from '~/lib/schema';
+import Figure from '~/components/ui/Figure.astro';
+import Breadcrumbs from '~/components/layout/Breadcrumbs.astro';
+import ExampleNotice from '~/components/blocks/ExampleNotice.astro';
+import NewsRow from '~/components/blocks/NewsRow.astro';
+import CTABand from '~/components/blocks/CTABand.astro';
+
+interface Props {
+  lang: Lang;
+  entry: CollectionEntry<'news'>;
+}
+
+const { lang, entry } = Astro.props;
+const t = getDict(lang);
+const n = t.news;
+const { data } = entry;
+const { Content } = await render(entry);
+const site = Astro.site!;
+const path = entryPath('news', entrySlug(entry), lang);
+const url = new URL(path, site).href;
+const trail = crumbs(lang, 'news', { label: data.title, href: path });
+const others = (await getNews(lang)).filter((e) => e.id !== entry.id).slice(0, 3);
+const imageUrl = data.image ? new URL((await getImage({ src: data.image, width: 1200, format: 'jpg' })).src, site).href : undefined;
+const schema = data.example
+  ? []
+  : [articleNode({ site, url, headline: data.title, description: data.description, lang, imageUrl, published: data.date, modified: data.updated })];
+---
+
+<BaseLayout
+  lang={lang}
+  title={data.seoTitle ?? data.title}
+  description={data.seoDescription ?? data.description}
+  alternates={await entryAlternates('news', entry)}
+  image={data.image}
+  imageAlt={data.imageAlt}
+  noindex={data.example}
+  ogType="article"
+  publishedTime={data.date}
+  modifiedTime={data.updated}
+  breadcrumbs={trail}
+  schema={schema}
+>
+  {data.example && <ExampleNotice lang={lang} />}
+
+  <article class="container-site pt-8 pb-20 lg:pt-10 lg:pb-32">
+    <Breadcrumbs lang={lang} items={trail} />
+    <header class="mt-10 max-w-4xl lg:mt-16">
+      <p class="font-medium">
+        <time datetime={isoDate(data.date)}>{formatDate(data.date, lang)}</time>
+        {data.updated && <span class="text-muted"> · {t.common.updated} <time datetime={isoDate(data.updated)}>{formatDate(data.updated, lang)}</time></span>}
+      </p>
+      <h1 class="mt-4 text-h1 font-semibold tracking-[-0.02em]">{data.title}</h1>
+      <p class="mt-6 max-w-3xl text-lead text-muted">{data.description}</p>
+    </header>
+
+    {
+      data.image && (
+        <Figure
+          src={data.image}
+          alt={data.imageAlt ?? ''}
+          priority
+          aspect="aspect-[16/9] lg:aspect-[21/9]"
+          sizes="(min-width: 86rem) 79rem, 100vw"
+          widths={[640, 960, 1280, 1600]}
+          class="mt-12 lg:mt-16"
+        />
+      )
+    }
+
+    <div class="prose mt-12 lg:mt-16 lg:ml-[calc(100%/12*3)]">
+      <Content />
+    </div>
+
+    <p class="mt-16 lg:ml-[calc(100%/12*3)]">
+      <a href={routePath('news', lang)} class="tap font-semibold text-accent-text underline underline-offset-4">{n.back}</a>
+    </p>
+  </article>
+
+  {
+    others.length > 0 && (
+      <section aria-labelledby="related-title" class="bg-sunken py-20 lg:py-32">
+        <div class="container-site">
+          <h2 id="related-title" class="text-h2 font-semibold">{n.related}</h2>
+          <div class="mt-10 border-b border-line">
+            {others.map((e) => <NewsRow lang={lang} entry={e} />)}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <CTABand lang={lang} />
+</BaseLayout>

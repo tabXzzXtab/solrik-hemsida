@@ -1,0 +1,29 @@
+# build output
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+
+# environment variables
+.env
+.env.production
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+
+# QA output
+qa/
+
+# Pexels contact sheets
+.pexels-cache/
+
+# Local copies of the logo (the source for `npm run brand` is logo-removebg-preview.png)
+/logo.jpg
+/icon only.png

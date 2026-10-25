@@ -1,0 +1,20 @@
+{
+  "_readme": "Image slots filled from Pexels by scripts/pexels.mjs. 'query' is the Pexels search, 'target' the file it writes, 'pick' the chosen photo id (set after reviewing the contact sheet).",
+  "hero": {"query": "scandinavian apartment building", "target": "src/assets/images/hero.jpg", "width": 2400, "pick": 17327952},
+  "nybyggnation": {"query": "residential construction site", "target": "src/assets/images/nybyggnation.jpg", "width": 1800, "pick": 209266},
+  "renovering": {"query": "facade renovation scaffolding", "target": "src/assets/images/renovering.jpg", "width": 1800, "pick": 5511087},
+  "fastighetsforvaltning": {"query": "apartment building courtyard", "target": "src/assets/images/fastighetsforvaltning.jpg", "width": 1800, "pick": 20164723},
+  "fastighetsdrift": {"query": "gardener mowing lawn", "target": "src/assets/images/fastighetsdrift.jpg", "width": 1800, "pick": 12087398},
+  "brf": {"query": "apartment building balconies", "target": "src/assets/images/brf.jpg", "width": 1800, "pick": 18816141},
+  "hyresgast": {"query": "apartment building entrance", "target": "src/assets/images/hyresgast.jpg", "width": 1800, "pick": 29174543},
+  "om-oss": {"query": "construction workers team", "target": "src/assets/images/om-oss.jpg", "width": 1800, "pick": 8961007},
+  "karriar": {"query": "carpenter working", "target": "src/assets/images/karriar.jpg", "width": 1800, "pick": 8961401},
+  "projekt-stambyte-1": {"query": "brick apartment building", "target": "src/content/projects/images/exempel-stambyte-1.jpg", "width": 1800, "pick": 26568746},
+  "projekt-stambyte-2": {"query": "modern bathroom tiles", "target": "src/content/projects/images/exempel-stambyte-2.jpg", "width": 1800, "pick": 8134805},
+  "projekt-stambyte-3": {"query": "plumber pipes installation", "target": "src/content/projects/images/exempel-stambyte-3.jpg", "width": 1800, "pick": 29226620},
+  "projekt-parhus-1": {"query": "modern semi detached house", "target": "src/content/projects/images/exempel-parhus-1.jpg", "width": 1800, "pick": 14128509},
+  "projekt-parhus-2": {"query": "timber frame house construction", "target": "src/content/projects/images/exempel-parhus-2.jpg", "width": 1800, "pick": 37499254},
+  "projekt-parhus-3": {"query": "architect floor plan", "target": "src/content/projects/images/exempel-parhus-3.jpg", "width": 1800, "pick": 4792480},
+  "nyhet-projekt": {"query": "renovated building facade", "target": "src/content/news/images/exempel-nyhet-projekt.jpg", "width": 1600, "pick": 38031941},
+  "nyhet-vinter": {"query": "snow residential street", "target": "src/content/news/images/exempel-nyhet-vinter.jpg", "width": 1600, "pick": 35610382}
+}

@@ -1,0 +1,9 @@
+# Text files keep LF line endings on every OS; binaries are never touched.
+* text=auto eol=lf
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.ico binary
+*.woff2 binary

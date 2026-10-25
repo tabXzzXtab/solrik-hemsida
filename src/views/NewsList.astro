@@ -1,0 +1,44 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { getDict } from '~/i18n';
+import { routeAlternates, type Lang } from '~/i18n/routes';
+import { getNews } from '~/lib/content';
+import { crumbs } from '~/lib/nav';
+import PageHero from '~/components/ui/PageHero.astro';
+import NewsRow from '~/components/blocks/NewsRow.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getDict(lang);
+const n = t.news;
+const news = await getNews(lang);
+const trail = crumbs(lang, 'news');
+---
+
+<BaseLayout
+  lang={lang}
+  title={n.seo.title}
+  description={n.seo.description}
+  alternates={routeAlternates('news')}
+  noindex={!news.length}
+  breadcrumbs={trail}
+  pageType="CollectionPage"
+>
+  <PageHero lang={lang} title={n.h1} lead={n.lead} breadcrumbs={trail} />
+  <section aria-label={n.h1} class="pb-24 lg:pb-36">
+    <div class="container-site">
+      {
+        news.length ? (
+          <div class="border-b border-line">
+            {news.map((entry) => <NewsRow lang={lang} entry={entry} headingLevel={2} />)}
+          </div>
+        ) : (
+          <p class="text-lead text-muted">{n.empty}</p>
+        )
+      }
+    </div>
+  </section>
+</BaseLayout>

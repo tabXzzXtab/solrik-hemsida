@@ -1,0 +1,31 @@
+---
+/**
+ * Grid of work areas ("Det här gör vi"), optionally with bullet lists.
+ * Hairlines come from a 1px gap over the line colour; pick `columns` so rows fill.
+ */
+interface Props {
+  items: Array<{ title: string; text: string; list?: string[] }>;
+  columns?: 2 | 3 | 4;
+  headingLevel?: 3 | 4;
+}
+
+const { items, columns = 4, headingLevel = 3 } = Astro.props;
+const cols = { 2: 'md:grid-cols-2', 3: 'md:grid-cols-2 lg:grid-cols-3', 4: 'sm:grid-cols-2 xl:grid-cols-4' }[columns];
+const H = `h${headingLevel}` as 'h3' | 'h4';
+---
+
+<ul class:list={['mt-12 grid gap-px overflow-hidden rounded-[var(--radius-card)] border border-line bg-line lg:mt-16', cols]}>
+  {
+    items.map((item) => (
+      <li class="bg-surface p-7 sm:p-8 xl:p-10">
+        <H class="text-xl font-semibold">{item.title}</H>
+        <p class="mt-3 text-muted">{item.text}</p>
+        {item.list && (
+          <ul class="mt-5 list-disc space-y-2 pl-5 marker:text-line-strong">
+            {item.list.map((li) => <li>{li}</li>)}
+          </ul>
+        )}
+      </li>
+    ))
+  }
+</ul>

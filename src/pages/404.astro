@@ -1,0 +1,49 @@
+---
+/** Served with HTTP 404 by Netlify/Vercel. Bilingual, since the host serves one 404 page for both languages. */
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { getDict } from '~/i18n';
+import { routePath, servicePath, type Lang } from '~/i18n/routes';
+
+const langs: Lang[] = ['sv', 'en'];
+const blocks = langs.map((lang) => {
+  const t = getDict(lang);
+  return {
+    lang,
+    title: t.notFound.title,
+    lead: t.notFound.lead,
+    links: [
+      { href: routePath('home', lang), label: t.nav.home },
+      { href: routePath('services', lang), label: t.nav.services },
+      { href: servicePath('fastighetsforvaltning', lang), label: t.services.items.fastighetsforvaltning.name },
+      { href: routePath('faultReport', lang), label: t.nav.faultReport },
+      { href: routePath('contact', lang), label: t.nav.contact },
+    ],
+  };
+});
+---
+
+<BaseLayout lang="sv" title={`404 – ${blocks[0].title}`} description={blocks[0].lead} noindex>
+  <div class="container-site py-24 lg:py-40">
+    <div class="grid gap-16 lg:grid-cols-2 lg:gap-24">
+      {
+        blocks.map((b, i) => (
+          <section lang={b.lang} aria-labelledby={`nf-${b.lang}`}>
+            {i === 0 ? (
+              <h1 id={`nf-${b.lang}`} class="text-h1 font-semibold tracking-[-0.02em]">{b.title}</h1>
+            ) : (
+              <h2 id={`nf-${b.lang}`} class="text-h1 font-semibold tracking-[-0.02em] text-muted">{b.title}</h2>
+            )}
+            <p class="mt-5 text-lead text-muted">{b.lead}</p>
+            <ul class="mt-8">
+              {b.links.map((link) => (
+                <li>
+                  <a href={link.href} class="inline-block py-2.5 text-lg font-medium text-accent-text underline underline-offset-4">{link.label}</a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>

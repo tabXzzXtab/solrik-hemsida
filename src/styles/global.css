@@ -1,0 +1,227 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   Design tokens
+   Palette: clean warm white, sage surfaces, deep forest-green accent.
+   Change the brand colour by editing --c-accent* in both themes below.
+   All text pairs are checked to WCAG AA (≥ 4.5:1; UI borders ≥ 3:1).
+   ========================================================================== */
+
+@theme {
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-inter-tight);
+  --font-mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", Consolas, monospace;
+
+  --breakpoint-xs: 26rem;
+
+  /* Calm type scale: photos lead, text sits back */
+  --text-display: clamp(2.25rem, 1.7rem + 2.4vw, 3.75rem);
+  --text-display--line-height: 1.06;
+  --text-h1: clamp(2rem, 1.6rem + 1.7vw, 3.125rem);
+  --text-h1--line-height: 1.08;
+  --text-h2: clamp(1.625rem, 1.35rem + 1.1vw, 2.25rem);
+  --text-h2--line-height: 1.15;
+  --text-h3: clamp(1.1875rem, 1.1rem + 0.4vw, 1.375rem);
+  --text-h3--line-height: 1.3;
+  --text-lead: clamp(1.0625rem, 1.02rem + 0.25vw, 1.1875rem);
+  --text-lead--line-height: 1.7;
+
+  --radius-card: 0.75rem;
+
+}
+
+@theme inline {
+  --color-canvas: var(--c-canvas);
+  --color-surface: var(--c-surface);
+  --color-sunken: var(--c-sunken);
+  --color-ink: var(--c-ink);
+  --color-muted: var(--c-muted);
+  --color-line: var(--c-line);
+  --color-line-strong: var(--c-line-strong);
+  --color-accent: var(--c-accent);
+  --color-accent-strong: var(--c-accent-strong);
+  --color-accent-ink: var(--c-accent-ink);
+  --color-accent-text: var(--c-accent-text);
+  --color-accent-soft: var(--c-accent-soft);
+  --color-night: var(--c-night);
+  --color-night-ink: var(--c-night-ink);
+  --color-night-muted: var(--c-night-muted);
+  --color-night-line: var(--c-night-line);
+  --color-night-accent: var(--c-night-accent);
+  --color-danger: var(--c-danger);
+  --color-danger-soft: var(--c-danger-soft);
+  --color-success: var(--c-success);
+  --color-success-soft: var(--c-success-soft);
+}
+
+:root {
+  color-scheme: light;
+
+  --c-canvas: #fbfbf8;
+  --c-surface: #ffffff;
+  --c-sunken: #f2f5f1;
+  --c-ink: #18201b;
+  --c-muted: #59625c;
+  --c-line: #e3e8e2;
+  --c-line-strong: #848e86;
+  --c-accent: #1e6b47;
+  --c-accent-strong: #17553a;
+  --c-accent-ink: #ffffff;
+  --c-accent-text: #1e6b47;
+  --c-accent-soft: #e7f1ea;
+  --c-night: #10261a;
+  --c-night-ink: #eef4ef;
+  --c-night-muted: #a8bcaf;
+  --c-night-line: #24402f;
+  --c-night-accent: #8dd3a8;
+  --c-danger: #a4161a;
+  --c-danger-soft: #fbe9e7;
+  --c-success: #1e6b47;
+  --c-success-soft: #e7f1ea;
+
+  --header-h: 4rem;
+}
+
+@media (min-width: 64rem) {
+  :root { --header-h: 5rem; }
+}
+
+/*
+ * The site is light-only by design. To bring back a dark theme, add a
+ * @media (prefers-color-scheme: dark) { :root { --c-…: … } } block here and set
+ * color-scheme back to "light dark".
+ */
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+@layer base {
+  html {
+    background-color: var(--c-canvas);
+    color: var(--c-ink);
+    font-family: var(--font-sans);
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    scroll-padding-top: calc(var(--header-h) + 1rem);
+  }
+
+  body {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    font-feature-settings: "cv11", "ss01";
+    min-height: 100dvh;
+  }
+
+  @media (min-width: 64rem) {
+    body { font-size: 1.125rem; }
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.012em;
+    text-wrap: balance;
+    /* Long Swedish compounds ("Tillgänglighetsredogörelse") must never overflow */
+    overflow-wrap: break-word;
+  }
+
+
+
+  a { text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+
+  ::selection { background: var(--c-accent); color: var(--c-accent-ink); }
+
+  /* Override --focus-ring on dark surfaces so the ring keeps ≥ 3:1 contrast */
+  :focus-visible {
+    outline: 3px solid var(--focus-ring, var(--c-accent));
+    outline-offset: 3px;
+    border-radius: 1px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Clickable controls show a pointer (Tailwind 4 resets buttons to the default cursor) */
+  button:not(:disabled), summary, select, [type="checkbox"], [type="radio"], [type="file"], ::file-selector-button {
+    cursor: pointer;
+  }
+
+  /* No double-tap-zoom delay on controls */
+  a, button, summary, label, input, select, textarea {
+    touch-action: manipulation;
+  }
+
+  summary { list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+}
+
+/* ==========================================================================
+   Design-system utilities
+   ========================================================================== */
+
+/* Standalone text link: hit area grows to ≥ 44px tall without moving the layout */
+@utility tap {
+  display: inline-block;
+  padding-block: 0.75rem;
+  margin-block: -0.75rem;
+}
+
+@utility container-site {
+  width: 100%;
+  max-width: 86rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (min-width: 40rem) { padding-inline: 2rem; }
+  @media (min-width: 64rem) { padding-inline: 3.5rem; }
+  @media (min-width: 90rem) { padding-inline: 4rem; }
+}
+
+/* Clickable card: the whole card becomes the link's hit area */
+@utility card-link {
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+}
+
+/* ==========================================================================
+   Prose (Markdown content for projects, news, jobs)
+   ========================================================================== */
+
+@layer components {
+  .prose {
+    max-width: 64ch;
+    color: var(--c-ink);
+  }
+  .prose > * + * { margin-top: 1.35em; }
+  .prose h2 { font-size: var(--text-h3); line-height: 1.25; margin-top: 2em; }
+  .prose h3 { font-size: 1.15em; margin-top: 1.6em; }
+  .prose a { color: var(--c-accent-text); text-decoration: underline; }
+  .prose a:hover { text-decoration-thickness: 2px; }
+  .prose ul, .prose ol { padding-left: 1.25em; }
+  .prose ul { list-style: square; }
+  .prose ol { list-style: decimal; }
+  .prose li + li { margin-top: 0.4em; }
+  .prose li::marker { color: var(--c-accent); }
+  .prose blockquote {
+    border-left: 3px solid var(--c-accent);
+    padding-left: 1.25em;
+    font-size: 1.15em;
+    font-family: var(--font-display);
+    font-weight: 500;
+  }
+  .prose strong { font-weight: 650; }
+  .prose hr { border: 0; border-top: 1px solid var(--c-line); margin-block: 2.5em; }
+  .prose table { width: 100%; border-collapse: collapse; font-size: 0.95em; }
+  .prose th, .prose td { border-bottom: 1px solid var(--c-line); padding: 0.6em 0.5em; text-align: left; }
+  .prose img { border-radius: 2px; }
+}

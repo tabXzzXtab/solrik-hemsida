@@ -1,0 +1,103 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { CERTIFICATIONS, ORG_NR, PARENT_GROUP, SERVICE_AREA } from '~/config/company';
+import { IMAGES } from '~/config/images';
+import { getDict } from '~/i18n';
+import { routeAlternates, type Lang } from '~/i18n/routes';
+import { crumbs } from '~/lib/nav';
+import PageHero from '~/components/ui/PageHero.astro';
+import Section from '~/components/ui/Section.astro';
+import SectionHeader from '~/components/ui/SectionHeader.astro';
+import CTABand from '~/components/blocks/CTABand.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getDict(lang);
+const a = t.about;
+const trail = crumbs(lang, 'about');
+const facts = [
+  { label: a.facts.area, value: SERVICE_AREA[lang] },
+  { label: a.facts.orgNr, value: ORG_NR },
+  { label: a.facts.group, value: PARENT_GROUP.name },
+];
+---
+
+<BaseLayout
+  lang={lang}
+  title={a.seo.title}
+  description={a.seo.description}
+  alternates={routeAlternates('about')}
+  image={IMAGES.about.src}
+  imageAlt={IMAGES.about.alt[lang]}
+  breadcrumbs={trail}
+  pageType="AboutPage"
+>
+  <PageHero lang={lang} title={a.h1} lead={a.lead} breadcrumbs={trail} image={{ src: IMAGES.about.src, alt: IMAGES.about.alt[lang] }} />
+
+  <div class="container-site">
+    <dl class="grid gap-8 border-y border-line py-10 sm:grid-cols-3 lg:py-12">
+      {
+        facts.map((f) => (
+          <div>
+            <dt class="text-sm text-muted">{f.label}</dt>
+            <dd class="mt-1 text-xl font-semibold">{f.value}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+
+  <Section labelledby="story-title">
+    <div class="grid gap-8 lg:grid-cols-12 lg:gap-16">
+      <h2 id="story-title" class="text-h2 font-semibold lg:col-span-4">{a.story.title}</h2>
+      <div class="space-y-5 text-lead lg:col-span-7 lg:col-start-6">
+        {a.story.body.map((p) => <p>{p}</p>)}
+      </div>
+    </div>
+  </Section>
+
+  <Section tone="sunken" labelledby="values-title">
+    <SectionHeader id="values-title" title={a.values.title} />
+    <ul class="mt-12 grid gap-8 md:grid-cols-3 lg:mt-16">
+      {
+        a.values.items.map((v) => (
+          <li class="rounded-[var(--radius-card)] bg-surface p-8 lg:p-10">
+            <h3 class="text-h3 font-semibold">{v.title}</h3>
+            <p class="mt-3 text-muted">{v.text}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </Section>
+
+  {
+    CERTIFICATIONS.length > 0 && (
+      <Section labelledby="certs-title">
+        <SectionHeader id="certs-title" title={a.certifications.title} intro={a.certifications.intro} />
+        <ul class="mt-10 flex flex-wrap gap-x-12 gap-y-4 text-xl font-medium lg:mt-14">
+          {CERTIFICATIONS.map((c) => <li>{c}</li>)}
+        </ul>
+      </Section>
+    )
+  }
+
+  <!-- Alternates with the section above it: sunken after certifications, plain right after the sunken values -->
+  <Section tone={CERTIFICATIONS.length ? 'sunken' : 'canvas'} labelledby="sustainability-title">
+    <SectionHeader id="sustainability-title" title={a.sustainability.title} intro={a.sustainability.intro} />
+    <ul class="mt-12 grid gap-x-16 gap-y-12 md:grid-cols-2 lg:mt-16">
+      {
+        a.sustainability.items.map((item) => (
+          <li>
+            <h3 class="text-xl font-semibold">{item.title}</h3>
+            <p class="mt-2 text-muted">{item.text}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </Section>
+
+  <CTABand lang={lang} />
+</BaseLayout>

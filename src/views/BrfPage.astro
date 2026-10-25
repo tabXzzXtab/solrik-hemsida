@@ -1,0 +1,104 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { DOCUMENTS } from '~/config/company';
+import { IMAGES } from '~/config/images';
+import { getDict } from '~/i18n';
+import { routeAlternates, routePath, servicePath, type Lang } from '~/i18n/routes';
+import { crumbs } from '~/lib/nav';
+import { faqNode, serviceNode } from '~/lib/schema';
+import Button from '~/components/ui/Button.astro';
+import PageHero from '~/components/ui/PageHero.astro';
+import Section from '~/components/ui/Section.astro';
+import SectionHeader from '~/components/ui/SectionHeader.astro';
+import AreaGrid from '~/components/blocks/AreaGrid.astro';
+import ProcessSteps from '~/components/blocks/ProcessSteps.astro';
+import FAQAccordion from '~/components/blocks/FAQAccordion.astro';
+import CTABand from '~/components/blocks/CTABand.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getDict(lang);
+const b = t.brf;
+const site = Astro.site!;
+const path = routePath('brf', lang);
+const url = new URL(path, site).href;
+const trail = crumbs(lang, 'brf');
+const checklist = DOCUMENTS.brfChecklist[lang];
+
+const schema = [
+  serviceNode({ site, url, name: b.h1, description: b.seo.description, lang, provider: 'propertyManagement' }),
+  faqNode(url, b.faq),
+];
+---
+
+<BaseLayout
+  lang={lang}
+  title={b.seo.title}
+  description={b.seo.description}
+  alternates={routeAlternates('brf')}
+  image={IMAGES.brf.src}
+  imageAlt={IMAGES.brf.alt[lang]}
+  breadcrumbs={trail}
+  schema={schema}
+>
+  <PageHero lang={lang} title={b.h1} lead={b.lead} breadcrumbs={trail} image={{ src: IMAGES.brf.src, alt: IMAGES.brf.alt[lang] }}>
+    <Fragment slot="actions">
+      <Button href={`${routePath('contact', lang)}#offert`}>{t.cta.primary}</Button>
+      <Button href={checklist} variant="secondary" download>{b.checklist.button}</Button>
+    </Fragment>
+  </PageHero>
+
+  <Section flush="top">
+    <div class="max-w-2xl space-y-5 text-lead lg:ml-[calc(100%/12*4)]">
+      {b.intro.map((p) => <p>{p}</p>)}
+    </div>
+  </Section>
+
+  <Section labelledby="offer-title" flush="top">
+    <SectionHeader id="offer-title" title={b.offerTitle} />
+    <AreaGrid items={b.offer} columns={3} />
+  </Section>
+
+  <!-- Downloadable checklist -->
+  <section aria-labelledby="checklist-title" class="container-site">
+    <div class="rounded-[var(--radius-card)] bg-accent-soft px-8 py-12 sm:px-12 lg:px-16 lg:py-16">
+      <h2 id="checklist-title" class="max-w-2xl text-h2 font-semibold">{b.checklist.title}</h2>
+      <p class="mt-4 max-w-xl text-lead text-muted">{b.checklist.text}</p>
+      <div class="mt-10">
+        <Button href={checklist} variant="primary" size="lg" download>{b.checklist.button} ({b.checklist.meta})</Button>
+      </div>
+    </div>
+  </section>
+
+  <Section labelledby="process-title">
+    <SectionHeader id="process-title" title={t.services.labels.process} />
+    <ProcessSteps steps={b.process} />
+  </Section>
+
+  <Section labelledby="faq-title" flush="top">
+    <SectionHeader id="faq-title" title={t.services.labels.faq} />
+    <div class="mt-10 lg:mt-14 lg:ml-[calc(100%/12*4)]">
+      <FAQAccordion items={b.faq} />
+    </div>
+  </Section>
+
+  <Section tone="sunken" spacing="sm" labelledby="related-title">
+    <h2 id="related-title" class="text-lg font-semibold">{t.services.labels.related}</h2>
+    <ul class="mt-6 flex flex-wrap gap-x-10 gap-y-6">
+      {
+        (['fastighetsforvaltning', 'renovering'] as const).map((key) => (
+          <li>
+            <a href={servicePath(key, lang)} class="tap text-lg font-medium text-accent-text underline underline-offset-4 decoration-1 hover:decoration-2">
+              {t.services.items[key].name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </Section>
+
+  <CTABand lang={lang} title={b.cta.title} text={b.cta.text} />
+</BaseLayout>

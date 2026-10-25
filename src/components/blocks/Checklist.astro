@@ -1,0 +1,13 @@
+---
+interface Props {
+  items: string[];
+  columns?: 1 | 2;
+  class?: string;
+}
+
+const { items, columns = 2, class: className } = Astro.props;
+---
+
+<ul class:list={['grid gap-x-16', columns === 2 && 'md:grid-cols-2', className]}>
+  {items.map((item) => <li class="border-t border-line py-5">{item}</li>)}
+</ul>

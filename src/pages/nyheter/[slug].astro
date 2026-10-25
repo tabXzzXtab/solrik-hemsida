@@ -1,0 +1,12 @@
+---
+import NewsDetail from '~/views/NewsDetail.astro';
+import { entryStaticPaths } from '~/lib/content';
+
+export async function getStaticPaths() {
+  return entryStaticPaths('news', 'sv');
+}
+
+const { entry } = Astro.props;
+---
+
+<NewsDetail lang="sv" entry={entry} />
