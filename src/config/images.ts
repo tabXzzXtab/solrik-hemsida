@@ -2,7 +2,7 @@
  * Image slots used on fixed pages.
  *
  * The current photos are stock images from Pexels (free to use without credit), chosen with
- * `node scripts/pexels.mjs` (see README → "Swap images"); ./photo-credits.json records where
+ * `node scripts/pexels.mjs`; ./photo-credits.json records where
  * each one came from. Replace them with your own project photography over time:
  *   1. Save your photo over the file in src/assets/images/ (or change the import below).
  *   2. Update `alt` (sv + en).

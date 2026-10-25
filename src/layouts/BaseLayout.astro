@@ -7,7 +7,7 @@ import { IMAGES } from '~/config/images';
 import logo from '~/assets/logo/solrik-logo.png';
 import { ANALYTICS_ENABLED, NOINDEX, VERIFICATION } from '~/config/site';
 import { getDict } from '~/i18n';
-import { LANGS, type Lang } from '~/i18n/routes';
+import { LANGS, withBase, type Lang } from '~/i18n/routes';
 import { breadcrumbNode, siteNodes, webPageNode } from '~/lib/schema';
 import type { Crumb } from '~/components/layout/Breadcrumbs.astro';
 import Header from '~/components/layout/Header.astro';
@@ -68,7 +68,7 @@ const ogImageUrl = new URL(og.src, site).href;
 const orgImage = image ? await getImage({ src: IMAGES.hero.src, width: 1200, height: 630, fit: 'cover', format: 'jpg', quality: 80 }) : og;
 const orgImageUrl = new URL(orgImage.src, site).href;
 // public/logo.png is the same file as the header logo (scripts/brand-assets.mjs).
-const logoNode = { url: new URL('/logo.png', site).href, width: logo.width, height: logo.height };
+const logoNode = { url: new URL(withBase('/logo.png'), site).href, width: logo.width, height: logo.height };
 
 const hreflangs = LANGS.filter((l) => alternates[l]).map((l) => ({ lang: l, href: new URL(alternates[l]!, site).href }));
 const xDefault = alternates.sv ? new URL(alternates.sv, site).href : null;
@@ -112,12 +112,12 @@ const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': grap
     {modifiedTime && <meta property="article:modified_time" content={modifiedTime.toISOString()} />}
     <meta name="twitter:card" content="summary_large_image" />
 
-    <link rel="icon" href="/favicon.ico" sizes="32x32" />
-    <link rel="icon" href="/favicon-96x96.png" type="image/png" sizes="96x96" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" href={withBase('/favicon.ico')} sizes="32x32" />
+    <link rel="icon" href={withBase('/favicon-96x96.png')} type="image/png" sizes="96x96" />
+    <link rel="apple-touch-icon" href={withBase('/apple-touch-icon.png')} />
     <meta name="theme-color" content="#fbfbf8" />
     <meta name="color-scheme" content="light" />
-    <link rel="sitemap" href="/sitemap.xml" />
+    <link rel="sitemap" href={withBase('/sitemap.xml')} />
     {VERIFICATION.google && <meta name="google-site-verification" content={VERIFICATION.google} />}
     {VERIFICATION.bing && <meta name="msvalidate.01" content={VERIFICATION.bing} />}
 

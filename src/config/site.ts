@@ -1,5 +1,5 @@
 /**
- * Technical settings read from environment variables (see .env.example).
+ * Technical settings read from environment variables (set as repository variables for the GitHub Pages build).
  * Company data lives in ./company.ts, not here.
  */
 
@@ -14,7 +14,7 @@ export const NOINDEX: boolean = __NOINDEX__;
 export type FormProvider = 'netlify' | 'formspree' | 'custom';
 export type FormName = 'quote' | 'faultReport';
 
-export const FORM_PROVIDER: FormProvider = pick(env.PUBLIC_FORM_PROVIDER, ['netlify', 'formspree', 'custom'], 'netlify');
+export const FORM_PROVIDER: FormProvider = pick(env.PUBLIC_FORM_PROVIDER, ['netlify', 'formspree', 'custom'], 'custom');
 
 export const FORM_ENDPOINTS: Record<FormName, string> = {
   quote: env.PUBLIC_FORM_ENDPOINT_QUOTE ?? '',

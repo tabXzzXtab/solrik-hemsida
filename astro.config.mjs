@@ -3,24 +3,21 @@ import { defineConfig, fontProviders } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
 /**
- * Canonical origin. Set PUBLIC_SITE_URL in the hosting dashboard (or .env).
- * Netlify exposes its primary URL as `URL`, used as a fallback.
+ * Where the site is served. The GitHub Pages workflow passes the values from
+ * actions/configure-pages: the custom domain at its root once one is connected,
+ * otherwise the github.io address under /<repo>/.
  */
-const SITE_URL = process.env.PUBLIC_SITE_URL || process.env.URL || 'https://www.example.se';
+const SITE_URL = process.env.SITE_ORIGIN || 'http://localhost:4321';
+const BASE_PATH = process.env.SITE_BASE_PATH || '/';
 
-/**
- * Preview and branch deploys must never be indexed. This is decided by the
- * environment, never by a flag in the code that could ship to production.
- */
-const NOINDEX =
-  process.env.PUBLIC_NOINDEX === 'true' ||
-  ['deploy-preview', 'branch-deploy'].includes(process.env.CONTEXT ?? '') ||
-  process.env.VERCEL_ENV === 'preview';
+/** PUBLIC_NOINDEX=true blocks indexing (e.g. for a staging copy). */
+const NOINDEX = process.env.PUBLIC_NOINDEX === 'true';
 
 const fontFallbacks = ['ui-sans-serif', 'system-ui', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif'];
 
 export default defineConfig({
   site: SITE_URL,
+  base: BASE_PATH,
   trailingSlash: 'always',
   build: {
     format: 'directory',

@@ -1,9 +1,6 @@
 # Builds the site and publishes it to GitHub Pages on every push to main.
-# Build settings come from repository variables (Settings → Secrets and variables → Actions → Variables):
-#   PUBLIC_SITE_URL                    the custom domain, e.g. https://www.solrik.se
-#   PUBLIC_FORM_PROVIDER               custom (n8n)
-#   PUBLIC_FORM_ENDPOINT_QUOTE         webhook URL for the contact/quote form
-#   PUBLIC_FORM_ENDPOINT_FAULT_REPORT  webhook URL for the fault report form
+# The address comes from GitHub Pages itself (custom domain if connected, otherwise
+# the github.io URL). Form settings are repository variables.
 name: Deploy to GitHub Pages
 
 on:
@@ -29,10 +26,13 @@ jobs:
         with:
           node-version: 22
           cache: npm
+      - id: pages
+        uses: actions/configure-pages@v5
       - run: npm ci
       - run: npm run build
         env:
-          PUBLIC_SITE_URL: ${{ vars.PUBLIC_SITE_URL }}
+          SITE_ORIGIN: ${{ steps.pages.outputs.origin }}
+          SITE_BASE_PATH: ${{ steps.pages.outputs.base_path }}
           PUBLIC_FORM_PROVIDER: ${{ vars.PUBLIC_FORM_PROVIDER }}
           PUBLIC_FORM_ENDPOINT_QUOTE: ${{ vars.PUBLIC_FORM_ENDPOINT_QUOTE }}
           PUBLIC_FORM_ENDPOINT_FAULT_REPORT: ${{ vars.PUBLIC_FORM_ENDPOINT_FAULT_REPORT }}

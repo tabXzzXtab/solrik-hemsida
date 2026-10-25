@@ -2,8 +2,17 @@
  * Central URL map. Every internal link, hreflang pair and the sitemap are built
  * from here, so a slug is only ever written once.
  *
- * Changing a published URL? Add a 301 in netlify.toml / vercel.json at the same time.
+ * Every path is prefixed with the site's base path, so the same build works on a
+ * custom domain ("/tjanster/") and on a github.io project URL ("/solrik-hemsida/tjanster/").
  */
+
+/** "" on a domain root, "/solrik-hemsida" on the github.io project URL. */
+const BASE = import.meta.env.BASE_URL.replace(/\/+$/, '');
+
+/** Prefix a root-relative path ("/dokument/x.pdf") with the base path. */
+export function withBase(path: string): string {
+  return `${BASE}${path}`;
+}
 
 export const LANGS = ['sv', 'en'] as const;
 export type Lang = (typeof LANGS)[number];
@@ -49,11 +58,11 @@ export const SERVICE_SLUGS: Record<ServiceKey, Record<Lang, string>> = {
 };
 
 export function routePath(key: RouteKey, lang: Lang): string {
-  return ROUTES[key][lang];
+  return withBase(ROUTES[key][lang]);
 }
 
 export function servicePath(key: ServiceKey, lang: Lang): string {
-  return `${ROUTES.services[lang]}${SERVICE_SLUGS[key][lang]}/`;
+  return `${routePath('services', lang)}${SERVICE_SLUGS[key][lang]}/`;
 }
 
 export function serviceKeyFromSlug(slug: string, lang: Lang): ServiceKey | undefined {
@@ -64,7 +73,7 @@ export type CollectionName = 'projects' | 'news' | 'jobs';
 const COLLECTION_BASE: Record<CollectionName, RouteKey> = { projects: 'projects', news: 'news', jobs: 'careers' };
 
 export function entryPath(collection: CollectionName, slug: string, lang: Lang): string {
-  return `${ROUTES[COLLECTION_BASE[collection]][lang]}${slug}/`;
+  return `${routePath(COLLECTION_BASE[collection], lang)}${slug}/`;
 }
 
 /**
@@ -86,7 +95,7 @@ export function resolveRoute(ref: string, lang: Lang): string {
 
 /** hreflang alternates for a static route. */
 export function routeAlternates(key: RouteKey): Partial<Record<Lang, string>> {
-  return { ...ROUTES[key] };
+  return { sv: routePath(key, 'sv'), en: routePath(key, 'en') };
 }
 
 export function serviceAlternates(key: ServiceKey): Partial<Record<Lang, string>> {

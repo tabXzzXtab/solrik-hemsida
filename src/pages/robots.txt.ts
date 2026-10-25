@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { NOINDEX } from '~/config/site';
+import { withBase } from '~/i18n/routes';
 
 /**
  * Production: everything crawlable (incl. SemrushBot/AhrefsBot for SEO audits).
@@ -7,7 +8,7 @@ import { NOINDEX } from '~/config/site';
  * AI crawlers are allowed by default; add explicit rules here if the company decides otherwise.
  */
 export const GET: APIRoute = ({ site }) => {
-  const sitemap = new URL('/sitemap.xml', site).href;
+  const sitemap = new URL(withBase('/sitemap.xml'), site).href;
   const body = NOINDEX
     ? 'User-agent: *\nDisallow: /\n'
     : `User-agent: *\nAllow: /\n\nSitemap: ${sitemap}\n`;

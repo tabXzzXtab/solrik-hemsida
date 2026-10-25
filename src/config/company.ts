@@ -14,7 +14,7 @@
  *   - Texter som skiljer sig mellan språken skrivs som { sv: '…', en: '…' }.
  *
  *  Projekt, nyheter och lediga jobb redigeras inte här utan som Markdown-filer
- *  i src/content/ (se README → "Lägga till projekt, nyheter och jobb").
+ *  i src/content/ (en Markdown-fil per post och språk).
  */
 
 import type { Lang } from '~/i18n/routes';
@@ -151,5 +151,5 @@ export const DOCUMENTS = {
  * PROJECTS hanteras som innehållssamling i src/content/projects/ (en Markdown-fil
  * per projekt och språk) eftersom varje projekt har en egen sida med bilder.
  * Frontmatter-fälten motsvarar { title, location, year, category, client,
- * description, images[] } – se src/content.config.ts och README.
+ * description, images[] } – se src/content.config.ts.
  */

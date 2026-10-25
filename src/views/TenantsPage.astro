@@ -2,7 +2,7 @@
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { DOCUMENTS, SHOW_TENANTS_PAGE, TENANT_PORTAL_URL } from '~/config/company';
 import { getDict } from '~/i18n';
-import { routeAlternates, routePath, type Lang } from '~/i18n/routes';
+import { routeAlternates, routePath, withBase, type Lang } from '~/i18n/routes';
 import { isRealUrl } from '~/lib/format';
 import { crumbs } from '~/lib/nav';
 import { faqNode } from '~/lib/schema';
@@ -92,7 +92,7 @@ const onPage = [
   <Section id="forms" tone="sunken" labelledby="forms-title">
     <SectionHeader id="forms-title" title={p.forms.title} intro={p.forms.text} />
     <div class="mt-10 border-b border-line lg:mt-14 lg:ml-[calc(100%/12*4)]">
-      {DOCUMENTS.tenantForms.map((doc) => <DownloadCard href={doc.file} title={doc.title[lang]} label={t.common.download} />)}
+      {DOCUMENTS.tenantForms.map((doc) => <DownloadCard href={withBase(doc.file)} title={doc.title[lang]} label={t.common.download} />)}
     </div>
   </Section>
 

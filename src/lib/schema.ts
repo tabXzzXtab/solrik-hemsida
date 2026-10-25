@@ -6,7 +6,7 @@
 import {
   COMPANY_NAME, COMPANY_SHORT_NAME, INSTAGRAM_URL, LINKEDIN_URL, ORG_NR, PARENT_GROUP, PHONE, REGION, SERVICE_AREA,
 } from '~/config/company';
-import { servicePath, type Lang } from '~/i18n/routes';
+import { servicePath, withBase, type Lang } from '~/i18n/routes';
 import { e164, isPlaceholder, isRealUrl } from './format';
 
 type Node = Record<string, unknown>;
@@ -33,9 +33,9 @@ function clean<T>(value: T): T {
 const real = (v: string) => (isPlaceholder(v) ? undefined : v);
 
 export const ids = (site: URL) => ({
-  org: new URL('/#organization', site).href,
-  propertyManagement: new URL('/#property-management', site).href,
-  website: new URL('/#website', site).href,
+  org: new URL(withBase('/#organization'), site).href,
+  propertyManagement: new URL(withBase('/#property-management'), site).href,
+  website: new URL(withBase('/#website'), site).href,
 });
 
 /** Service-area business: region and country only, no street address. */
@@ -57,7 +57,7 @@ export function siteNodes(site: URL, lang: Lang, logo: { url: string; width: num
       '@id': id.org,
       name: COMPANY_SHORT_NAME,
       legalName: COMPANY_NAME,
-      url: new URL('/', site).href,
+      url: new URL(withBase('/'), site).href,
       logo: { '@type': 'ImageObject', ...logo },
       image: imageUrl,
       taxID: real(ORG_NR),
@@ -80,7 +80,7 @@ export function siteNodes(site: URL, lang: Lang, logo: { url: string; width: num
     {
       '@type': 'WebSite',
       '@id': id.website,
-      url: new URL('/', site).href,
+      url: new URL(withBase('/'), site).href,
       name: COMPANY_SHORT_NAME,
       publisher: { '@id': id.org },
       inLanguage: [LANG_TAG.sv, LANG_TAG.en],
