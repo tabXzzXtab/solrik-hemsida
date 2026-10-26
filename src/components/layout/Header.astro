@@ -1,8 +1,8 @@
 ---
-import { PHONE, TENANT_PORTAL_URL } from '~/config/company';
+import { TENANT_PORTAL_URL } from '~/config/company';
 import { getDict } from '~/i18n';
 import { routePath, servicePath, SERVICE_KEYS, type Lang, type RouteKey } from '~/i18n/routes';
-import { isRealUrl, telHref } from '~/lib/format';
+import { isRealUrl } from '~/lib/format';
 import { hiddenRoutes } from '~/lib/nav';
 import Icon from '~/components/ui/Icon.astro';
 import Button from '~/components/ui/Button.astro';
@@ -33,7 +33,7 @@ const items = primary.map((item) => {
   return { ...item, href, exact: current === href, active: current.startsWith(href) };
 });
 
-const tel = telHref(PHONE);
+const contactHref = `${routePath('contact', lang)}#offert`;
 const faultHref = routePath('faultReport', lang);
 const portal = isRealUrl(TENANT_PORTAL_URL) ? TENANT_PORTAL_URL : null;
 const linkClass = 'underline-offset-4 hover:underline';
@@ -81,13 +81,7 @@ const linkClass = 'underline-offset-4 hover:underline';
     </nav>
 
     <div class="flex shrink-0 items-center gap-3 sm:gap-5">
-      {
-        tel ? (
-          <a href={tel} class="hidden font-semibold tabular-nums underline-offset-4 hover:underline lg:inline">{PHONE}</a>
-        ) : (
-          <span class="hidden font-semibold lg:inline">{PHONE}</span>
-        )
-      }
+      <a href={contactHref} class="hidden font-semibold underline-offset-4 hover:underline lg:inline">{t.nav.contactUs}</a>
       <!-- Visibility wrappers: Button/LanguageSwitcher set their own display -->
       <div class="hidden md:block">
         <Button href={faultHref} variant="primary">{t.nav.faultReport}</Button>
@@ -144,9 +138,6 @@ const linkClass = 'underline-offset-4 hover:underline';
         {portal && <li><a href={portal} class="flex min-h-11 items-center underline-offset-4 hover:underline">{t.nav.myPages}</a></li>}
         <li><LanguageSwitcher lang={lang} alternates={alternates} class="min-h-11" /></li>
       </ul>
-      <div class="mt-8 space-y-2 text-base">
-        <p><span class="text-muted">{t.nav.callUs}:</span>{' '}{tel ? <a href={tel} class="font-semibold underline">{PHONE}</a> : <span class="font-semibold">{PHONE}</span>}</p>
-      </div>
     </nav>
   </div>
 </header>

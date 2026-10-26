@@ -1,10 +1,8 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
-import { PHONE } from '~/config/company';
 import { SERVICE_IMAGES } from '~/config/images';
 import { getDict } from '~/i18n';
 import { routePath, serviceAlternates, servicePath, SERVICE_KEYS, type Lang, type ServiceKey } from '~/i18n/routes';
-import { telHref } from '~/lib/format';
 import { crumbs } from '~/lib/nav';
 import { faqNode, serviceNode } from '~/lib/schema';
 import Button from '~/components/ui/Button.astro';
@@ -32,7 +30,7 @@ const path = servicePath(service, lang);
 const site = Astro.site!;
 const url = new URL(path, site).href;
 const trail = crumbs(lang, 'services', { label: s.name, href: path });
-const tel = telHref(PHONE) ?? routePath('contact', lang);
+const contactPath = routePath('contact', lang);
 const explainer = 'explainer' in s ? s.explainer : undefined;
 const areaColumns = s.areas.length % 4 === 0 ? 4 : 3;
 const others = SERVICE_KEYS.filter((k) => k !== service);
@@ -63,7 +61,7 @@ const schema = [
   <PageHero lang={lang} title={s.h1} lead={s.lead} breadcrumbs={trail} image={{ src: image.src, alt: image.alt[lang] }}>
     <Fragment slot="actions">
       <Button href={`${routePath('contact', lang)}#offert`}>{t.cta.primary}</Button>
-      <Button href={tel} variant="secondary">{t.cta.secondary}</Button>
+      <Button href={contactPath} variant="secondary">{t.cta.secondary}</Button>
     </Fragment>
   </PageHero>
 

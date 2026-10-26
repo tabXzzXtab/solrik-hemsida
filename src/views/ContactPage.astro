@@ -1,9 +1,8 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
-import { PHONE, SERVICE_AREA } from '~/config/company';
-import { getDict } from '~/i18n';
+import { SERVICE_AREA } from '~/config/company';
+import { addressLine, getDict } from '~/i18n';
 import { routeAlternates, routePath, type Lang } from '~/i18n/routes';
-import { telHref } from '~/lib/format';
 import { crumbs } from '~/lib/nav';
 import Breadcrumbs from '~/components/layout/Breadcrumbs.astro';
 import QuoteForm from '~/components/forms/QuoteForm.astro';
@@ -16,12 +15,10 @@ const { lang } = Astro.props;
 const t = getDict(lang);
 const c = t.contact;
 const trail = crumbs(lang, 'contact');
-const tel = telHref(PHONE);
-
-// Phone and the form below are the only contact channels.
+// The form below is the only contact channel.
 const rows = [
-  { label: t.common.phone, value: PHONE, href: tel, big: true },
-  { label: t.common.serviceArea, value: SERVICE_AREA[lang], href: null },
+  { label: t.common.address, value: addressLine },
+  { label: t.common.serviceArea, value: SERVICE_AREA[lang] },
 ];
 ---
 
@@ -43,9 +40,7 @@ const rows = [
               rows.map((row) => (
                 <div class="border-t border-line py-5">
                   <dt class="text-sm text-muted">{row.label}</dt>
-                  <dd class:list={['mt-1', row.big ? 'text-2xl font-semibold' : 'font-medium']}>
-                    {row.href ? <a href={row.href} class="tap break-words underline-offset-4 hover:underline">{row.value}</a> : row.value}
-                  </dd>
+                  <dd class="mt-1 font-medium">{row.value}</dd>
                 </div>
               ))
             }

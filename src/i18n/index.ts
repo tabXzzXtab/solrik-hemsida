@@ -1,11 +1,14 @@
 import sv from './sv.json';
 import en from './en.json';
 import type { Lang } from './routes';
-import { COMPANY_NAME, COMPANY_SHORT_NAME, ORG_NR, PARENT_GROUP, PHONE, PRIMARY_CITY, SERVICE_AREA } from '~/config/company';
+import { ADDRESS, COMPANY_NAME, COMPANY_SHORT_NAME, ORG_NR, PARENT_GROUP, PRIMARY_CITY, SERVICE_AREA } from '~/config/company';
 import { ANALYTICS, FORM_PROVIDER } from '~/config/site';
 import { fill } from '~/lib/format';
 
 export type Dict = typeof sv;
+
+/** "Aspögatan 1, 211 54 Malmö" */
+export const addressLine = `${ADDRESS.street}, ${ADDRESS.postalCode} ${ADDRESS.city}`;
 
 /** Type check: the English file must have every key the Swedish file has. */
 const enDict: Dict = en;
@@ -24,7 +27,7 @@ export function globalVars(lang: Lang): Record<string, string> {
     parentGroup: PARENT_GROUP.name,
     primaryCity: PRIMARY_CITY,
     serviceArea: SERVICE_AREA[lang],
-    phone: PHONE,
+    address: addressLine,
     orgNr: ORG_NR,
     formProvider: FORM_PROVIDER_NAMES[lang][FORM_PROVIDER],
     year: String(new Date().getFullYear()),

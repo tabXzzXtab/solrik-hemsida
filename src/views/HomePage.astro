@@ -1,12 +1,11 @@
 ---
 import { Picture } from 'astro:assets';
 import BaseLayout from '~/layouts/BaseLayout.astro';
-import { KEY_FIGURES, PHONE, SERVICE_AREA } from '~/config/company';
+import { KEY_FIGURES, SERVICE_AREA } from '~/config/company';
 import { IMAGES, SERVICE_IMAGES } from '~/config/images';
-import { getDict } from '~/i18n';
+import { addressLine, getDict } from '~/i18n';
 import { resolveRoute, routeAlternates, routePath, servicePath, SERVICE_KEYS, type Lang } from '~/i18n/routes';
 import { getNews, getProjects } from '~/lib/content';
-import { telHref } from '~/lib/format';
 import Button from '~/components/ui/Button.astro';
 import Figure from '~/components/ui/Figure.astro';
 import Section from '~/components/ui/Section.astro';
@@ -28,7 +27,6 @@ const t = getDict(lang);
 const h = t.home;
 const projects = (await getProjects(lang)).slice(0, 3);
 const news = (await getNews(lang)).slice(0, 3);
-const tel = telHref(PHONE);
 const figureCols = { 2: 'sm:grid-cols-2', 3: 'sm:grid-cols-3' }[KEY_FIGURES.length] ?? 'sm:grid-cols-2 lg:grid-cols-4';
 // Figures, projects and news only render when there is real content; keep the
 // light/sunken rhythm intact whichever of them are missing.
@@ -139,8 +137,9 @@ const localTone = KEY_FIGURES.length || projects.length ? 'sunken' : 'canvas';
         </div>
         <p class="mt-6 text-muted">{h.local.areaLabel}: <span class="font-medium text-ink">{SERVICE_AREA[lang]}</span></p>
         <div class="mt-10 border-t border-line pt-8">
-          <p class="text-sm text-muted">{t.nav.callUs}</p>
-          {tel ? <a href={tel} class="tap text-2xl font-semibold tabular-nums underline-offset-4 hover:underline">{PHONE}</a> : <p class="mt-1 text-2xl font-semibold">{PHONE}</p>}
+          <p class="text-sm text-muted">{t.common.address}</p>
+          <p class="mt-1 text-xl font-semibold">{addressLine}</p>
+          <a href={`${routePath('contact', lang)}#offert`} class="tap mt-6 font-semibold text-accent-text underline underline-offset-4">{t.nav.contactUs}</a>
         </div>
       </div>
     </div>

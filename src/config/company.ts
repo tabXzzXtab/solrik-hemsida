@@ -41,10 +41,10 @@ export const PARENT_GROUP = {
 /** Organisationsnummer, format XXXXXX-XXXX. */
 export const ORG_NR = '559200-5077';
 
-/**
- * Län och land för strukturerad data. Ingen gatuadress visas på webbplatsen –
- * kontakt sker via telefon och kontaktformulär.
- */
+/** Företagets adress. Visas i sidfoten och på kontaktsidan. */
+export const ADDRESS = { street: 'Aspögatan 1', postalCode: '211 54', city: 'Malmö' };
+
+/** Län och land för strukturerad data. */
 export const REGION = { name: 'Skåne län', country: 'SE' };
 
 /**
@@ -57,20 +57,17 @@ export const REGISTERED_OFFICE = '';
 export const F_SKATT = false;
 
 /** Ort eller region i sidtitlar för lokal SEO, t.ex. "Bygg och förvaltning i Skåne". */
-export const PRIMARY_CITY = 'Skåne';
+export const PRIMARY_CITY = 'Malmö';
 
 /** Verksamhetsområde i löptext. */
 export const SERVICE_AREA: Localized = {
-  sv: 'Skåne',
-  en: 'Skåne',
+  sv: 'Malmö',
+  en: 'Malmö',
 };
 
 /* ---------------------------------------------------------------------------
- *  Kontakt – webbplatsen visar bara telefonnummer och kontaktformulär
+ *  Kontakt – all kontakt sker via kontaktformuläret
  * ------------------------------------------------------------------------ */
-
-/** Telefon – samma nummer gäller för akuta fel. Skriv som det ska visas. */
-export const PHONE = '+46 73 398 78 68';
 
 /** Sociala medier. Tom = visas inte. */
 export const LINKEDIN_URL = '';
@@ -129,7 +126,7 @@ export const PROMISES: Array<{ title: Localized; text: Localized }> = [
   },
   {
     title: { sv: 'Akuta fel går först', en: 'Emergencies come first' },
-    text: { sv: 'Ring oss – det som inte kan vänta prioriteras.', en: "Call us – anything that can't wait is prioritised." },
+    text: { sv: 'Akuta felanmälningar hanteras före allt annat.', en: 'Urgent fault reports are handled before anything else.' },
   },
 ];
 

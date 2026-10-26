@@ -58,7 +58,7 @@ const onPage = [
       </nav>
     </div>
 
-    <EmergencyNotice title={p.emergency.title} text={p.emergency.text} callLabel={p.emergency.call} class="mt-14 lg:mt-20" />
+    <EmergencyNotice title={p.emergency.title} text={p.emergency.text} actionLabel={p.emergency.call} href={routePath('faultReport', lang)} class="mt-14 lg:mt-20" />
 
     <div class:list={['mt-8 grid gap-8', portal && 'md:grid-cols-2']}>
       <div class="flex flex-col rounded-[var(--radius-card)] bg-accent-soft p-8 lg:p-10">

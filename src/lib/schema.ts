@@ -4,10 +4,10 @@
  * search engines never receive "[…]" values.
  */
 import {
-  COMPANY_NAME, COMPANY_SHORT_NAME, INSTAGRAM_URL, LINKEDIN_URL, ORG_NR, PARENT_GROUP, PHONE, REGION, SERVICE_AREA,
+  ADDRESS, COMPANY_NAME, COMPANY_SHORT_NAME, INSTAGRAM_URL, LINKEDIN_URL, ORG_NR, PARENT_GROUP, REGION, SERVICE_AREA,
 } from '~/config/company';
 import { servicePath, withBase, type Lang } from '~/i18n/routes';
-import { e164, isPlaceholder, isRealUrl } from './format';
+import { isPlaceholder, isRealUrl } from './format';
 
 type Node = Record<string, unknown>;
 
@@ -38,11 +38,16 @@ export const ids = (site: URL) => ({
   website: new URL(withBase('/#website'), site).href,
 });
 
-/** Service-area business: region and country only, no street address. */
 function businessCommon(lang: Lang) {
   return {
-    telephone: e164(PHONE),
-    address: { '@type': 'PostalAddress', addressRegion: REGION.name, addressCountry: REGION.country },
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: ADDRESS.street,
+      postalCode: ADDRESS.postalCode,
+      addressLocality: ADDRESS.city,
+      addressRegion: REGION.name,
+      addressCountry: REGION.country,
+    },
     areaServed: real(SERVICE_AREA[lang]) ? { '@type': 'AdministrativeArea', name: SERVICE_AREA[lang] } : undefined,
   };
 }

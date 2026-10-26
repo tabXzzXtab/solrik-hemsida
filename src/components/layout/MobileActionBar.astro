@@ -1,9 +1,7 @@
 ---
 /** Sticky call / fault-report bar on small screens. Body has matching bottom padding. */
-import { PHONE } from '~/config/company';
 import { getDict } from '~/i18n';
 import { routePath, type Lang } from '~/i18n/routes';
-import { telHref } from '~/lib/format';
 
 interface Props {
   lang: Lang;
@@ -11,13 +9,13 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = getDict(lang);
-const tel = telHref(PHONE) ?? routePath('contact', lang);
+const contactHref = `${routePath('contact', lang)}#offert`;
 ---
 
 <nav
   aria-label={t.nav.mobileActions}
   class="fixed inset-x-0 bottom-0 z-50 grid grid-cols-2 border-t border-line bg-surface pb-[env(safe-area-inset-bottom)] text-ink lg:hidden"
 >
-  <a href={tel} class="flex h-16 items-center justify-center bg-accent font-semibold text-accent-ink [@media(max-height:30rem)]:h-12">{t.nav.callUs}</a>
+  <a href={contactHref} class="flex h-16 items-center justify-center bg-accent font-semibold text-accent-ink [@media(max-height:30rem)]:h-12">{t.nav.contactUs}</a>
   <a href={routePath('faultReport', lang)} class="flex h-16 items-center justify-center font-semibold [@media(max-height:30rem)]:h-12">{t.nav.faultReport}</a>
 </nav>

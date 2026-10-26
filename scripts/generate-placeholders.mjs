@@ -104,7 +104,7 @@ function makePdf(blocks) {
 
 const muted = [0.42, 0.39, 0.35];
 /** A finished one-page document (title, intro, bullet list with "#" subheadings). */
-const documentPdf = (title, intro, items = [], { draft = false, contact = 'Solrik AB · +46 73 398 78 68' } = {}) =>
+const documentPdf = (title, intro, items = [], { draft = false, contact = 'Solrik AB · Aspögatan 1, 211 54 Malmö' } = {}) =>
   makePdf([
     ...(draft ? [{ text: 'PLATSHÅLLARE – ersätt med er riktiga fil innan publicering', size: 9, bold: true, color: [0.118, 0.420, 0.278], gap: 0 }] : []),
     { text: 'Solrik AB', size: 10, color: muted, gap: draft ? 14 : 0 },

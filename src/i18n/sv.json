@@ -17,7 +17,7 @@
     "careers": "Karriär",
     "contact": "Kontakt",
     "faultReport": "Felanmälan",
-    "callUs": "Ring oss",
+    "contactUs": "Kontakta oss",
     "myPages": "Mina sidor",
     "menu": "Meny",
     "otherLanguage": "English",
@@ -27,7 +27,7 @@
   },
   "common": {
     "readMore": "Läs mer",
-    "phone": "Telefon",
+    "address": "Adress",
     "serviceArea": "Verksamhetsområde",
     "orgNr": "Org.nr",
     "registeredOffice": "Säte",
@@ -44,7 +44,7 @@
     "title": "Berätta om ert projekt",
     "text": "Beskriv kort vad som ska göras – vi återkommer med upplägg och pris.",
     "primary": "Begär offert",
-    "secondary": "Ring {phone}"
+    "secondary": "Kontakta oss"
   },
   "footer": {
     "tagline": "Fastighetsförvaltning, drift, renovering och nybyggnation i {serviceArea}.",
@@ -117,7 +117,7 @@
     "local": {
       "title": "Nära fastigheterna vi tar hand om",
       "body": [
-        "Korta resor, hantverkare som känner husen och en kontaktperson som svarar i telefon."
+        "Korta resor, hantverkare som känner husen och en kontaktperson som svarar snabbt."
       ],
       "areaLabel": "Verksamhetsområde"
     },
@@ -537,7 +537,7 @@
         "includes": [
           "Fast kontaktperson och återkommande fastighetsskötare",
           "Rondering enligt överenskommet schema",
-          "Felanmälan via webben och telefon",
+          "Felanmälan via webben",
           "Jour dygnet runt för akuta fel",
           "Sammanställning av utförda arbeten",
           "Samordning med förvaltning och hantverkare"
@@ -575,7 +575,7 @@
           },
           {
             "q": "Hur snabbt kommer jouren?",
-            "a": "Akuta fel prioriteras alltid. När du ringer gör vi en bedömning direkt och åtgärdar det som inte kan vänta så snabbt som möjligt – mindre brådskande ärenden planeras in i den vanliga skötseln."
+            "a": "Akuta fel prioriteras alltid. När felanmälan kommer in gör vi en bedömning direkt och åtgärdar det som inte kan vänta så snabbt som möjligt – mindre brådskande ärenden planeras in i den vanliga skötseln."
           },
           {
             "q": "Kan vi beställa snöröjning separat?",
@@ -766,8 +766,8 @@
     "lead": "Här gör du felanmälan och hittar blanketter, trivselregler och svar på vanliga frågor.",
     "emergency": {
       "title": "Akuta fel",
-      "text": "Vattenläcka, strömavbrott, inbrott eller annat som inte kan vänta – ring oss direkt.",
-      "call": "Ring oss"
+      "text": "Vattenläcka, strömavbrott, inbrott eller annat som inte kan vänta – gör en felanmälan direkt och skriv att det är akut, så prioriterar vi ärendet.",
+      "call": "Gör en felanmälan"
     },
     "faultCard": {
       "title": "Felanmälan",
@@ -789,7 +789,7 @@
     "faq": [
       {
         "q": "Vad räknas som ett akut fel?",
-        "a": "Fel som kan orsaka skada på person eller fastighet om de inte åtgärdas direkt – till exempel vattenläcka, stopp i avlopp, strömavbrott i hela lägenheten, inbrott eller en ytterdörr som inte går att låsa. Ring oss då direkt på {phone}."
+        "a": "Fel som kan orsaka skada på person eller fastighet om de inte åtgärdas direkt – till exempel vattenläcka, stopp i avlopp, strömavbrott i hela lägenheten, inbrott eller en ytterdörr som inte går att låsa. Gör då en felanmälan direkt och skriv att det är akut."
       },
       {
         "q": "När åtgärdas min felanmälan?",
@@ -873,12 +873,12 @@
   "faultReport": {
     "seo": {
       "title": "Felanmälan – anmäl fel i lägenhet eller fastighet",
-      "description": "Anmäl fel i din lägenhet eller i gemensamma utrymmen. Vid akuta fel som vattenläcka, strömavbrott eller inbrott – ring oss direkt."
+      "description": "Anmäl fel i din lägenhet eller i gemensamma utrymmen. Akuta fel som vattenläcka, strömavbrott eller inbrott prioriteras."
     },
     "h1": "Felanmälan",
     "lead": "Anmäl fel i din lägenhet eller i husets gemensamma utrymmen. Vi bekräftar när vi har tagit emot ärendet.",
-    "emergency": "Akuta fel (vattenläcka, strömavbrott, inbrott) – ring oss direkt:",
-    "call": "Ring oss",
+    "emergency": "Akuta fel (vattenläcka, strömavbrott, inbrott) – skriv att det är akut i felanmälan så prioriterar vi ärendet.",
+    "call": "Till formuläret",
     "asideTitle": "Bra att veta",
     "aside": [
       "Fel i gemensamma utrymmen – trapphus, tvättstuga, hiss – anmäler du på samma sätt.",
@@ -1014,10 +1014,10 @@
   "contact": {
     "seo": {
       "title": "Kontakt och offertförfrågan – {primaryCity}",
-      "description": "Kontakta {companyName} – ring oss eller skicka en förfrågan om bygg, renovering eller förvaltning i {serviceArea}."
+      "description": "Kontakta {companyName} i {primaryCity} – skicka en förfrågan om bygg, renovering eller förvaltning."
     },
     "h1": "Kontakta oss",
-    "lead": "Ring oss eller skicka en förfrågan via formuläret. Vi svarar så snart vi kan.",
+    "lead": "Skicka en förfrågan via formuläret så återkommer vi så snart vi kan.",
     "detailsTitle": "Kontaktuppgifter",
     "form": {
       "title": "Skicka en förfrågan",
@@ -1033,7 +1033,7 @@
     "successTitle": "Tack! Vi har tagit emot ditt meddelande.",
     "successText": "Vi återkommer så snart vi kan, normalt inom ett par arbetsdagar.",
     "errorTitle": "Det gick inte att skicka",
-    "errorText": "Något gick fel. Försök igen, eller ring oss på {phone}.",
+    "errorText": "Något gick fel. Försök igen om en stund.",
     "summaryTitle": "Formuläret innehåller fel. Rätta följande:",
     "consent": "Jag godkänner att {companyName} behandlar mina personuppgifter för att hantera ärendet enligt",
     "consentLink": "integritetspolicyn",
@@ -1168,7 +1168,7 @@
         {
           "title": "Personuppgiftsansvarig",
           "body": [
-            "{companyName} (org.nr {orgNr}) är personuppgiftsansvarig för behandlingen av dina personuppgifter. Har du frågor kan du ringa oss på {phone} eller skriva till oss via kontaktformuläret."
+            "{companyName} (org.nr {orgNr}), {address}, är personuppgiftsansvarig för behandlingen av dina personuppgifter. Har du frågor kan du skriva till oss via kontaktformuläret."
           ],
           "links": [
             {
@@ -1241,7 +1241,7 @@
             "återkalla ett samtycke"
           ],
           "after": [
-            "Ring oss på {phone} eller skriv till oss via kontaktformuläret för att använda dina rättigheter."
+            "Skriv till oss via kontaktformuläret för att använda dina rättigheter."
           ]
         },
         {
@@ -1360,7 +1360,7 @@
         {
           "title": "Kontakta oss om något inte fungerar",
           "body": [
-            "Om du upptäcker problem eller behöver innehåll i ett annat format, ring oss på {phone} eller skriv till oss via kontaktformuläret. Vi svarar normalt inom ett par arbetsdagar."
+            "Om du upptäcker problem eller behöver innehåll i ett annat format, skriv till oss via kontaktformuläret. Vi svarar normalt inom ett par arbetsdagar."
           ]
         },
         {
@@ -1379,7 +1379,6 @@
     },
     "h1": "Tack! Vi har tagit emot ditt meddelande.",
     "lead": "Vi återkommer så snart vi kan, normalt inom ett par arbetsdagar.",
-    "emergency": "Är det akut? Ring oss direkt:",
     "back": "Till startsidan"
   },
   "notFound": {

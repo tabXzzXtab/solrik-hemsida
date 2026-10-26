@@ -17,7 +17,7 @@
     "careers": "Careers",
     "contact": "Contact",
     "faultReport": "Report a fault",
-    "callUs": "Call us",
+    "contactUs": "Contact us",
     "myPages": "My pages",
     "menu": "Menu",
     "otherLanguage": "Svenska",
@@ -27,7 +27,7 @@
   },
   "common": {
     "readMore": "Read more",
-    "phone": "Phone",
+    "address": "Address",
     "serviceArea": "Service area",
     "orgNr": "Company reg. no.",
     "registeredOffice": "Registered office",
@@ -44,7 +44,7 @@
     "title": "Tell us about your project",
     "text": "Briefly describe what needs doing – we will come back with an approach and a price.",
     "primary": "Request a quote",
-    "secondary": "Call {phone}"
+    "secondary": "Contact us"
   },
   "footer": {
     "tagline": "Property management, maintenance, renovation and new construction in {serviceArea}.",
@@ -117,7 +117,7 @@
     "local": {
       "title": "Close to the buildings we look after",
       "body": [
-        "Short journeys, tradespeople who know the buildings and a contact person who answers the phone."
+        "Short journeys, tradespeople who know the buildings and a contact person who replies quickly."
       ],
       "areaLabel": "Service area"
     },
@@ -537,7 +537,7 @@
         "includes": [
           "A permanent contact person and regular caretakers",
           "Inspection rounds on an agreed schedule",
-          "Fault reporting online and by phone",
+          "Fault reporting online",
           "24/7 on-call service for emergencies",
           "Summary of work carried out",
           "Coordination with management and tradespeople"
@@ -575,7 +575,7 @@
           },
           {
             "q": "How quickly does the on-call team arrive?",
-            "a": "Emergencies always come first. When you call we assess the situation straight away and deal with anything that can't wait as quickly as possible – less urgent jobs are scheduled into regular maintenance."
+            "a": "Emergencies always come first. When a fault report comes in we assess it straight away and deal with anything that can't wait as quickly as possible – less urgent jobs are scheduled into regular maintenance."
           },
           {
             "q": "Can we order snow clearing separately?",
@@ -766,8 +766,8 @@
     "lead": "Report a fault and find forms, house rules and answers to common questions.",
     "emergency": {
       "title": "Emergencies",
-      "text": "Water leak, power cut, break-in or anything else that cannot wait – call us straight away.",
-      "call": "Call us"
+      "text": "Water leak, power cut, break-in or anything else that cannot wait – report it straight away and say it is urgent, and we will prioritise it.",
+      "call": "Report a fault"
     },
     "faultCard": {
       "title": "Report a fault",
@@ -789,7 +789,7 @@
     "faq": [
       {
         "q": "What counts as an emergency?",
-        "a": "Faults that could cause injury or damage to the property if not fixed immediately – for example a water leak, a blocked drain, a power cut in the whole apartment, a break-in or a front door that will not lock. Call us straight away on {phone}."
+        "a": "Faults that could cause injury or damage to the property if not fixed immediately – for example a water leak, a blocked drain, a power cut in the whole apartment, a break-in or a front door that will not lock. Report it straight away and say it is urgent."
       },
       {
         "q": "When will my fault be fixed?",
@@ -873,12 +873,12 @@
   "faultReport": {
     "seo": {
       "title": "Report a fault in your apartment or building",
-      "description": "Report faults in your apartment or shared spaces. For emergencies such as water leaks, power cuts or break-ins – call us straight away."
+      "description": "Report faults in your apartment or shared spaces. Emergencies such as water leaks, power cuts or break-ins are prioritised."
     },
     "h1": "Report a fault",
     "lead": "Report a fault in your apartment or in the building's shared spaces. We will confirm once we have received it.",
-    "emergency": "Emergencies (water leak, power cut, break-in) – call us straight away:",
-    "call": "Call us",
+    "emergency": "Emergencies (water leak, power cut, break-in) – say it is urgent in your report and we will prioritise it.",
+    "call": "Go to the form",
     "asideTitle": "Good to know",
     "aside": [
       "Faults in shared spaces – stairwell, laundry room, lift – are reported the same way.",
@@ -1014,10 +1014,10 @@
   "contact": {
     "seo": {
       "title": "Contact and quote requests – {primaryCity}",
-      "description": "Contact {companyName} – call us or send an enquiry about construction, renovation or property management in {serviceArea}."
+      "description": "Contact {companyName} in {primaryCity} – send an enquiry about construction, renovation or property management."
     },
     "h1": "Contact us",
-    "lead": "Call us or send an enquiry using the form. We reply as soon as we can.",
+    "lead": "Send an enquiry using the form and we will get back to you as soon as we can.",
     "detailsTitle": "Contact details",
     "form": {
       "title": "Send an enquiry",
@@ -1033,7 +1033,7 @@
     "successTitle": "Thank you! We have received your message.",
     "successText": "We will get back to you as soon as we can, normally within a couple of working days.",
     "errorTitle": "Your message could not be sent",
-    "errorText": "Something went wrong. Please try again, or call us on {phone}.",
+    "errorText": "Something went wrong. Please try again in a moment.",
     "summaryTitle": "The form contains errors. Please correct the following:",
     "consent": "I agree that {companyName} may process my personal data to handle this request in accordance with the",
     "consentLink": "privacy policy",
@@ -1168,7 +1168,7 @@
         {
           "title": "Data controller",
           "body": [
-            "{companyName} (company reg. no. {orgNr}) is the controller of your personal data. If you have questions, call us on {phone} or write to us using the contact form."
+            "{companyName} (company reg. no. {orgNr}), {address}, is the controller of your personal data. If you have questions, write to us using the contact form."
           ],
           "links": [
             {
@@ -1241,7 +1241,7 @@
             "withdraw consent"
           ],
           "after": [
-            "Call us on {phone} or write to us using the contact form to exercise your rights."
+            "Write to us using the contact form to exercise your rights."
           ]
         },
         {
@@ -1360,7 +1360,7 @@
         {
           "title": "Contact us if something does not work",
           "body": [
-            "If you find a problem or need content in another format, call us on {phone} or write to us using the contact form. We normally reply within a couple of working days."
+            "If you find a problem or need content in another format, write to us using the contact form. We normally reply within a couple of working days."
           ]
         },
         {
@@ -1379,7 +1379,6 @@
     },
     "h1": "Thank you! We have received your message.",
     "lead": "We will get back to you as soon as we can, normally within a couple of working days.",
-    "emergency": "Is it urgent? Call us straight away:",
     "back": "Back to home"
   },
   "notFound": {

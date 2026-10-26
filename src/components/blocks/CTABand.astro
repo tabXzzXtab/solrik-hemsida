@@ -2,8 +2,6 @@
 import type { Lang } from '~/i18n/routes';
 import { routePath } from '~/i18n/routes';
 import { getDict } from '~/i18n';
-import { PHONE } from '~/config/company';
-import { telHref } from '~/lib/format';
 import Button from '~/components/ui/Button.astro';
 
 interface Props {
@@ -17,7 +15,6 @@ interface Props {
 const { lang, title, text, primaryHref, primaryLabel } = Astro.props;
 const t = getDict(lang);
 const contactPath = routePath('contact', lang);
-const tel = telHref(PHONE) ?? contactPath;
 // One CTA band per page, so a fixed id is safe.
 const headingId = 'cta-band-heading';
 ---
@@ -31,7 +28,7 @@ const headingId = 'cta-band-heading';
       </div>
       <div class="flex flex-col gap-3 sm:flex-row xl:col-span-5 xl:justify-end [&>a]:whitespace-nowrap">
         <Button href={primaryHref ?? `${contactPath}#offert`} variant="primary" size="lg">{primaryLabel ?? t.cta.primary}</Button>
-        <Button href={tel} variant="secondary" size="lg">{t.cta.secondary}</Button>
+        <Button href={contactPath} variant="secondary" size="lg">{t.cta.secondary}</Button>
       </div>
     </div>
   </div>

@@ -1,8 +1,8 @@
 ---
-import { F_SKATT, INSTAGRAM_URL, LINKEDIN_URL, ORG_NR, PHONE, REGISTERED_OFFICE } from '~/config/company';
-import { getDict } from '~/i18n';
+import { F_SKATT, INSTAGRAM_URL, LINKEDIN_URL, ORG_NR, REGISTERED_OFFICE } from '~/config/company';
+import { addressLine, getDict } from '~/i18n';
 import { routePath, servicePath, SERVICE_KEYS, type Lang } from '~/i18n/routes';
-import { isRealUrl, telHref } from '~/lib/format';
+import { isRealUrl } from '~/lib/format';
 import { hiddenRoutes } from '~/lib/nav';
 import Wordmark from './Wordmark.astro';
 
@@ -12,7 +12,6 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = getDict(lang);
-const tel = telHref(PHONE);
 const hidden = await hiddenRoutes(lang);
 
 const companyLinks = (['brf', 'projects', 'tenants', 'about', 'news', 'careers', 'contact'] as const)
@@ -46,7 +45,7 @@ const legalLinkClass = 'inline-block py-3 text-night-muted underline-offset-4 ho
         <div>
           <h2 class={headingClass}>{t.footer.contactTitle}</h2>
           <address class="mt-2 text-night-muted not-italic [&>p:not(:has(a))]:py-2">
-            <p>{tel ? <a href={tel} class={linkClass}>{PHONE}</a> : PHONE}</p>
+            <p>{addressLine}</p>
             <p><a href={`${routePath('contact', lang)}#offert`} class={linkClass}>{t.footer.contactForm}</a></p>
           </address>
         </div>

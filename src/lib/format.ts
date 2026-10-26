@@ -10,20 +10,6 @@ export function isRealUrl(value: string | undefined | null): value is string {
   return !!value && !isPlaceholder(value) && /^https?:\/\//.test(value);
 }
 
-/** "040-12 34 56" → "tel:+4640123456". Placeholders yield null. */
-export function telHref(phone: string): string | null {
-  if (isPlaceholder(phone)) return null;
-  let digits = phone.replace(/[^\d+]/g, '');
-  if (digits.startsWith('00')) digits = `+${digits.slice(2)}`;
-  if (digits.startsWith('0')) digits = `+46${digits.slice(1)}`;
-  return `tel:${digits}`;
-}
-
-/** E.164 for structured data, or undefined while still a placeholder. */
-export function e164(phone: string): string | undefined {
-  return telHref(phone)?.slice(4);
-}
-
 export function mailHref(email: string, subject?: string): string | null {
   if (isPlaceholder(email)) return null;
   return `mailto:${email}${subject ? `?subject=${encodeURIComponent(subject)}` : ''}`;
