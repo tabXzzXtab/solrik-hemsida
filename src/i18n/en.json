@@ -68,15 +68,7 @@
         "link": "the on-call team",
         "after": "."
       },
-      "lead": "Management, maintenance and renovation for housing co-ops and property owners in {serviceArea}.",
-      "faultReport": {
-        "title": "Report a fault",
-        "text": "For existing customers."
-      },
-      "jour": {
-        "title": "Contact the on-call team",
-        "text": "For water leaks, power cuts or break-ins."
-      }
+      "lead": "Management, maintenance and renovation for housing co-ops and property owners in {serviceArea}."
     },
     "routing": {
       "title": "What do you need?",

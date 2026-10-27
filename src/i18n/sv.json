@@ -68,15 +68,7 @@
         "link": "jouren",
         "after": "."
       },
-      "lead": "Förvaltning, skötsel och renovering för bostadsrättsföreningar och fastighetsägare i {serviceArea}.",
-      "faultReport": {
-        "title": "Gör en felanmälan",
-        "text": "För dig som redan är kund hos oss."
-      },
-      "jour": {
-        "title": "Kontakta jouren",
-        "text": "Vid vattenläcka, strömavbrott eller inbrott."
-      }
+      "lead": "Förvaltning, skötsel och renovering för bostadsrättsföreningar och fastighetsägare i {serviceArea}."
     },
     "routing": {
       "title": "Vad gäller det?",
