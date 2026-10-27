@@ -12,9 +12,10 @@ import Logo from './Logo.astro';
 interface Props {
   lang: Lang;
   alternates: Partial<Record<Lang, string>>;
+  legalName?: boolean;
 }
 
-const { lang, alternates } = Astro.props;
+const { lang, alternates, legalName = false } = Astro.props;
 const t = getDict(lang);
 const current = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
 
@@ -58,7 +59,7 @@ const linkClass = 'underline-offset-4 hover:underline';
 <!-- Main bar: sticky at every size, so the menu (mobile) and phone number (desktop) stay in reach -->
 <header class="sticky top-0 z-40 border-b border-line bg-canvas [@media(max-height:30rem)]:static">
   <div class="container-site flex h-[var(--header-h)] items-center justify-between gap-6">
-    <Logo lang={lang} />
+    <Logo lang={lang} legalName={legalName} />
 
     <nav aria-label={t.nav.label} class="hidden xl:block">
       <ul class="flex items-center gap-2">

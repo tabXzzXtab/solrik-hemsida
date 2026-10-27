@@ -2,7 +2,7 @@
 import '~/styles/global.css';
 import type { ImageMetadata } from 'astro';
 import { Font, getImage } from 'astro:assets';
-import { COMPANY_SHORT_NAME } from '~/config/company';
+import { COMPANY_NAME, COMPANY_SHORT_NAME } from '~/config/company';
 import { IMAGES } from '~/config/images';
 import logo from '~/assets/logo/solrik-logo.png';
 import { ANALYTICS_ENABLED, NOINDEX, VERIFICATION } from '~/config/site';
@@ -17,7 +17,7 @@ import ConsentBanner from '~/components/layout/ConsentBanner.astro';
 
 interface Props {
   lang: Lang;
-  /** Page title without the brand; " | {COMPANY_SHORT_NAME}" is appended unless already present. */
+  /** Page title without the brand; " | Solrik" (or " | Solrik AB", see legalName) is appended unless already present. */
   title: string;
   description: string;
   /** Paths of this page in each language (for hreflang and the language switcher). */
@@ -35,6 +35,8 @@ interface Props {
   pageType?: string;
   publishedTime?: Date;
   modifiedTime?: Date;
+  /** Show the legal name ("Solrik AB") instead of "Solrik" in the header, footer and title. */
+  legalName?: boolean;
 }
 
 const {
@@ -51,6 +53,7 @@ const {
   pageType,
   publishedTime,
   modifiedTime,
+  legalName = false,
 } = Astro.props;
 
 const t = getDict(lang);
@@ -58,7 +61,8 @@ const site = Astro.site ?? new URL('https://www.example.se');
 const pathname = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
 const canonical = new URL(pathname, site).href;
 
-const fullTitle = title.includes(COMPANY_SHORT_NAME) ? title : `${title} | ${COMPANY_SHORT_NAME}`;
+const brandName = legalName ? COMPANY_NAME : COMPANY_SHORT_NAME;
+const fullTitle = title.includes(brandName) ? title : `${title} | ${brandName}`;
 const robots = NOINDEX ? 'noindex, nofollow' : noindex ? 'noindex, follow' : null;
 
 const ogSource = image ?? IMAGES.hero.src;
@@ -130,11 +134,11 @@ const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': grap
     >
       {t.meta.skipToContent}
     </a>
-    <Header lang={lang} alternates={alternates} />
+    <Header lang={lang} alternates={alternates} legalName={legalName} />
     <main id="main" tabindex="-1" class="flex-1 outline-none">
       <slot />
     </main>
-    <Footer lang={lang} />
+    <Footer lang={lang} legalName={legalName} />
     <MobileActionBar lang={lang} />
     {ANALYTICS_ENABLED && <ConsentBanner lang={lang} />}
   </body>

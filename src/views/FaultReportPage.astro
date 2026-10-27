@@ -18,7 +18,7 @@ const f = t.faultReport;
 const trail = SHOW_TENANTS_PAGE ? crumbs(lang, 'tenants', 'faultReport') : crumbs(lang, 'faultReport');
 ---
 
-<BaseLayout lang={lang} title={f.seo.title} description={f.seo.description} alternates={routeAlternates('faultReport')} breadcrumbs={trail}>
+<BaseLayout lang={lang} title={f.seo.title} description={f.seo.description} alternates={routeAlternates('faultReport')} breadcrumbs={trail} legalName>
   <div class="container-site pt-8 pb-20 lg:pt-10 lg:pb-32">
     <Breadcrumbs lang={lang} items={trail} />
     <div class="mt-10 max-w-3xl lg:mt-16">

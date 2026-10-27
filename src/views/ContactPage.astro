@@ -16,7 +16,7 @@ const c = t.contact;
 const trail = crumbs(lang, 'contact');
 ---
 
-<BaseLayout lang={lang} title={c.seo.title} description={c.seo.description} alternates={routeAlternates('contact')} breadcrumbs={trail} pageType="ContactPage">
+<BaseLayout lang={lang} title={c.seo.title} description={c.seo.description} alternates={routeAlternates('contact')} breadcrumbs={trail} pageType="ContactPage" legalName>
   <div class="container-site pt-8 pb-20 lg:pt-10 lg:pb-32">
     <Breadcrumbs lang={lang} items={trail} />
     <div class="mt-10 max-w-3xl lg:mt-16">

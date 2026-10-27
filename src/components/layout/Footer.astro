@@ -8,9 +8,10 @@ import Wordmark from './Wordmark.astro';
 
 interface Props {
   lang: Lang;
+  legalName?: boolean;
 }
 
-const { lang } = Astro.props;
+const { lang, legalName = false } = Astro.props;
 const t = getDict(lang);
 const hidden = await hiddenRoutes(lang);
 
@@ -36,7 +37,7 @@ const legalLinkClass = 'inline-block py-3 text-night-muted underline-offset-4 ho
   <div class="container-site pt-20 pb-10 lg:pt-28">
     <div class="grid gap-14 xl:grid-cols-12 xl:gap-16">
       <div class="xl:col-span-4">
-        <Wordmark lang={lang} tone="night" />
+        <Wordmark lang={lang} tone="night" legalName={legalName} />
         <p class="mt-5 max-w-sm text-night-muted">{t.footer.tagline}</p>
         <p class="mt-2 text-night-muted">{t.footer.group}</p>
       </div>

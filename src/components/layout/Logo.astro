@@ -2,21 +2,23 @@
 /** Header logo: the symbol from the logo artwork, with the name set in the heading font beside it. */
 import { Image } from 'astro:assets';
 import symbol from '~/assets/logo/solrik-symbol.png';
-import { COMPANY_SHORT_NAME } from '~/config/company';
+import { COMPANY_NAME, COMPANY_SHORT_NAME } from '~/config/company';
 import { getDict } from '~/i18n';
 import { routePath, type Lang } from '~/i18n/routes';
 
 interface Props {
   lang: Lang;
+  /** "Solrik AB" instead of "Solrik". */
+  legalName?: boolean;
 }
 
-const { lang } = Astro.props;
+const { lang, legalName = false } = Astro.props;
 const t = getDict(lang);
 ---
 
 <a href={routePath('home', lang)} class="inline-flex min-h-11 shrink-0 items-center gap-2.5 text-ink">
   <Image src={symbol} alt="" widths={[56, 64, 112, 128, 192]} sizes="(min-width: 64rem) 64px, 56px" loading="eager" class="h-7 w-auto lg:h-8" />
   <span class="font-display text-2xl leading-none font-semibold tracking-[-0.02em] lg:text-[1.75rem]">
-    {COMPANY_SHORT_NAME}<span class="sr-only"> – {t.nav.home}</span>
+    {legalName ? COMPANY_NAME : COMPANY_SHORT_NAME}<span class="sr-only"> – {t.nav.home}</span>
   </span>
 </a>
