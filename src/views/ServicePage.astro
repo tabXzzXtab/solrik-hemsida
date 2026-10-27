@@ -2,10 +2,9 @@
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { SERVICE_IMAGES } from '~/config/images';
 import { getDict } from '~/i18n';
-import { routePath, serviceAlternates, servicePath, SERVICE_KEYS, type Lang, type ServiceKey } from '~/i18n/routes';
+import { serviceAlternates, servicePath, SERVICE_KEYS, type Lang, type ServiceKey } from '~/i18n/routes';
 import { crumbs } from '~/lib/nav';
 import { faqNode, serviceNode } from '~/lib/schema';
-import Button from '~/components/ui/Button.astro';
 import PageHero from '~/components/ui/PageHero.astro';
 import Section from '~/components/ui/Section.astro';
 import SectionHeader from '~/components/ui/SectionHeader.astro';
@@ -30,7 +29,6 @@ const path = servicePath(service, lang);
 const site = Astro.site!;
 const url = new URL(path, site).href;
 const trail = crumbs(lang, 'services', { label: s.name, href: path });
-const contactPath = routePath('contact', lang);
 const explainer = 'explainer' in s ? s.explainer : undefined;
 const areaColumns = s.areas.length % 4 === 0 ? 4 : 3;
 const others = SERVICE_KEYS.filter((k) => k !== service);
@@ -58,12 +56,7 @@ const schema = [
   breadcrumbs={trail}
   schema={schema}
 >
-  <PageHero lang={lang} title={s.h1} lead={s.lead} breadcrumbs={trail} image={{ src: image.src, alt: image.alt[lang] }}>
-    <Fragment slot="actions">
-      <Button href={`${routePath('contact', lang)}#offert`}>{t.cta.primary}</Button>
-      <Button href={contactPath} variant="secondary">{t.cta.secondary}</Button>
-    </Fragment>
-  </PageHero>
+  <PageHero lang={lang} title={s.h1} lead={s.lead} breadcrumbs={trail} image={{ src: image.src, alt: image.alt[lang] }} />
 
   <!-- Intro -->
   <Section flush="top">
@@ -137,5 +130,5 @@ const schema = [
     </ul>
   </Section>
 
-  <CTABand lang={lang} title={s.cta.title} text={s.cta.text} />
+  <CTABand lang={lang} />
 </BaseLayout>

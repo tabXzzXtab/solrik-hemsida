@@ -18,7 +18,7 @@
     "careers": "Karriär",
     "contact": "Kontakt",
     "faultReport": "Felanmälan",
-    "contactUs": "Kontakta oss",
+    "jour": "Jour",
     "myPages": "Mina sidor",
     "menu": "Meny",
     "otherLanguage": "English",
@@ -41,10 +41,8 @@
     "promisesIntro": "Samma utgångspunkt i varje uppdrag, stort som litet."
   },
   "cta": {
-    "title": "Berätta om ert projekt",
-    "text": "Beskriv kort vad som ska göras – vi återkommer med upplägg och pris.",
-    "primary": "Begär offert",
-    "secondary": "Kontakta oss"
+    "title": "Behöver du hjälp?",
+    "text": "Är du redan kund hos oss? Gör en felanmälan. Vid akuta fastighetsproblem kontaktar du jouren."
   },
   "footer": {
     "tagline": "Fastighetsförvaltning, drift, renovering och nybyggnation i {serviceArea}.",
@@ -60,7 +58,7 @@
   },
   "home": {
     "seo": {
-      "title": "Bygg, renovering och förvaltning i {primaryCity}",
+      "title": "Bygg, renovering och förvaltning i {serviceArea}",
       "description": "Bygg, renovering och fastighetsförvaltning i {serviceArea}. En avtalspart hela vägen – för BRF, fastighetsägare och företag."
     },
     "hero": {
@@ -70,9 +68,7 @@
         "link": "jouren",
         "after": "."
       },
-      "lead": "Förvaltning, skötsel och renovering för bostadsrättsföreningar och fastighetsägare i {serviceArea}.",
-      "primary": "Begär offert",
-      "secondary": "Felanmälan"
+      "lead": "Förvaltning, skötsel och renovering för bostadsrättsföreningar och fastighetsägare i {serviceArea}."
     },
     "routing": {
       "title": "Vad gäller det?",
@@ -175,7 +171,7 @@
         "name": "Nybyggnation",
         "short": "Bostadshus, flerbostadshus och lokaler – som totalentreprenad eller utförandeentreprenad.",
         "seo": {
-          "title": "Nybyggnation i {primaryCity} – bostäder och lokaler",
+          "title": "Nybyggnation i {serviceArea} – bostäder och lokaler",
           "description": "Vi bygger flerbostadshus, småhus och lokaler i {serviceArea}. Totalentreprenad eller utförandeentreprenad, fast pris och en kontaktperson."
         },
         "h1": "Nybyggnation av bostäder och lokaler",
@@ -282,17 +278,13 @@
             "q": "Vilken garanti lämnar ni?",
             "a": "Vi lämnar garanti enligt branschens standardavtal, räknat från godkänd slutbesiktning. Innan garantitiden går ut gör vi en garantibesiktning tillsammans med er."
           }
-        ],
-        "cta": {
-          "title": "Planerar ni att bygga?",
-          "text": "Berätta om tomten, idén eller ritningarna ni har. Vi återkommer med förslag på upplägg."
-        }
+        ]
       },
       "renovering": {
         "name": "Renovering & ombyggnad",
         "short": "Stambyte, tak, fasad, fönster, badrum och energiåtgärder – för föreningar och fastighetsägare.",
         "seo": {
-          "title": "Renovering och stambyte i {primaryCity}",
+          "title": "Renovering och stambyte i {serviceArea}",
           "description": "Stambyte, tak, fasad, fönster, badrum, vindsinredning och solceller i {serviceArea}. En avtalspart och fast pris för BRF och fastighetsägare."
         },
         "h1": "Renovering och ombyggnad",
@@ -391,17 +383,13 @@
             "q": "Hur stora blir störningarna?",
             "a": "Det beror på arbetet. I tidplanen ser ni vilka dagar det blir buller eller avstängt vatten och el. De boende får information i trapphus och brevlåda i god tid."
           }
-        ],
-        "cta": {
-          "title": "Dags att renovera?",
-          "text": "Berätta vad som behöver göras. Vi börjar med en besiktning och ger er ett underlag att fatta beslut på."
-        }
+        ]
       },
       "fastighetsforvaltning": {
         "name": "Fastighetsförvaltning",
         "short": "Ekonomisk, teknisk och administrativ förvaltning för BRF och fastighetsägare.",
         "seo": {
-          "title": "Fastighetsförvaltning för BRF i {primaryCity}",
+          "title": "Fastighetsförvaltning för BRF i {serviceArea}",
           "description": "Ekonomisk, teknisk och administrativ förvaltning i {serviceArea}: avgifter, budget, underhållsplan, OVK, energideklaration och uthyrning."
         },
         "h1": "Fastighetsförvaltning för BRF och fastighetsägare",
@@ -499,17 +487,13 @@
             "q": "Kan vi köpa bara ekonomisk förvaltning?",
             "a": "Ja. Ni väljer de delar som passar föreningen eller fastigheten och kan lägga till fler senare."
           }
-        ],
-        "cta": {
-          "title": "Vad skulle förvaltningen kosta?",
-          "text": "Berätta om fastigheten – antal lägenheter, lokaler och vad ni vill ha hjälp med. Vi återkommer med en offert."
-        }
+        ]
       },
       "fastighetsdrift": {
         "name": "Fastighetsdrift & skötsel",
         "short": "Fastighetsskötsel, felavhjälpning, utemiljö, snöröjning, städning och jour dygnet runt.",
         "seo": {
-          "title": "Fastighetsskötsel och fastighetsdrift i {primaryCity}",
+          "title": "Fastighetsskötsel och fastighetsdrift i {serviceArea}",
           "description": "Fastighetsskötsel, felavhjälpning, utemiljö, snöröjning, trappstädning och jour dygnet runt för fastigheter i {serviceArea}."
         },
         "h1": "Fastighetsdrift och fastighetsskötsel",
@@ -585,7 +569,7 @@
           },
           {
             "q": "Hur snabbt kommer jouren?",
-            "a": "Akuta fel prioriteras alltid. När felanmälan kommer in gör vi en bedömning direkt och åtgärdar det som inte kan vänta så snabbt som möjligt – mindre brådskande ärenden planeras in i den vanliga skötseln."
+            "a": "Akuta fel prioriteras alltid. Kontakta jouren, så gör vi en bedömning direkt och åtgärdar det som inte kan vänta så snabbt som möjligt – mindre brådskande ärenden planeras in i den vanliga skötseln."
           },
           {
             "q": "Kan vi beställa snöröjning separat?",
@@ -595,17 +579,13 @@
             "q": "Hur följer vi upp vad som har gjorts?",
             "a": "Alla ärenden registreras med datum och åtgärd. Ni får en sammanställning med den frekvens vi kommer överens om och kan alltid fråga er kontaktperson."
           }
-        ],
-        "cta": {
-          "title": "Behöver fastigheten skötas?",
-          "text": "Berätta om fastigheten och vad ni vill ha hjälp med, så kommer vi ut och tittar."
-        }
+        ]
       }
     }
   },
   "brf": {
     "seo": {
-      "title": "För BRF – förvaltning och renovering i {primaryCity}",
+      "title": "För BRF – förvaltning och renovering i {serviceArea}",
       "description": "Vi avlastar BRF-styrelsen: underhållsplan, renovering med en avtalspart, ekonomisk förvaltning, årsredovisning och stämmohjälp."
     },
     "h1": "Vi avlastar styrelsen",
@@ -714,11 +694,7 @@
         "q": "Vad kostar det?",
         "a": "Det beror på föreningens storlek och vad ni vill ha hjälp med. Efter ett första möte får ni en offert med fast pris för förvaltningen och separata priser för eventuella projekt."
       }
-    ],
-    "cta": {
-      "title": "Vill ni ha ett första samtal?",
-      "text": "Vi kommer gärna till ett styrelsemöte och berättar hur vi arbetar."
-    }
+    ]
   },
   "projects": {
     "seo": {
@@ -755,11 +731,7 @@
     "gallery": "Bilder från projektet",
     "related": "Fler projekt",
     "back": "Alla projekt",
-    "empty": "Inga projekt publicerade ännu.",
-    "cta": {
-      "title": "Har ni ett liknande projekt?",
-      "text": "Berätta vad ni planerar. Vi återkommer med förslag på upplägg och pris."
-    }
+    "empty": "Inga projekt publicerade ännu."
   },
   "tenants": {
     "seo": {
@@ -770,8 +742,8 @@
     "lead": "Här gör du felanmälan och hittar blanketter, trivselregler och svar på vanliga frågor.",
     "emergency": {
       "title": "Akuta fel",
-      "text": "Vattenläcka, strömavbrott, inbrott eller annat som inte kan vänta – gör en felanmälan direkt och skriv att det är akut, så prioriterar vi ärendet.",
-      "call": "Gör en felanmälan"
+      "text": "Vattenläcka, strömavbrott, inbrott eller annat som inte kan vänta – ring vår jour.",
+      "call": "Till jouren"
     },
     "faultCard": {
       "title": "Felanmälan",
@@ -793,7 +765,7 @@
     "faq": [
       {
         "q": "Vad räknas som ett akut fel?",
-        "a": "Fel som kan orsaka skada på person eller fastighet om de inte åtgärdas direkt – till exempel vattenläcka, stopp i avlopp, strömavbrott i hela lägenheten, inbrott eller en ytterdörr som inte går att låsa. Gör då en felanmälan direkt och skriv att det är akut."
+        "a": "Fel som kan orsaka skada på person eller fastighet om de inte åtgärdas direkt – till exempel vattenläcka, stopp i avlopp, strömavbrott i hela lägenheten, inbrott eller en ytterdörr som inte går att låsa. Kontakta då jouren direkt."
       },
       {
         "q": "När åtgärdas min felanmälan?",
@@ -877,22 +849,63 @@
   "faultReport": {
     "seo": {
       "title": "Felanmälan – anmäl fel i lägenhet eller fastighet",
-      "description": "Anmäl fel i din lägenhet eller i gemensamma utrymmen. Akuta fel som vattenläcka, strömavbrott eller inbrott prioriteras."
+      "description": "Felanmälan för våra kunder – anmäl fel i lägenheten eller i gemensamma utrymmen. Vid akuta fastighetsproblem kontaktar du jouren."
     },
     "h1": "Felanmälan",
-    "lead": "Anmäl fel i din lägenhet eller i husets gemensamma utrymmen. Vi bekräftar när vi har tagit emot ärendet.",
-    "emergency": "Akuta fel (vattenläcka, strömavbrott, inbrott) – skriv att det är akut i felanmälan så prioriterar vi ärendet.",
-    "call": "Till formuläret",
+    "lead": "För dig som är kund hos oss: anmäl fel i lägenheten eller i husets gemensamma utrymmen. Vi bekräftar när vi har tagit emot ärendet.",
+    "emergency": "Akut fel som vattenläcka, strömavbrott eller inbrott? Ring vår jour.",
+    "call": "Till jouren",
     "asideTitle": "Bra att veta",
+    "channels": {
+      "faultReport": {
+        "term": "Felanmälan",
+        "text": "För våra befintliga kunder – fel i lägenheten, huset eller fastigheten."
+      },
+      "jour": {
+        "term": "Jour",
+        "text": "För akuta fastighetsproblem som vattenläcka, strömavbrott eller inbrott.",
+        "link": "Till jouren"
+      }
+    },
     "aside": [
       "Fel i gemensamma utrymmen – trapphus, tvättstuga, hiss – anmäler du på samma sätt.",
       "Bifoga gärna en bild. Då kan vi ta med rätt verktyg och reservdelar.",
       "Fel som inte är akuta åtgärdas normalt inom några arbetsdagar."
     ]
   },
+  "jour": {
+    "seo": {
+      "title": "Jour – akuta fastighetsproblem",
+      "description": "Vid vattenläcka, strömavbrott, inbrott eller andra akuta fastighetsproblem – så når du Solriks jour i {serviceArea}."
+    },
+    "h1": "Jour",
+    "lead": "Vid vattenläcka, strömavbrott, inbrott eller andra akuta fastighetsproblem – ring vår jour.",
+    "numberLabel": "Jourtelefon",
+    "call": "Ring jouren",
+    "pending": {
+      "title": "Jourlinjen öppnar snart",
+      "text": "Här hittar du jourens telefonnummer så snart linjen är i gång. Till dess gör du en felanmälan och skriver att det är akut, så prioriterar vi ärendet.",
+      "button": "Gör en felanmälan"
+    },
+    "lifeThreatening": "Vid brand eller fara för liv – ring alltid 112 först.",
+    "urgent": {
+      "title": "Vad räknas som akut?",
+      "items": [
+        "Vattenläcka eller stopp i avlopp som riskerar att orsaka vattenskada",
+        "Strömavbrott i hela lägenheten eller fastigheten",
+        "Inbrott, eller en ytterdörr eller port som inte går att låsa",
+        "Värmen har slutat fungera när det är kallt ute"
+      ]
+    },
+    "notUrgent": {
+      "title": "Inte akut?",
+      "text": "Fel som kan vänta till nästa vardag anmäler du via felanmälan. Den är till för våra befintliga kunder.",
+      "button": "Gör en felanmälan"
+    }
+  },
   "about": {
     "seo": {
-      "title": "Om oss – bygg- och förvaltningsföretag i {primaryCity}",
+      "title": "Om oss – bygg- och förvaltningsföretag i {serviceArea}",
       "description": "{companyName} bygger, renoverar och förvaltar fastigheter i {serviceArea}. Läs om hur vi arbetar och vad vi står för."
     },
     "h1": "Ett lokalt företag med ansvar hela vägen",
@@ -997,11 +1010,6 @@
           "text": "Ni behöver inte samordna flera aktörer. Vi håller ihop uppdraget och är er kontakt hela vägen."
         }
       ]
-    },
-    "join": {
-      "title": "Vill ni samarbeta med oss?",
-      "text": "Vi är intresserade av nya samarbeten med företag som delar vår syn på kvalitet och ansvar. Berätta om er verksamhet via kontaktformuläret.",
-      "button": "Skicka en förfrågan"
     }
   },
   "news": {
@@ -1017,7 +1025,7 @@
   },
   "careers": {
     "seo": {
-      "title": "Karriär – lediga jobb inom bygg i {primaryCity}",
+      "title": "Karriär – lediga jobb inom bygg i {serviceArea}",
       "description": "Lediga jobb inom bygg och fastighetsförvaltning i {serviceArea}. Vi tar emot spontanansökningar och lärlingar."
     },
     "h1": "Jobba hos oss",
@@ -1068,8 +1076,8 @@
   },
   "contact": {
     "seo": {
-      "title": "Kontakt och offertförfrågan – {primaryCity}",
-      "description": "Kontakta {companyName} i {primaryCity} – skicka en förfrågan om bygg, renovering eller förvaltning."
+      "title": "Kontakt och offertförfrågan – {serviceArea}",
+      "description": "Kontakta {companyName} i {city} – vi arbetar i hela {serviceArea}. Skicka en förfrågan om bygg, renovering eller förvaltning."
     },
     "h1": "Kontakta oss",
     "lead": "Skicka en förfrågan via formuläret så återkommer vi så snart vi kan.",

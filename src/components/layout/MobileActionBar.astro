@@ -1,5 +1,5 @@
 ---
-/** Sticky call / fault-report bar on small screens. Body has matching bottom padding. */
+/** Sticky fault-report / jour bar on small screens. Body has matching bottom padding. */
 import { getDict } from '~/i18n';
 import { routePath, type Lang } from '~/i18n/routes';
 
@@ -9,13 +9,12 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = getDict(lang);
-const contactHref = `${routePath('contact', lang)}#offert`;
 ---
 
 <nav
   aria-label={t.nav.mobileActions}
   class="fixed inset-x-0 bottom-0 z-50 grid grid-cols-2 border-t border-line bg-surface pb-[env(safe-area-inset-bottom)] text-ink lg:hidden"
 >
-  <a href={contactHref} class="flex h-16 items-center justify-center bg-accent font-semibold text-accent-ink [@media(max-height:30rem)]:h-12">{t.nav.contactUs}</a>
   <a href={routePath('faultReport', lang)} class="flex h-16 items-center justify-center font-semibold [@media(max-height:30rem)]:h-12">{t.nav.faultReport}</a>
+  <a href={routePath('jour', lang)} class="flex h-16 items-center justify-center bg-danger font-semibold text-canvas [@media(max-height:30rem)]:h-12">{t.nav.jour}</a>
 </nav>

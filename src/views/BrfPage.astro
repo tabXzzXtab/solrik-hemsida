@@ -5,7 +5,6 @@ import { getDict } from '~/i18n';
 import { routeAlternates, routePath, servicePath, type Lang } from '~/i18n/routes';
 import { crumbs } from '~/lib/nav';
 import { faqNode, serviceNode } from '~/lib/schema';
-import Button from '~/components/ui/Button.astro';
 import PageHero from '~/components/ui/PageHero.astro';
 import Section from '~/components/ui/Section.astro';
 import SectionHeader from '~/components/ui/SectionHeader.astro';
@@ -42,11 +41,7 @@ const schema = [
   breadcrumbs={trail}
   schema={schema}
 >
-  <PageHero lang={lang} title={b.h1} lead={b.lead} breadcrumbs={trail} image={{ src: IMAGES.brf.src, alt: IMAGES.brf.alt[lang] }}>
-    <Fragment slot="actions">
-      <Button href={`${routePath('contact', lang)}#offert`}>{t.cta.primary}</Button>
-    </Fragment>
-  </PageHero>
+  <PageHero lang={lang} title={b.h1} lead={b.lead} breadcrumbs={trail} image={{ src: IMAGES.brf.src, alt: IMAGES.brf.alt[lang] }} />
 
   <Section flush="top">
     <div class="max-w-2xl space-y-5 text-lead lg:ml-[calc(100%/12*4)]">
@@ -86,5 +81,5 @@ const schema = [
     </ul>
   </Section>
 
-  <CTABand lang={lang} title={b.cta.title} text={b.cta.text} />
+  <CTABand lang={lang} />
 </BaseLayout>

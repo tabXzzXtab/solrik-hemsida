@@ -26,7 +26,7 @@ const trail = SHOW_TENANTS_PAGE ? crumbs(lang, 'tenants', 'faultReport') : crumb
       <p class="mt-6 text-lead text-muted">{f.lead}</p>
     </div>
 
-    <EmergencyNotice text={f.emergency} actionLabel={f.call} href="#fault-form" class="mt-10 lg:mt-12" />
+    <EmergencyNotice text={f.emergency} actionLabel={f.call} href={routePath('jour', lang)} class="mt-10 lg:mt-12" />
 
     <div class="mt-14 grid gap-14 lg:mt-20 lg:grid-cols-12 lg:gap-20">
       <div class="lg:col-span-7">
@@ -35,7 +35,21 @@ const trail = SHOW_TENANTS_PAGE ? crumbs(lang, 'tenants', 'faultReport') : crumb
       <aside class="lg:col-span-4 lg:col-start-9" aria-labelledby="aside-title">
         <div class="rounded-[var(--radius-card)] bg-sunken p-8 lg:sticky lg:top-[calc(var(--header-h)+2rem)] lg:p-10">
           <h2 id="aside-title" class="text-h3 font-semibold">{f.asideTitle}</h2>
-          <ul class="mt-5 list-disc space-y-3 pl-5 marker:text-line-strong">
+          <!-- Which channel to use: felanmälan for customers, the jour for anything urgent -->
+          <dl class="mt-5 space-y-4">
+            <div>
+              <dt class="font-semibold">{f.channels.faultReport.term}</dt>
+              <dd class="mt-1 text-muted">{f.channels.faultReport.text}</dd>
+            </div>
+            <div>
+              <dt class="font-semibold text-danger">{f.channels.jour.term}</dt>
+              <dd class="mt-1 text-muted">
+                {f.channels.jour.text}{' '}
+                <a href={routePath('jour', lang)} class="font-semibold text-danger underline underline-offset-4">{f.channels.jour.link}</a>
+              </dd>
+            </div>
+          </dl>
+          <ul class="mt-6 list-disc space-y-3 border-t border-line pt-6 pl-5 marker:text-line-strong">
             {f.aside.map((item) => <li>{item}</li>)}
           </ul>
           {SHOW_TENANTS_PAGE && (

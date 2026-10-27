@@ -1,7 +1,7 @@
 import sv from './sv.json';
 import en from './en.json';
 import type { Lang } from './routes';
-import { ADDRESS, COMPANY_NAME, COMPANY_SHORT_NAME, ORG_NR, PARENT_GROUP, PRIMARY_CITY, SERVICE_AREA } from '~/config/company';
+import { ADDRESS, COMPANY_NAME, COMPANY_SHORT_NAME, ORG_NR, PARENT_GROUP, SERVICE_AREA } from '~/config/company';
 import { ANALYTICS, FORM_PROVIDER } from '~/config/site';
 import { fill } from '~/lib/format';
 
@@ -25,7 +25,7 @@ export function globalVars(lang: Lang): Record<string, string> {
     companyName: COMPANY_NAME,
     companyShortName: COMPANY_SHORT_NAME,
     parentGroup: PARENT_GROUP.name,
-    primaryCity: PRIMARY_CITY,
+    city: ADDRESS.city,
     serviceArea: SERVICE_AREA[lang],
     address: addressLine,
     orgNr: ORG_NR,

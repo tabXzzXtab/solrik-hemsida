@@ -48,6 +48,7 @@ const legalLinkClass = 'inline-block py-3 text-night-muted underline-offset-4 ho
           <address class="mt-2 text-night-muted not-italic [&>p:not(:has(a))]:py-2">
             <p>{addressLine}</p>
             <p><a href={`${routePath('contact', lang)}#offert`} class={linkClass}>{t.footer.contactForm}</a></p>
+            <p><a href={routePath('jour', lang)} class={linkClass}>{t.nav.jour}</a></p>
           </address>
         </div>
 

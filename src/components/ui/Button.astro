@@ -2,9 +2,9 @@
 import type { HTMLAttributes } from 'astro/types';
 
 /**
- * primary / secondary: on light backgrounds. outline-light: on the dark footer.
+ * primary / secondary: on light backgrounds. danger: the jour (urgent). outline-light: on the dark footer.
  */
-type Variant = 'primary' | 'secondary' | 'outline-light';
+type Variant = 'primary' | 'secondary' | 'danger' | 'outline-light';
 
 interface Props extends Omit<HTMLAttributes<'a'>, 'href'> {
   href?: string | null;
@@ -20,6 +20,7 @@ const { href, variant = 'primary', size = 'md', type = 'button', class: classNam
 const variants: Record<Variant, string> = {
   primary: 'bg-accent text-accent-ink border-transparent hover:bg-accent-strong',
   secondary: 'bg-transparent text-ink border-line-strong hover:border-ink',
+  danger: 'bg-danger text-canvas border-transparent hover:opacity-90',
   'outline-light': 'bg-transparent text-night-ink border-night-ink/60 hover:border-night-ink',
 };
 

@@ -56,9 +56,6 @@ export const REGISTERED_OFFICE = '';
 /** Godkänd för F-skatt – sätt till true när det är bekräftat, så visas det i sidfoten. */
 export const F_SKATT = false;
 
-/** Ort eller region i sidtitlar för lokal SEO, t.ex. "Bygg och förvaltning i Skåne". */
-export const PRIMARY_CITY = 'Malmö';
-
 /** Verksamhetsområde i löptext. */
 export const SERVICE_AREA: Localized = {
   sv: 'Skåne län',
@@ -70,8 +67,8 @@ export const SERVICE_AREA: Localized = {
  * ------------------------------------------------------------------------ */
 
 /**
- * Jourens telefonnummer för akuta fel, t.ex. '040-12 34 56'. Länken "jouren" under
- * rubriken på startsidan ringer numret. Tom = länken går till felanmälan tills vidare.
+ * Jourens telefonnummer för akuta fel, t.ex. '040-12 34 56'. Alla röda Jour-knappar leder
+ * till sidan Jour, som visar numret och en ring-knapp. Tom = jourlinjen är inte öppen än.
  */
 export const EMERGENCY_PHONE = '';
 
@@ -132,7 +129,7 @@ export const PROMISES: Array<{ title: Localized; text: Localized }> = [
   },
   {
     title: { sv: 'Akuta fel går först', en: 'Emergencies come first' },
-    text: { sv: 'Akuta felanmälningar hanteras före allt annat.', en: 'Urgent fault reports are handled before anything else.' },
+    text: { sv: 'Vid akuta fastighetsproblem kontaktar du jouren.', en: 'For urgent property problems, contact the on-call team.' },
   },
 ];
 

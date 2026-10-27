@@ -35,7 +35,6 @@ const items = primary.map((item) => {
   return { ...item, href, exact: current === href, active: current.startsWith(href) };
 });
 
-const contactHref = `${routePath('contact', lang)}#offert`;
 const faultHref = routePath('faultReport', lang);
 const portal = isRealUrl(TENANT_PORTAL_URL) ? TENANT_PORTAL_URL : null;
 const linkClass = 'underline-offset-4 hover:underline';
@@ -83,10 +82,12 @@ const linkClass = 'underline-offset-4 hover:underline';
     </nav>
 
     <div class="flex shrink-0 items-center gap-3 sm:gap-5">
-      <a href={contactHref} class="hidden font-semibold underline-offset-4 hover:underline lg:inline">{t.nav.contactUs}</a>
       <!-- Visibility wrappers: Button/LanguageSwitcher set their own display -->
       <div class="hidden md:block">
         <Button href={faultHref} variant="primary">{t.nav.faultReport}</Button>
+      </div>
+      <div class="hidden md:block">
+        <Button href={routePath('jour', lang)} variant="danger">{t.nav.jour}</Button>
       </div>
       <div class="hidden sm:block lg:hidden">
         <LanguageSwitcher lang={lang} alternates={alternates} compact class="min-h-11 px-1 text-sm font-medium" />
