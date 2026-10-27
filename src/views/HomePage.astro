@@ -50,10 +50,25 @@ const partnersTone = localTone === 'canvas' ? 'sunken' : 'canvas';
         </div>
         <div class="lg:col-span-5 lg:pb-1.5">
           <p class="max-w-md text-lead text-muted">{h.hero.lead}</p>
-          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button href={routePath('faultReport', lang)} variant="primary">{t.nav.faultReport}</Button>
-            <Button href={jourHref} variant="danger">{t.nav.jour}</Button>
-          </div>
+          <!-- The two ways in, as descriptive rows rather than a second copy of the header buttons -->
+          <ul class="mt-8 max-w-md border-b border-line">
+            {
+              [
+                { href: routePath('faultReport', lang), copy: h.hero.faultReport, urgent: false },
+                { href: jourHref, copy: h.hero.jour, urgent: true },
+              ].map((row) => (
+                <li class="border-t border-line">
+                  <a href={row.href} class="group flex items-center justify-between gap-6 py-4">
+                    <span>
+                      <span class:list={['block font-semibold underline-offset-4 group-hover:underline', row.urgent && 'text-danger']}>{row.copy.title}</span>
+                      <span class="mt-0.5 block text-base text-muted">{row.copy.text}</span>
+                    </span>
+                    <span aria-hidden="true" class:list={['text-xl transition-transform duration-150 group-hover:translate-x-1', row.urgent ? 'text-danger' : 'text-muted']}>→</span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
         </div>
       </div>
     </div>
