@@ -86,6 +86,11 @@
   :root { --header-h: 5rem; }
 }
 
+/* Long Swedish words in display headings ("Fastighetsförvaltning") must fit the narrowest phones. */
+@media (max-width: 22.4375rem) {
+  :root { --text-display: 2rem; }
+}
+
 /*
  * The site is light-only by design. To bring back a dark theme, add a
  * @media (prefers-color-scheme: dark) { :root { --c-…: … } } block here and set

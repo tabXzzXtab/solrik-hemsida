@@ -166,11 +166,12 @@ const partnersTone = localTone === 'canvas' ? 'sunken' : 'canvas';
           <Button href={routePath('partners', lang)} variant="secondary">{h.partners.button}</Button>
         </div>
       </div>
-      <ul class="grid gap-4 sm:grid-cols-3 lg:col-span-8">
+      <!-- Logos straight on the section background, in a loose row -->
+      <ul class="flex flex-wrap items-center gap-x-14 gap-y-10 [--logo-scale:0.8] sm:gap-x-20 lg:col-span-8 lg:justify-evenly lg:[--logo-scale:1]">
         {
           PARTNERS.map((partner) => (
-            <li class="flex h-32 items-center justify-center rounded-[var(--radius-card)] bg-surface px-8 py-6 ring-1 ring-line">
-              <PartnerLogo src={partner.logo} alt={partner.name} sizes="(min-width: 64rem) 16vw, (min-width: 40rem) 26vw, 60vw" class="max-h-16" />
+            <li>
+              <PartnerLogo src={partner.logo} alt={partner.name} area={5200 * partner.weight} />
             </li>
           ))
         }
