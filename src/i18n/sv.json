@@ -13,6 +13,7 @@
     "projects": "Projekt",
     "tenants": "Hyresgäst & boende",
     "about": "Om oss",
+    "partners": "Partners",
     "news": "Nyheter",
     "careers": "Karriär",
     "contact": "Kontakt",
@@ -65,7 +66,7 @@
     "hero": {
       "title": "Fastighetsförvaltning – en del av {parentGroup}",
       "emergency": {
-        "before": "Vid vattenläckor eller andra akuta fastighetsproblem – ring ",
+        "before": "Vid vattenläckor eller andra akuta fastighetsproblem kontakta ",
         "link": "jouren",
         "after": "."
       },
@@ -124,6 +125,11 @@
         "Korta resor, hantverkare som känner husen och en kontaktperson som svarar snabbt."
       ],
       "areaLabel": "Verksamhetsområde"
+    },
+    "partners": {
+      "title": "Vi arbetar tillsammans med",
+      "text": "Partners som delar vår syn på kvalitet och ansvar.",
+      "button": "Våra samarbetspartners"
     },
     "news": {
       "title": "Senaste nytt",
@@ -950,6 +956,52 @@
       "title": "Uppfyller vi kraven?",
       "text": "Innan ni anlitar oss vill ni veta hur vi arbetar. Här finns en sammanfattning av våra rutiner för arbetsmiljö, kvalitet och miljö – ett underlag för upphandling och leverantörsbedömning.",
       "button": "Ladda ner sammanfattningen"
+    }
+  },
+  "partners": {
+    "seo": {
+      "title": "Våra samarbetspartners",
+      "description": "Solrik samarbetar med Länsförsäkringar, Akea och Radiant Group. Läs om våra partners och vad samarbetet betyder för dig som kund."
+    },
+    "h1": "Våra samarbetspartners",
+    "lead": "Vi arbetar med partners som delar vår syn på kvalitet och ansvar. Tillsammans kan vi ge våra kunder mer trygghet och bredare kompetens än vi kunnat på egen hand.",
+    "together": "Så samarbetar vi",
+    "visit": "Besök webbplatsen",
+    "items": {
+      "lansforsakringar": {
+        "about": "Länsförsäkringar är en av Sveriges största försäkringsgrupper och består av lokala, kundägda länsförsäkringsbolag runt om i landet. Länsförsäkringar AB ägs gemensamt av länsförsäkringsbolagen.",
+        "together": "Tillsammans arbetar vi för tryggare fastigheter – från förebyggande åtgärder till snabb hjälp när en skada ska åtgärdas, till exempel efter en vattenläcka."
+      },
+      "akea": {
+        "about": "Akea är ett anläggningsföretag i södra Sverige med inriktning på tjänster åt ledningsägare och traditionella anläggningsentreprenader.",
+        "together": "När ett projekt kräver mark- och anläggningsarbete – schakt, ledningar eller utemiljö – samarbetar vi med Akea, så att hela uppdraget hänger ihop."
+      },
+      "radiant": {
+        "about": "Radiant Group är koncernen som Solrik är en del av.",
+        "together": "Som en del av koncernen har vi tillgång till gemensamma resurser, erfarenhet och ett större nätverk – samtidigt som ni möter ett lokalt företag med korta beslutsvägar."
+      }
+    },
+    "why": {
+      "title": "Därför arbetar vi med partners",
+      "items": [
+        {
+          "title": "Trygghet för er",
+          "text": "Vi väljer partners som håller samma nivå som vi, så att ansvaret är detsamma i hela kedjan."
+        },
+        {
+          "title": "Rätt kompetens i varje skede",
+          "text": "Från mark och ledningar till förvaltning och försäkringsfrågor – vi tar in rätt kunskap när uppdraget kräver det."
+        },
+        {
+          "title": "En kontakt för er",
+          "text": "Ni behöver inte samordna flera aktörer. Vi håller ihop uppdraget och är er kontakt hela vägen."
+        }
+      ]
+    },
+    "join": {
+      "title": "Vill ni samarbeta med oss?",
+      "text": "Vi är intresserade av nya samarbeten med företag som delar vår syn på kvalitet och ansvar. Berätta om er verksamhet via kontaktformuläret.",
+      "button": "Skicka en förfrågan"
     }
   },
   "news": {

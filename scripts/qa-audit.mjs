@@ -31,9 +31,10 @@ const assetSet = new Set(files.map((f) => '/' + relative(dist, f).split(sep).joi
 const toPath = (file) => '/' + relative(dist, file).split(sep).join('/').replace(/index\.html$/, '');
 
 const decode = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+// A bare attribute (`<img alt>`, as Astro writes alt="") counts as present with an empty value.
 const attr = (tag, name) => {
-  const m = tag.match(new RegExp(`\\s${name}=("([^"]*)"|'([^']*)')`, 'i'));
-  return m ? decode(m[2] ?? m[3] ?? '') : null;
+  const m = tag.match(new RegExp(`\\s${name}(?:=("([^"]*)"|'([^']*)'|([^\\s"'>]+)))?(?=[\\s/>])`, 'i'));
+  return m ? decode(m[2] ?? m[3] ?? m[4] ?? '') : null;
 };
 
 const errors = [];

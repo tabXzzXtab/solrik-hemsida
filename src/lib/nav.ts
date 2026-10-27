@@ -25,6 +25,7 @@ export function crumbs(lang: Lang, ...rest: Array<Crumb | RouteKey>): Crumb[] {
     projects: t.nav.projects,
     tenants: t.nav.tenants,
     about: t.nav.about,
+    partners: t.nav.partners,
     news: t.nav.news,
     careers: t.nav.careers,
     contact: t.nav.contact,

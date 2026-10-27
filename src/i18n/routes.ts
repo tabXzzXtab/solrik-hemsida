@@ -33,6 +33,7 @@ const ROUTES = {
   tenants: { sv: '/hyresgast/', en: '/en/tenants/' },
   faultReport: { sv: '/hyresgast/felanmalan/', en: '/en/tenants/report-a-fault/' },
   about: { sv: '/om-oss/', en: '/en/about/' },
+  partners: { sv: '/samarbetspartners/', en: '/en/partners/' },
   news: { sv: '/nyheter/', en: '/en/news/' },
   careers: { sv: '/karriar/', en: '/en/careers/' },
   contact: { sv: '/kontakt/', en: '/en/contact/' },
@@ -46,7 +47,7 @@ export type RouteKey = keyof typeof ROUTES;
 
 /** Static routes that are indexable (used by the sitemap). */
 export const INDEXABLE_ROUTES: RouteKey[] = [
-  'home', 'services', 'brf', 'projects', 'tenants', 'faultReport', 'about',
+  'home', 'services', 'brf', 'projects', 'tenants', 'faultReport', 'about', 'partners',
   'news', 'careers', 'contact', 'privacy', 'cookies', 'accessibility',
 ];
 

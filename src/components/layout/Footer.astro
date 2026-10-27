@@ -14,7 +14,7 @@ const { lang } = Astro.props;
 const t = getDict(lang);
 const hidden = await hiddenRoutes(lang);
 
-const companyLinks = (['brf', 'projects', 'tenants', 'about', 'news', 'careers', 'contact'] as const)
+const companyLinks = (['brf', 'projects', 'tenants', 'about', 'partners', 'news', 'careers', 'contact'] as const)
   .filter((key) => !hidden.has(key))
   .map((key) => ({ href: routePath(key, lang), label: t.nav[key] }));
 const legalLinks = [

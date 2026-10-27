@@ -1,0 +1,70 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { PARTNERS } from '~/config/partners';
+import { getDict } from '~/i18n';
+import { routeAlternates, type Lang } from '~/i18n/routes';
+import { crumbs } from '~/lib/nav';
+import PageHero from '~/components/ui/PageHero.astro';
+import Section from '~/components/ui/Section.astro';
+import SectionHeader from '~/components/ui/SectionHeader.astro';
+import PartnerLogo from '~/components/blocks/PartnerLogo.astro';
+import CTABand from '~/components/blocks/CTABand.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getDict(lang);
+const p = t.partners;
+const trail = crumbs(lang, 'partners');
+---
+
+<BaseLayout lang={lang} title={p.seo.title} description={p.seo.description} alternates={routeAlternates('partners')} breadcrumbs={trail}>
+  <PageHero lang={lang} title={p.h1} lead={p.lead} breadcrumbs={trail} />
+
+  <Section flush="top">
+    <ul class="border-b border-line">
+      {
+        PARTNERS.map((partner) => {
+          const copy = p.items[partner.id];
+          return (
+            <li class="grid gap-8 border-t border-line py-12 lg:grid-cols-12 lg:gap-16 lg:py-16">
+              <div class="flex aspect-[3/2] items-center justify-center rounded-[var(--radius-card)] bg-surface p-10 ring-1 ring-line lg:col-span-4">
+                <PartnerLogo src={partner.logo} alt="" sizes="(min-width: 64rem) 22vw, 70vw" class="max-h-28" />
+              </div>
+              <div class="lg:col-span-7 lg:col-start-6">
+                <h2 class="text-h2 font-semibold">{partner.name}</h2>
+                <p class="mt-5 text-lead text-muted">{copy.about}</p>
+                <h3 class="mt-8 font-semibold">{p.together}</h3>
+                <p class="mt-2">{copy.together}</p>
+                {partner.url && (
+                  <a href={partner.url} rel="noopener" class="tap mt-6 font-semibold text-accent-text underline underline-offset-4">
+                    {p.visit}
+                    <span class="sr-only">: {partner.name}</span>
+                  </a>
+                )}
+              </div>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </Section>
+
+  <Section tone="sunken" labelledby="why-title">
+    <SectionHeader id="why-title" title={p.why.title} />
+    <ul class="mt-12 grid gap-x-12 gap-y-10 md:grid-cols-3 lg:mt-16">
+      {
+        p.why.items.map((item) => (
+          <li>
+            <h3 class="text-xl font-semibold">{item.title}</h3>
+            <p class="mt-2 text-muted">{item.text}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </Section>
+
+  <CTABand lang={lang} title={p.join.title} text={p.join.text} primaryLabel={p.join.button} />
+</BaseLayout>

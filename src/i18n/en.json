@@ -13,6 +13,7 @@
     "projects": "Projects",
     "tenants": "Tenants & residents",
     "about": "About",
+    "partners": "Partners",
     "news": "News",
     "careers": "Careers",
     "contact": "Contact",
@@ -65,7 +66,7 @@
     "hero": {
       "title": "Property management – part of {parentGroup}",
       "emergency": {
-        "before": "For water leaks or other urgent property problems, call ",
+        "before": "For water leaks or other urgent property problems, contact ",
         "link": "the on-call team",
         "after": "."
       },
@@ -124,6 +125,11 @@
         "Short journeys, tradespeople who know the buildings and a contact person who replies quickly."
       ],
       "areaLabel": "Service area"
+    },
+    "partners": {
+      "title": "We work together with",
+      "text": "Partners who share our view of quality and responsibility.",
+      "button": "Our partners"
     },
     "news": {
       "title": "Latest news",
@@ -950,6 +956,52 @@
       "title": "Do we meet your requirements?",
       "text": "Before you hire us, you will want to know how we work. Here is a summary of our routines for site safety, quality and the environment – for procurement and supplier assessment.",
       "button": "Download the summary"
+    }
+  },
+  "partners": {
+    "seo": {
+      "title": "Our partners",
+      "description": "Solrik works with Länsförsäkringar, Akea and Radiant Group. Read about our partners and what the partnerships mean for you as a customer."
+    },
+    "h1": "Our partners",
+    "lead": "We work with partners who share our view of quality and responsibility. Together we can give our customers more security and broader expertise than we could on our own.",
+    "together": "How we work together",
+    "visit": "Visit website",
+    "items": {
+      "lansforsakringar": {
+        "about": "Länsförsäkringar is one of Sweden's largest insurance groups, made up of local, customer-owned insurance companies across the country. Länsförsäkringar AB is jointly owned by these companies.",
+        "together": "Together we work for safer properties – from preventive measures to quick help when damage needs repairing, for example after a water leak."
+      },
+      "akea": {
+        "about": "Akea is a civil engineering company in southern Sweden, focused on services for utility network owners and traditional civil engineering contracts.",
+        "together": "When a project needs groundworks – excavation, utility lines or outdoor areas – we work with Akea, so the whole assignment fits together."
+      },
+      "radiant": {
+        "about": "Radiant Group is the group that Solrik is part of.",
+        "together": "As part of the group we have access to shared resources, experience and a wider network – while you deal with a local company with short decision paths."
+      }
+    },
+    "why": {
+      "title": "Why we work with partners",
+      "items": [
+        {
+          "title": "Security for you",
+          "text": "We choose partners who work to the same standard as we do, so the responsibility is the same throughout the chain."
+        },
+        {
+          "title": "The right expertise at every stage",
+          "text": "From groundworks and utility lines to management and insurance matters – we bring in the right knowledge when the assignment calls for it."
+        },
+        {
+          "title": "One contact for you",
+          "text": "You don't have to coordinate several companies. We hold the assignment together and are your contact all the way."
+        }
+      ]
+    },
+    "join": {
+      "title": "Want to work with us?",
+      "text": "We are interested in new partnerships with companies that share our view of quality and responsibility. Tell us about your business using the contact form.",
+      "button": "Send an enquiry"
     }
   },
   "news": {

@@ -2,6 +2,7 @@
 import { Picture } from 'astro:assets';
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { EMERGENCY_PHONE, KEY_FIGURES, SERVICE_AREA } from '~/config/company';
+import { PARTNERS } from '~/config/partners';
 import { IMAGES, SERVICE_IMAGES } from '~/config/images';
 import { addressLine, getDict } from '~/i18n';
 import { resolveRoute, routeAlternates, routePath, servicePath, SERVICE_KEYS, type Lang } from '~/i18n/routes';
@@ -17,6 +18,7 @@ import PromiseStrip from '~/components/blocks/PromiseStrip.astro';
 import StatFigure from '~/components/blocks/StatFigure.astro';
 import ProjectCard from '~/components/blocks/ProjectCard.astro';
 import NewsRow from '~/components/blocks/NewsRow.astro';
+import PartnerLogo from '~/components/blocks/PartnerLogo.astro';
 import CTABand from '~/components/blocks/CTABand.astro';
 
 interface Props {
@@ -34,6 +36,7 @@ const figureCols = { 2: 'sm:grid-cols-2', 3: 'sm:grid-cols-3' }[KEY_FIGURES.leng
 // Figures, projects and news only render when there is real content; keep the
 // light/sunken rhythm intact whichever of them are missing.
 const localTone = KEY_FIGURES.length || projects.length ? 'sunken' : 'canvas';
+const partnersTone = localTone === 'canvas' ? 'sunken' : 'canvas';
 ---
 
 <BaseLayout lang={lang} title={h.seo.title} description={h.seo.description} alternates={routeAlternates('home')}>
@@ -153,10 +156,32 @@ const localTone = KEY_FIGURES.length || projects.length ? 'sunken' : 'canvas';
     </div>
   </Section>
 
+  <!-- Partners -->
+  <Section tone={partnersTone} labelledby="partners-title">
+    <div class="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
+      <div class="lg:col-span-4">
+        <h2 id="partners-title" class="text-h2 font-semibold">{h.partners.title}</h2>
+        <p class="mt-4 text-muted">{h.partners.text}</p>
+        <div class="mt-8">
+          <Button href={routePath('partners', lang)} variant="secondary">{h.partners.button}</Button>
+        </div>
+      </div>
+      <ul class="grid gap-4 sm:grid-cols-3 lg:col-span-8">
+        {
+          PARTNERS.map((partner) => (
+            <li class="flex h-32 items-center justify-center rounded-[var(--radius-card)] bg-surface px-8 py-6 ring-1 ring-line">
+              <PartnerLogo src={partner.logo} alt={partner.name} sizes="(min-width: 64rem) 16vw, (min-width: 40rem) 26vw, 60vw" class="max-h-16" />
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </Section>
+
   <!-- Latest news -->
   {
     news.length > 0 && (
-      <Section labelledby="news-title" flush={localTone === 'canvas' ? 'top' : undefined}>
+      <Section labelledby="news-title" flush={partnersTone === 'canvas' ? 'top' : undefined}>
         <SectionHeader id="news-title" title={h.news.title} link={{ href: routePath('news', lang), label: h.news.link }} />
         <div class="mt-10 border-b border-line lg:mt-14">
           {news.map((entry) => <NewsRow lang={lang} entry={entry} />)}
