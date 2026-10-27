@@ -61,8 +61,8 @@ export const PRIMARY_CITY = 'Malmö';
 
 /** Verksamhetsområde i löptext. */
 export const SERVICE_AREA: Localized = {
-  sv: 'Malmö',
-  en: 'Malmö',
+  sv: 'Skåne län',
+  en: 'Skåne County',
 };
 
 /* ---------------------------------------------------------------------------
