@@ -28,7 +28,6 @@
   "common": {
     "readMore": "Read more",
     "address": "Address",
-    "serviceArea": "Service area",
     "orgNr": "Company reg. no.",
     "registeredOffice": "Registered office",
     "fTax": "Approved for F-tax",
@@ -1018,12 +1017,10 @@
     },
     "h1": "Contact us",
     "lead": "Send an enquiry using the form and we will get back to you as soon as we can.",
-    "detailsTitle": "Contact details",
     "form": {
       "title": "Send an enquiry",
       "intro": "A quote or a question? Briefly describe what you need and we will get back to you."
-    },
-    "faultLink": "Live in one of our buildings? Report a fault"
+    }
   },
   "forms": {
     "required": "required",

@@ -28,7 +28,6 @@
   "common": {
     "readMore": "Läs mer",
     "address": "Adress",
-    "serviceArea": "Verksamhetsområde",
     "orgNr": "Org.nr",
     "registeredOffice": "Säte",
     "fTax": "Godkänd för F-skatt",
@@ -1018,12 +1017,10 @@
     },
     "h1": "Kontakta oss",
     "lead": "Skicka en förfrågan via formuläret så återkommer vi så snart vi kan.",
-    "detailsTitle": "Kontaktuppgifter",
     "form": {
       "title": "Skicka en förfrågan",
       "intro": "Gäller det en offert eller en fråga? Beskriv kort vad ni behöver, så återkommer vi."
-    },
-    "faultLink": "Bor du hos oss? Gör en felanmälan"
+    }
   },
   "forms": {
     "required": "obligatoriskt",
