@@ -66,8 +66,14 @@ export const SERVICE_AREA: Localized = {
 };
 
 /* ---------------------------------------------------------------------------
- *  Kontakt – all kontakt sker via kontaktformuläret
+ *  Kontakt – kontaktformuläret, och jouren för akuta fel
  * ------------------------------------------------------------------------ */
+
+/**
+ * Jourens telefonnummer för akuta fel, t.ex. '040-12 34 56'. Länken "jouren" under
+ * rubriken på startsidan ringer numret. Tom = länken går till felanmälan tills vidare.
+ */
+export const EMERGENCY_PHONE = '';
 
 /** Sociala medier. Tom = visas inte. */
 export const LINKEDIN_URL = '';
@@ -135,7 +141,8 @@ export const PROMISES: Array<{ title: Localized; text: Localized }> = [
  * över filen med samma namn, eller ändra sökvägen här.
  */
 export const DOCUMENTS = {
-  brfChecklist: { sv: '/dokument/checklista-infor-stambyte.pdf', en: '/dokument/checklist-before-pipe-replacement.pdf' },
+  /** "Så arbetar vi" – på Om oss under "Uppfyller vi kraven?". */
+  howWeWork: { sv: '/dokument/sa-arbetar-vi.pdf', en: '/dokument/how-we-work.pdf' },
   tenantForms: [
     { file: '/dokument/blankett-andrahandsuthyrning.pdf', title: { sv: 'Ansökan om andrahandsuthyrning', en: 'Application to sublet (in Swedish)' } },
     { file: '/dokument/blankett-uppsagning.pdf', title: { sv: 'Uppsägning av lägenhet', en: 'Notice of termination (in Swedish)' } },

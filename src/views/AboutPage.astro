@@ -1,10 +1,11 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
-import { CERTIFICATIONS, ORG_NR, PARENT_GROUP, SERVICE_AREA } from '~/config/company';
+import { CERTIFICATIONS, DOCUMENTS, ORG_NR, PARENT_GROUP, SERVICE_AREA } from '~/config/company';
 import { IMAGES } from '~/config/images';
 import { getDict } from '~/i18n';
-import { routeAlternates, type Lang } from '~/i18n/routes';
+import { routeAlternates, withBase, type Lang } from '~/i18n/routes';
 import { crumbs } from '~/lib/nav';
+import Button from '~/components/ui/Button.astro';
 import PageHero from '~/components/ui/PageHero.astro';
 import Section from '~/components/ui/Section.astro';
 import SectionHeader from '~/components/ui/SectionHeader.astro';
@@ -97,6 +98,15 @@ const facts = [
         ))
       }
     </ul>
+
+    <!-- Under "Säker arbetsmiljö": how we work, for clients checking us against their requirements -->
+    <div class="mt-16 rounded-[var(--radius-card)] bg-sunken px-8 py-12 sm:px-12 lg:mt-20 lg:px-16 lg:py-16">
+      <h3 class="max-w-2xl text-h2 font-semibold">{a.requirements.title}</h3>
+      <p class="mt-4 max-w-xl text-lead text-muted">{a.requirements.text}</p>
+      <div class="mt-10">
+        <Button href={withBase(DOCUMENTS.howWeWork[lang])} variant="primary" size="lg" download>{a.requirements.button} (PDF)</Button>
+      </div>
+    </div>
   </Section>
 
   <CTABand lang={lang} />

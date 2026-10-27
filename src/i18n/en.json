@@ -64,6 +64,11 @@
     },
     "hero": {
       "title": "Property management – part of {parentGroup}",
+      "emergency": {
+        "before": "For water leaks or other urgent property problems, call ",
+        "link": "the on-call team",
+        "after": "."
+      },
       "lead": "Management, maintenance and renovation for housing co-ops and property owners in {serviceArea}.",
       "primary": "Request a quote",
       "secondary": "Report a fault"
@@ -660,12 +665,6 @@
         ]
       }
     ],
-    "checklist": {
-      "title": "Before pipe replacement – a checklist for the board",
-      "text": "What the board needs to decide before replacing the pipes: documentation, decisions, information for members and procurement.",
-      "button": "Download the checklist",
-      "meta": "PDF"
-    },
     "process": [
       {
         "title": "First conversation",
@@ -946,6 +945,11 @@
           "text": "Everyone should get home safely. We carry out risk assessments, draw up a work environment plan and act as safety coordinator (BAS-P and BAS-U) when required. A tidy, well-run site is part of the job."
         }
       ]
+    },
+    "requirements": {
+      "title": "Do we meet your requirements?",
+      "text": "Before you hire us, you will want to know how we work. Here is a summary of our routines for site safety, quality and the environment – for procurement and supplier assessment.",
+      "button": "Download the summary"
     }
   },
   "news": {

@@ -10,6 +10,15 @@ export function isRealUrl(value: string | undefined | null): value is string {
   return !!value && !isPlaceholder(value) && /^https?:\/\//.test(value);
 }
 
+/** "040-12 34 56" → "tel:+4640123456". Empty or placeholder → null. */
+export function telHref(phone: string): string | null {
+  if (isPlaceholder(phone)) return null;
+  let digits = phone.replace(/[^\d+]/g, '');
+  if (digits.startsWith('00')) digits = `+${digits.slice(2)}`;
+  else if (digits.startsWith('0')) digits = `+46${digits.slice(1)}`;
+  return `tel:${digits}`;
+}
+
 export function mailHref(email: string, subject?: string): string | null {
   if (isPlaceholder(email)) return null;
   return `mailto:${email}${subject ? `?subject=${encodeURIComponent(subject)}` : ''}`;

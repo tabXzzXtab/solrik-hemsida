@@ -1,6 +1,6 @@
 /**
- * Generates the downloadable PDFs: the BRF checklist (finished) and clearly
- * labelled placeholder tenant forms (replace with the real forms).
+ * Generates the downloadable PDFs: "Så arbetar vi" / "How we work" (About page) and
+ * clearly labelled placeholder tenant forms (replace with the real forms).
  * (Photos come from scripts/pexels.mjs, the logo and favicons from scripts/brand-assets.mjs.)
  *
  * Usage:  npm run placeholders          (skips files that already exist)
@@ -59,31 +59,54 @@ function wrap(text, maxChars) {
   return lines;
 }
 
-/** blocks: [{ text, size?, bold?, gap?, color? }] */
+/**
+ * blocks: [{ text, size?, bold?, gap?, color?, keepWithNext?, bullet? }]
+ * Flows onto as many A4 pages as needed; a block marked keepWithNext (a heading)
+ * never ends up alone at the bottom of a page. Bullets get a hanging indent.
+ */
 function makePdf(blocks) {
-  const parts = [];
-  let y = 790;
+  const TOP = 790;
+  const BOTTOM = 56;
+  const pages = [[]];
+  let y = TOP;
   for (const b of blocks) {
     const size = b.size ?? 11;
+    const lineHeight = size * 1.35;
     const maxChars = Math.floor(483 / (size * 0.5));
     const font = b.bold ? 'F2' : 'F1';
     const [r, g, bl] = b.color ?? [0.12, 0.11, 0.1];
-    y -= b.gap ?? 6;
-    for (const line of wrap(b.text, maxChars)) {
-      y -= size * 1.35;
-      parts.push(Buffer.from(`BT ${r} ${g} ${bl} rg /${font} ${size} Tf 56 ${y.toFixed(1)} Td (`, 'latin1'), pdfString(line), Buffer.from(') Tj ET\n', 'latin1'));
+    const lines = wrap(b.text, maxChars - (b.bullet ? 3 : 0));
+    // Width of "•  " in Helvetica (bullet 350 + two spaces 278 each, per 1000 em).
+    const indent = b.bullet ? size * 0.906 : 0;
+    const gap = b.gap ?? 6;
+    const needed = gap + lines.length * lineHeight + (b.keepWithNext ? 2 * 11 * 1.35 : 0);
+    if (y - needed < BOTTOM && pages.at(-1).length) {
+      pages.push([]);
+      y = TOP;
+    } else {
+      y -= gap;
     }
+    lines.forEach((line, i) => {
+      y -= lineHeight;
+      const x = 56 + (i > 0 ? indent : 0);
+      const text = b.bullet && i === 0 ? `•  ${line}` : line;
+      pages.at(-1).push(Buffer.from(`BT ${r} ${g} ${bl} rg /${font} ${size} Tf ${x.toFixed(1)} ${y.toFixed(1)} Td (`, 'latin1'), pdfString(text), Buffer.from(') Tj ET\n', 'latin1'));
+    });
   }
-  // accent bar at top
-  parts.unshift(Buffer.from('0.118 0.420 0.278 rg 0 812 595 30 re f\n', 'latin1'));
-  const stream = Buffer.concat(parts);
+  // Accent bar at the top of every page.
+  const streams = pages.map((parts) => Buffer.concat([Buffer.from('0.118 0.420 0.278 rg 0 812 595 30 re f\n', 'latin1'), ...parts]));
 
+  // Objects: 1 catalog, 2 page tree, 3–4 fonts, then a page and its content stream per page.
+  const pageId = (i) => 5 + i * 2;
   const objects = [
     '<< /Type /Catalog /Pages 2 0 R >>',
-    '<< /Type /Pages /Kids [3 0 R] /Count 1 >>',
-    '<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>',
+    `<< /Type /Pages /Kids [${streams.map((_, i) => `${pageId(i)} 0 R`).join(' ')}] /Count ${streams.length} >>`,
     '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>',
     '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>',
+    ...streams.flatMap((stream, i) => [
+      `<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents ${pageId(i) + 1} 0 R >>`,
+      Buffer.concat([Buffer.from(`<< /Length ${stream.length} >>\nstream\n`, 'latin1'), stream, Buffer.from('\nendstream', 'latin1')]),
+    ]),
   ];
   const chunks = [Buffer.from('%PDF-1.4\n%\xE2\xE3\xCF\xD3\n', 'latin1')];
   const offsets = [];
@@ -91,10 +114,9 @@ function makePdf(blocks) {
   const push = (buf) => { chunks.push(buf); length += buf.length; };
   objects.forEach((body, i) => {
     offsets.push(length);
-    push(Buffer.from(`${i + 1} 0 obj\n${body}\nendobj\n`, 'latin1'));
+    const content = typeof body === 'string' ? Buffer.from(body, 'latin1') : body;
+    push(Buffer.concat([Buffer.from(`${i + 1} 0 obj\n`, 'latin1'), content, Buffer.from('\nendobj\n', 'latin1')]));
   });
-  offsets.push(length);
-  push(Buffer.concat([Buffer.from(`6 0 obj\n<< /Length ${stream.length} >>\nstream\n`, 'latin1'), stream, Buffer.from('\nendstream\nendobj\n', 'latin1')]));
   const xrefStart = length;
   let xref = `xref\n0 ${offsets.length + 1}\n0000000000 65535 f \n`;
   for (const off of offsets) xref += `${String(off).padStart(10, '0')} 00000 n \n`;
@@ -103,14 +125,14 @@ function makePdf(blocks) {
 }
 
 const muted = [0.42, 0.39, 0.35];
-/** A finished one-page document (title, intro, bullet list with "#" subheadings). */
+/** A finished document (title, intro, bullet list with "#" subheadings). */
 const documentPdf = (title, intro, items = [], { draft = false, contact = 'Solrik AB · Aspögatan 1, 211 54 Malmö' } = {}) =>
   makePdf([
     ...(draft ? [{ text: 'PLATSHÅLLARE – ersätt med er riktiga fil innan publicering', size: 9, bold: true, color: [0.118, 0.420, 0.278], gap: 0 }] : []),
     { text: 'Solrik AB', size: 10, color: muted, gap: draft ? 14 : 0 },
     { text: title, size: 20, bold: true, gap: 10 },
     { text: intro, size: 11, gap: 10 },
-    ...items.map((item) => (item.startsWith('#') ? { text: item.slice(1), size: 13, bold: true, gap: 14 } : { text: `•  ${item}`, size: 11, gap: 4 })),
+    ...items.map((item) => (item.startsWith('#') ? { text: item.slice(1), size: 13, bold: true, gap: 14, keepWithNext: true } : { text: item, size: 11, gap: 4, bullet: true })),
     { text: contact, size: 9, color: muted, gap: 24 },
   ]);
 
@@ -120,40 +142,50 @@ const documentPdf = (title, intro, items = [], { draft = false, contact = 'Solri
 
 const pdfs = [
   {
-    file: 'public/dokument/checklista-infor-stambyte.pdf',
-    pdf: documentPdf('Inför stambyte – checklista för styrelsen', 'Det här behöver styrelsen ha koll på – från underlag och beslut till upphandling och genomförande.', [
-      '#Underlag',
-      'Aktuell underhållsplan och statusbesiktning av stammarna (t.ex. filmning av avlopp).',
-      'Ritningar över stammar, badrum och kök – kontrollera att de stämmer med verkligheten.',
-      'Sammanställning av tidigare åtgärder och kända skador.',
-      '#Beslut och ekonomi',
-      'Bestäm omfattning: endast stammar, eller även badrum, kök och el.',
-      'Ta fram budget och finansiering – påverkas avgiften?',
-      'Kontrollera vilka beslut som kräver stämma och vilka regler i stadgarna som gäller.',
-      '#Medlemmarna',
-      'Informera tidigt: tidplan, störningar, tillgång till vatten och toalett under arbetet.',
-      'Planera för tillval och för lägenheter med egna tidigare renoveringar.',
-      '#Upphandling och genomförande',
-      'Begär offerter på samma underlag så att de går att jämföra.',
-      'Klargör entreprenadform, garantitid, besiktningar och vem som är BAS-P/BAS-U.',
-      'Utse en kontaktperson i styrelsen och bestäm hur ändringar ska hanteras.',
-    ]),
+    file: 'public/dokument/sa-arbetar-vi.pdf',
+    pdf: documentPdf('Så arbetar vi – arbetsmiljö, kvalitet och miljö', 'En sammanfattning för er som vill veta hur Solrik arbetar innan ni anlitar oss – som underlag för upphandling, leverantörsbedömning eller styrelsens beslut.', [
+      '#Organisation och ansvar',
+      'Solrik AB (org.nr 559200-5077) ingår i Radiant Group och har kontor på Aspögatan 1 i Malmö. Vi arbetar i hela Skåne län.',
+      'En avtalspart för hela uppdraget – vi samordnar alla hantverkare och underentreprenörer.',
+      'Underentreprenörer har rätt behörigheter för sina uppgifter och följer samma krav som vi.',
+      'En utsedd kontaktperson följer uppdraget från start till slutbesiktning.',
+      '#Säker arbetsmiljö',
+      'Riskbedömning inför varje uppdrag och arbetsmiljöplan när uppdraget kräver det.',
+      'Vi tar rollen som BAS-P och BAS-U när det krävs.',
+      'Alla som arbetar på plats får en genomgång av arbetsplatsen, riskerna och skyddsutrustningen.',
+      'Tillbud och olyckor rapporteras och följs upp, så att de inte upprepas.',
+      '#Kvalitet',
+      'Egenkontroller under arbetets gång. Dokumentationen lämnas över vid slutbesiktningen.',
+      'Våtrum utförs enligt branschregler för våtrum, med dokumentation.',
+      'Garanti enligt branschens standardavtal, med garantibesiktning innan garantitiden går ut.',
+      '#Miljö',
+      'Byggavfall sorteras på arbetsplatsen i de fraktioner som krävs.',
+      'Material med lång livslängd, dokumenterade för framtida underhåll. Återbruk där det går.',
+      'Förslag på energiåtgärder räknas hem, så att ni ser både besparing och återbetalningstid.',
+    ], { contact: 'Frågor? Skicka en förfrågan via kontaktformuläret på www.solrik.se · Solrik AB · Aspögatan 1, 211 54 Malmö' }),
   },
   {
-    file: 'public/dokument/checklist-before-pipe-replacement.pdf',
-    pdf: documentPdf('Before pipe replacement – checklist for the board', 'What the board needs to keep track of – from documentation and decisions to procurement and delivery.', [
-      '#Documentation',
-      'Current maintenance plan and a condition survey of the pipes.',
-      'Drawings of risers, bathrooms and kitchens – check they match reality.',
-      '#Decisions and finances',
-      'Decide the scope: pipes only, or bathrooms, kitchens and electrics too.',
-      'Budget and financing – will the monthly fee change?',
-      '#Members',
-      'Inform early: schedule, disruption, access to water and toilets during the works.',
-      '#Procurement and delivery',
-      'Request quotes on the same basis so they can be compared.',
-      'Clarify contract type, warranty period, inspections and the safety coordinators (BAS-P/BAS-U).',
-    ]),
+    file: 'public/dokument/how-we-work.pdf',
+    pdf: documentPdf('How we work – site safety, quality and environment', 'A summary for those who want to know how Solrik works before hiring us – for procurement, supplier assessment or a board decision.', [
+      '#Organisation and responsibility',
+      'Solrik AB (company reg. no. 559200-5077) is part of Radiant Group, with its office at Aspögatan 1 in Malmö. We work throughout Skåne County.',
+      'One contract for the whole assignment – we coordinate every trade and subcontractor.',
+      'Subcontractors hold the right qualifications for their tasks and meet the same requirements as we do.',
+      'A named contact person follows the assignment from start to final inspection.',
+      '#Site safety',
+      'A risk assessment before every assignment and a work environment plan when the assignment requires one.',
+      'We act as safety coordinator (BAS-P and BAS-U) when required.',
+      'Everyone working on site is briefed on the site, the risks and the protective equipment.',
+      'Incidents and accidents are reported and followed up so they are not repeated.',
+      '#Quality',
+      'Self-inspections as the work progresses. The documentation is handed over at the final inspection.',
+      'Wet rooms are built to the industry rules for wet rooms, with documentation.',
+      'Warranty under standard industry contracts, with a warranty inspection before the warranty ends.',
+      '#Environment',
+      'Construction waste is sorted on site into the required fractions.',
+      'Durable materials, documented for future maintenance. Reuse where possible.',
+      'Proposed energy measures are costed, so you see both the saving and the payback time.',
+    ], { contact: 'Questions? Send an enquiry using the contact form at www.solrik.se · Solrik AB · Aspögatan 1, 211 54 Malmö' }),
   },
   { file: 'public/dokument/blankett-andrahandsuthyrning.pdf', pdf: documentPdf('Ansökan om andrahandsuthyrning', 'Platshållare för blankett. Ersätt med er riktiga blankett (PDF).', [], { draft: true }) },
   { file: 'public/dokument/blankett-uppsagning.pdf', pdf: documentPdf('Uppsägning av lägenhet', 'Platshållare för blankett. Ersätt med er riktiga blankett (PDF).', [], { draft: true }) },

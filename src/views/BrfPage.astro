@@ -1,9 +1,8 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
-import { DOCUMENTS } from '~/config/company';
 import { IMAGES } from '~/config/images';
 import { getDict } from '~/i18n';
-import { routeAlternates, routePath, servicePath, withBase, type Lang } from '~/i18n/routes';
+import { routeAlternates, routePath, servicePath, type Lang } from '~/i18n/routes';
 import { crumbs } from '~/lib/nav';
 import { faqNode, serviceNode } from '~/lib/schema';
 import Button from '~/components/ui/Button.astro';
@@ -26,7 +25,6 @@ const site = Astro.site!;
 const path = routePath('brf', lang);
 const url = new URL(path, site).href;
 const trail = crumbs(lang, 'brf');
-const checklist = withBase(DOCUMENTS.brfChecklist[lang]);
 
 const schema = [
   serviceNode({ site, url, name: b.h1, description: b.seo.description, lang, provider: 'propertyManagement' }),
@@ -47,7 +45,6 @@ const schema = [
   <PageHero lang={lang} title={b.h1} lead={b.lead} breadcrumbs={trail} image={{ src: IMAGES.brf.src, alt: IMAGES.brf.alt[lang] }}>
     <Fragment slot="actions">
       <Button href={`${routePath('contact', lang)}#offert`}>{t.cta.primary}</Button>
-      <Button href={checklist} variant="secondary" download>{b.checklist.button}</Button>
     </Fragment>
   </PageHero>
 
@@ -62,18 +59,7 @@ const schema = [
     <AreaGrid items={b.offer} columns={3} />
   </Section>
 
-  <!-- Downloadable checklist -->
-  <section aria-labelledby="checklist-title" class="container-site">
-    <div class="rounded-[var(--radius-card)] bg-accent-soft px-8 py-12 sm:px-12 lg:px-16 lg:py-16">
-      <h2 id="checklist-title" class="max-w-2xl text-h2 font-semibold">{b.checklist.title}</h2>
-      <p class="mt-4 max-w-xl text-lead text-muted">{b.checklist.text}</p>
-      <div class="mt-10">
-        <Button href={checklist} variant="primary" size="lg" download>{b.checklist.button} ({b.checklist.meta})</Button>
-      </div>
-    </div>
-  </section>
-
-  <Section labelledby="process-title">
+  <Section labelledby="process-title" flush="top">
     <SectionHeader id="process-title" title={t.services.labels.process} />
     <ProcessSteps steps={b.process} />
   </Section>

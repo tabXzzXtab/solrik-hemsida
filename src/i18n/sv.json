@@ -64,6 +64,11 @@
     },
     "hero": {
       "title": "Fastighetsförvaltning – en del av {parentGroup}",
+      "emergency": {
+        "before": "Vid vattenläckor eller andra akuta fastighetsproblem – ring ",
+        "link": "jouren",
+        "after": "."
+      },
       "lead": "Förvaltning, skötsel och renovering för bostadsrättsföreningar och fastighetsägare i {serviceArea}.",
       "primary": "Begär offert",
       "secondary": "Felanmälan"
@@ -660,12 +665,6 @@
         ]
       }
     ],
-    "checklist": {
-      "title": "Inför stambyte – checklista för styrelsen",
-      "text": "Vad styrelsen behöver ta ställning till innan ett stambyte: underlag, beslut, information till medlemmarna och upphandling.",
-      "button": "Ladda ner checklistan",
-      "meta": "PDF"
-    },
     "process": [
       {
         "title": "Första samtal",
@@ -946,6 +945,11 @@
           "text": "Alla ska komma hem oskadda. Vi gör riskbedömningar, upprättar arbetsmiljöplan och tar rollen som BAS-P och BAS-U när det krävs. Ordning och reda på arbetsplatsen är en del av jobbet."
         }
       ]
+    },
+    "requirements": {
+      "title": "Uppfyller vi kraven?",
+      "text": "Innan ni anlitar oss vill ni veta hur vi arbetar. Här finns en sammanfattning av våra rutiner för arbetsmiljö, kvalitet och miljö – ett underlag för upphandling och leverantörsbedömning.",
+      "button": "Ladda ner sammanfattningen"
     }
   },
   "news": {
